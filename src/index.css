@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+@keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+.marquee-track { display:flex; width:max-content; animation:marquee 35s linear infinite; }
+.marquee-track:hover { animation-play-state:paused; }
+::selection { background:rgba(201,168,76,0.25); color:inherit; }
