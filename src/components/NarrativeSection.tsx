@@ -76,7 +76,7 @@ export default function NarrativeSection({ T, L }: Props) {
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 100, background: `linear-gradient(to bottom, ${T.siteBg}, transparent)`, zIndex: 2, transition: 'background 0.5s' }} />
           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 100, background: `linear-gradient(to top, ${T.siteBg}, transparent)`, zIndex: 2, transition: 'background 0.5s' }} />
           <motion.div style={{ width: '100%', height: '120%', marginTop: '-10%', y: imgY }}>
-    <img
+  <img
   src="https://images.pexels.com/photos/30231780/pexels-photo-30231780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   alt="Studio"
   style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block', filter: L ? 'none' : 'brightness(0.6) saturate(0.7)', borderRadius: 12, transition: 'filter 0.5s' }}
