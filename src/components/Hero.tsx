@@ -54,45 +54,47 @@ export default function Hero() {
           preserveAspectRatio="none"
           fill="none"
         >
-          {/* ─── 0. NEW: SUBTLE ASYMMETRIC CENTRAL CONNECTING ORBIT BEHIND HEADLINE ─── */}
-          {/* Left arc of central orbit looping from left side behind typography */}
+          {/* ─── 0. ASYMMETRIC CENTRAL CONNECTING ORBIT (BEHIND TYPOGRAPHY) ─── */}
+          {/* Left arc of central orbit sweeping from top-left through the flank */}
           <path
-            d="M 320 420 C 440 260, 620 220, 720 240"
+            d="M 280 410 C 380 240, 580 190, 710 210"
             stroke="#cbd5e1"
-            strokeWidth="1.1"
+            strokeWidth="1.15"
             strokeDasharray="4 6"
             strokeLinecap="round"
             opacity="0.65"
           />
-          {/* Right arc of central orbit emerging on the right and sweeping down */}
+          {/* Right arc of central orbit sweeping down around the right flank */}
           <path
-            d="M 880 250 C 1040 280, 1260 380, 1220 540 C 1180 660, 960 740, 840 730"
+            d="M 890 220 C 1080 260, 1310 360, 1260 550 C 1220 680, 990 770, 860 760"
             stroke="#cbd5e1"
-            strokeWidth="1.1"
+            strokeWidth="1.15"
             strokeDasharray="4 6"
             strokeLinecap="round"
             opacity="0.65"
           />
-          {/* Lower left completion of asymmetric central loop */}
+          {/* Lower loop completion fading into left side */}
           <path
-            d="M 740 730 C 580 720, 360 640, 320 520 C 300 460, 310 440, 320 420"
+            d="M 740 760 C 560 750, 330 660, 280 520 C 260 460, 270 430, 280 410"
             stroke="#e2e8f0"
-            strokeWidth="1"
+            strokeWidth="1.05"
             strokeDasharray="3 5"
             strokeLinecap="round"
             opacity="0.6"
           />
-          {/* Subtle nodes on central connecting orbit */}
-          <circle cx="480" cy="275" r="3" fill="#84cc16" opacity="0.85" />
-          <circle cx="1140" cy="330" r="3.5" fill="#84cc16" opacity="0.85" />
-          <circle cx="1210" cy="580" r="3" fill="#94a3b8" opacity="0.85" />
-          <circle cx="420" cy="670" r="3" fill="#84cc16" opacity="0.8" />
+
+          {/* Tiny nodes on asymmetric central connecting orbit */}
+          <circle cx="450" cy="250" r="3.2" fill="#84cc16" opacity="0.9" />
+          <circle cx="1180" cy="320" r="3.5" fill="#84cc16" opacity="0.9" />
+          <circle cx="1250" cy="600" r="3" fill="#94a3b8" opacity="0.85" />
+          <circle cx="380" cy="690" r="3" fill="#84cc16" opacity="0.85" />
+
           {/* Star accents on central orbit */}
-          <g transform="translate(540, 240)">
-            <path d="M0 -6 Q0 0 6 0 Q0 0 0 6 Q0 0 -6 0 Q0 0 0 -6" fill="#84cc16" opacity="0.85" />
+          <g transform="translate(520, 215)">
+            <path d="M0 -6 Q0 0 6 0 Q0 0 0 6 Q0 0 -6 0 Q0 0 0 -6" fill="#84cc16" opacity="0.9" />
           </g>
-          <g transform="translate(1080, 290)">
-            <path d="M0 -5 Q0 0 5 0 Q0 0 0 5 Q0 0 -5 0 Q0 0 0 -5" fill="#94a3b8" opacity="0.8" />
+          <g transform="translate(1120, 275)">
+            <path d="M0 -5.5 Q0 0 5.5 0 Q0 0 0 5.5 Q0 0 -5.5 0 Q0 0 0 -5.5" fill="#94a3b8" opacity="0.85" />
           </g>
 
           {/* ─── 1. Left Trajectory: Character → Web → 3D/Testimonial → Service Lab ─── */}
@@ -320,72 +322,77 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* ─── 4. LOWER-LEFT: PERMANENTLY TILTED FLOATING SERVICE LAB GRAPHIC ASSET (-5° TILT) ─── */}
-        <motion.div
-          animate={{ x: mousePos.x * -0.5, y: mousePos.y * -0.5 }}
-          transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          whileHover={{ scale: 1.05, rotate: -3, y: -4 }}
+        {/* ─── 4. LOWER-LEFT: UNIFIED FLOATING SERVICE LAB GRAPHIC ASSET (PERMANENT -5° TILT IN DEFAULT & HOVER) ─── */}
+        <div
           style={{
             position: 'absolute',
             bottom: '6.5%',
             left: 'clamp(3.5%, 5.5vw, 8.5%)',
-            width: 'clamp(265px, 18vw, 318px)',
-            background: '#bef264',
-            borderRadius: 100,
-            padding: '12px 20px 12px 24px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            transform: 'rotate(-5deg)',
-            boxShadow: '0 14px 30px rgba(190,242,100,0.42), 0 6px 14px rgba(0,0,0,0.08)',
             zIndex: 7,
-            cursor: 'pointer',
-            boxSizing: 'border-box',
+            transform: 'rotate(-5deg)',
           }}
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <span
-              style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 10,
-                fontWeight: 800,
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                color: '#166534',
-              }}
-            >
-              SERVICE LAB
-            </span>
-            <span
-              style={{
-                fontFamily: "'Syne', sans-serif",
-                fontSize: 14,
-                fontWeight: 700,
-                color: '#14532d',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              Design Systems & 3D UI
-            </span>
-          </div>
-
           <motion.div
-            whileHover={{ x: 4 }}
+            animate={{ x: mousePos.x * -0.5, y: mousePos.y * -0.5 }}
+            transition={{ type: 'spring', damping: 25, stiffness: 80 }}
+            whileHover={{ scale: 1.05, rotate: 1.5, y: -3 }}
             style={{
-              width: 34,
-              height: 34,
-              borderRadius: '50%',
-              background: '#111827',
+              width: 'clamp(265px, 18vw, 318px)',
+              background: '#bef264',
+              borderRadius: 100,
+              padding: '12px 20px 12px 24px',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              color: '#ffffff',
-              flexShrink: 0,
+              justifyContent: 'space-between',
+              boxShadow: '0 14px 32px rgba(190,242,100,0.42), 0 6px 16px rgba(0,0,0,0.08)',
+              cursor: 'pointer',
+              boxSizing: 'border-box',
             }}
           >
-            <ArrowRight size={17} strokeWidth={2.5} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+              <span
+                style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: 10,
+                  fontWeight: 800,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: '#166534',
+                }}
+              >
+                SERVICE LAB
+              </span>
+              <span
+                style={{
+                  fontFamily: "'Syne', sans-serif",
+                  fontSize: 14,
+                  fontWeight: 700,
+                  color: '#14532d',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                Design Systems & 3D UI
+              </span>
+            </div>
+
+            <motion.div
+              whileHover={{ x: 4 }}
+              style={{
+                width: 34,
+                height: 34,
+                borderRadius: '50%',
+                background: '#111827',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#ffffff',
+                flexShrink: 0,
+              }}
+            >
+              <ArrowRight size={17} strokeWidth={2.5} />
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* ═════════════════════════════════════════════════════════════════════
             RIGHT SIDE VISUAL ECOSYSTEM
