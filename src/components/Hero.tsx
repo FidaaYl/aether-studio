@@ -20,7 +20,7 @@ export default function Hero() {
 
   return (
     <div style={{ background: '#ffffff', overflowX: 'hidden', color: '#111827' }} onMouseMove={handleMouseMove}>
-      {/* ✦ 1. AETHER UNIVERSE HERO — REFINED DUAL ECOSYSTEM */}
+      {/* ✦ 1. AETHER UNIVERSE HERO */}
       <section
         style={{
           position: 'relative',
@@ -251,7 +251,6 @@ export default function Hero() {
             zIndex: 6,
           }}
         >
-          {/* ENLARGED 1.4x REVIEW / TESTIMONIAL CARD POSITIONED SLIGHTLY ABOVE/LEFT */}
           <div style={{ width: 'clamp(210px, 19.5vw, 295px)', transform: 'rotate(-2deg)', marginBottom: 14 }}>
             <img
               src="/user_uploads/testimonial.png"
@@ -269,7 +268,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ─── 4. LOWER-LEFT: PERMANENTLY TILTED SERVICE LAB BADGE (rotate(-5deg) DEFAULT & HOVER) ─── */}
+        {/* ─── 4. LOWER-LEFT: PERMANENTLY TILTED SERVICE LAB BADGE (-5° TILT) ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.5, y: mousePos.y * -0.5, rotate: -5 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
@@ -430,10 +429,10 @@ export default function Hero() {
         </motion.div>
 
         {/* ═════════════════════════════════════════════════════════════════════
-            BASE HERO: UNCHANGED HEADLINE, HIGHLIGHT, PARAGRAPH & ACTION BUTTONS
+            BASE HERO: RESTORED EXACT CENTRAL HEADLINE, PARAGRAPH, ARROW & CTAS
             ═════════════════════════════════════════════════════════════════════ */}
         <div style={{ maxWidth: 840, textAlign: 'center', position: 'relative', zIndex: 10 }}>
-          {/* Top Pill Tag */}
+          {/* Top Pill Tag (EXACT TWO GREEN DOTS ONLY) */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
             <div
               style={{
@@ -464,7 +463,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Headline */}
+          {/* Central Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -506,7 +505,7 @@ export default function Hero() {
             together
           </motion.h1>
 
-          {/* Subtitle */}
+          {/* Descriptive Subtitle Paragraph */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -527,6 +526,7 @@ export default function Hero() {
 
           {/* Action Buttons with Indicator Arrow */}
           <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+            {/* "✦ Book intro call" with narrowed curved arrow */}
             <div
               style={{
                 position: 'absolute',
@@ -574,6 +574,7 @@ export default function Hero() {
                 gap: 14,
               }}
             >
+              {/* Primary Button */}
               <motion.a
                 href="#contact"
                 whileHover={{ scale: 1.05, y: -2 }}
@@ -596,6 +597,7 @@ export default function Hero() {
                 Start a Project <ArrowUpRight size={18} strokeWidth={2.5} />
               </motion.a>
 
+              {/* Secondary Button */}
               <motion.a
                 href="#services"
                 whileHover={{ scale: 1.04, y: -2 }}
