@@ -39,7 +39,7 @@ export default function Hero() {
         <Navbar />
 
         {/* ═════════════════════════════════════════════════════════════════════
-            SVG LAYER: LEFT & RIGHT CONNECTING EDITORIAL ORBIT TRAJECTORIES
+            SVG LAYER: CONNECTING TRAJECTORIES & ASYMMETRIC CENTRAL CONNECTING ORBIT
             ═════════════════════════════════════════════════════════════════════ */}
         <svg
           style={{
@@ -54,7 +54,48 @@ export default function Hero() {
           preserveAspectRatio="none"
           fill="none"
         >
-          {/* 1. Left Trajectory: Character → Web → 3D/Testimonial → Service Lab */}
+          {/* ─── 0. NEW: SUBTLE ASYMMETRIC CENTRAL CONNECTING ORBIT BEHIND HEADLINE ─── */}
+          {/* Left arc of central orbit looping from left side behind typography */}
+          <path
+            d="M 320 420 C 440 260, 620 220, 720 240"
+            stroke="#cbd5e1"
+            strokeWidth="1.1"
+            strokeDasharray="4 6"
+            strokeLinecap="round"
+            opacity="0.65"
+          />
+          {/* Right arc of central orbit emerging on the right and sweeping down */}
+          <path
+            d="M 880 250 C 1040 280, 1260 380, 1220 540 C 1180 660, 960 740, 840 730"
+            stroke="#cbd5e1"
+            strokeWidth="1.1"
+            strokeDasharray="4 6"
+            strokeLinecap="round"
+            opacity="0.65"
+          />
+          {/* Lower left completion of asymmetric central loop */}
+          <path
+            d="M 740 730 C 580 720, 360 640, 320 520 C 300 460, 310 440, 320 420"
+            stroke="#e2e8f0"
+            strokeWidth="1"
+            strokeDasharray="3 5"
+            strokeLinecap="round"
+            opacity="0.6"
+          />
+          {/* Subtle nodes on central connecting orbit */}
+          <circle cx="480" cy="275" r="3" fill="#84cc16" opacity="0.85" />
+          <circle cx="1140" cy="330" r="3.5" fill="#84cc16" opacity="0.85" />
+          <circle cx="1210" cy="580" r="3" fill="#94a3b8" opacity="0.85" />
+          <circle cx="420" cy="670" r="3" fill="#84cc16" opacity="0.8" />
+          {/* Star accents on central orbit */}
+          <g transform="translate(540, 240)">
+            <path d="M0 -6 Q0 0 6 0 Q0 0 0 6 Q0 0 -6 0 Q0 0 0 -6" fill="#84cc16" opacity="0.85" />
+          </g>
+          <g transform="translate(1080, 290)">
+            <path d="M0 -5 Q0 0 5 0 Q0 0 0 5 Q0 0 -5 0 Q0 0 0 -5" fill="#94a3b8" opacity="0.8" />
+          </g>
+
+          {/* ─── 1. Left Trajectory: Character → Web → 3D/Testimonial → Service Lab ─── */}
           <path
             d="M 170 170 C 270 230, 350 340, 260 460 C 180 570, 200 680, 290 750 C 340 790, 280 870, 210 910"
             stroke="#cbd5e1"
@@ -74,7 +115,7 @@ export default function Hero() {
             opacity="0.8"
           />
 
-          {/* 2. Right Trajectory: Spatial Orb → Systems → Bottom-Right Cluster */}
+          {/* ─── 2. Right Trajectory: Spatial Orb → Systems → Bottom-Right Cluster ─── */}
           <path
             d="M 1360 170 C 1240 180, 1170 270, 1200 370 C 1240 470, 1370 540, 1340 640 C 1310 710, 1250 740, 1330 810"
             stroke="#cbd5e1"
@@ -103,7 +144,7 @@ export default function Hero() {
             opacity="0.75"
           />
 
-          {/* 3. Subtle Directional Arrows */}
+          {/* ─── 3. Directional Arrows ─── */}
           <path
             d="M 450 380 C 475 388, 488 402, 502 412"
             stroke="#475569"
@@ -136,7 +177,7 @@ export default function Hero() {
           />
           <path d="M 1362 742 L 1372 752 L 1376 740" stroke="#1e293b" strokeWidth="1.2" strokeLinecap="round" />
 
-          {/* 4. Energy Nodes */}
+          {/* ─── 4. Side Flow Nodes ─── */}
           <circle cx="260" cy="460" r="3.5" fill="#84cc16" />
           <circle cx="340" cy="360" r="3" fill="#84cc16" />
           <circle cx="290" cy="750" r="3.5" fill="#84cc16" />
@@ -148,7 +189,7 @@ export default function Hero() {
           <circle cx="1410" cy="740" r="3" fill="#84cc16" />
           <circle cx="1400" cy="850" r="3" fill="#84cc16" />
 
-          {/* 5. Sparkles */}
+          {/* ─── 5. Side Sparkles ─── */}
           <g transform="translate(190, 300)">
             <path d="M0 -8 Q0 0 8 0 Q0 0 0 8 Q0 0 -8 0 Q0 0 0 -8" fill="#475569" />
           </g>
@@ -177,7 +218,7 @@ export default function Hero() {
         </svg>
 
         {/* ═════════════════════════════════════════════════════════════════════
-            LEFT SIDE VISUAL ECOSYSTEM (WITH ORIGINKIT-STYLE HOVER MICRO-INTERACTIONS)
+            LEFT SIDE VISUAL ECOSYSTEM
             ═════════════════════════════════════════════════════════════════════ */}
 
         {/* ─── 1. TOP-LEFT: AETHER CHARACTER + EXACT "idea → system → experience" ─── */}
@@ -279,11 +320,11 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* ─── 4. LOWER-LEFT: TILTED SERVICE LAB BADGE (TILTED AT -5° WITH SMOOTH HOVER) ─── */}
+        {/* ─── 4. LOWER-LEFT: PERMANENTLY TILTED FLOATING SERVICE LAB GRAPHIC ASSET (-5° TILT) ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.5, y: mousePos.y * -0.5 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          whileHover={{ scale: 1.06, rotate: -2, y: -4 }}
+          whileHover={{ scale: 1.05, rotate: -3, y: -4 }}
           style={{
             position: 'absolute',
             bottom: '6.5%',
@@ -296,7 +337,7 @@ export default function Hero() {
             alignItems: 'center',
             justifyContent: 'space-between',
             transform: 'rotate(-5deg)',
-            boxShadow: '0 12px 28px rgba(190,242,100,0.40), 0 4px 12px rgba(0,0,0,0.06)',
+            boxShadow: '0 14px 30px rgba(190,242,100,0.42), 0 6px 14px rgba(0,0,0,0.08)',
             zIndex: 7,
             cursor: 'pointer',
             boxSizing: 'border-box',
@@ -347,7 +388,7 @@ export default function Hero() {
         </motion.div>
 
         {/* ═════════════════════════════════════════════════════════════════════
-            RIGHT SIDE VISUAL ECOSYSTEM (WITH ORIGINKIT-STYLE HOVER MICRO-INTERACTIONS)
+            RIGHT SIDE VISUAL ECOSYSTEM
             ═════════════════════════════════════════════════════════════════════ */}
 
         {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL 3D ORB ─── */}
@@ -442,7 +483,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Bottom of Cluster: Cyclist with playful hover bounce */}
+          {/* Bottom of Cluster: Cyclist */}
           <motion.div
             whileHover={{ scale: 1.08, x: -6, y: -4 }}
             transition={{ type: 'spring', stiffness: 350, damping: 15 }}
@@ -460,7 +501,7 @@ export default function Hero() {
             BASE HERO: FULLY VISIBLE CENTRAL HEADLINE, HIGHLIGHT, PARAGRAPH & CTAS
             ═════════════════════════════════════════════════════════════════════ */}
         <div style={{ maxWidth: 840, textAlign: 'center', position: 'relative', zIndex: 10, opacity: 1, visibility: 'visible' }}>
-          {/* Top Pill Tag (EXACTLY 1 GREEN DOT ON TOP TITLE) */}
+          {/* Top Pill Tag */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
             <motion.div
               whileHover={{ scale: 1.04 }}
