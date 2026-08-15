@@ -20,7 +20,7 @@ export default function Hero() {
 
   return (
     <div style={{ background: '#ffffff', overflowX: 'hidden', color: '#111827' }} onMouseMove={handleMouseMove}>
-      {/* ✦ 1. AETHER UNIVERSE HERO — REFINED ORBITAL COMPOSITION */}
+      {/* ✦ 1. AETHER UNIVERSE HERO — ART-DIRECTED EDITORIAL COMPOSITION */}
       <section
         style={{
           position: 'relative',
@@ -39,7 +39,7 @@ export default function Hero() {
         <Navbar />
 
         {/* ═════════════════════════════════════════════════════════════════════
-            REFINED: SUBTLE FRAGMENTED EDITORIAL ORBIT ARCS & DOODLES (SVG)
+            EDITED SVG LAYER: DELICATE EDITORIAL TRAJECTORIES & DOODLE NETWORK
             ═════════════════════════════════════════════════════════════════════ */}
         <svg
           style={{
@@ -54,7 +54,7 @@ export default function Hero() {
           preserveAspectRatio="none"
           fill="none"
         >
-          {/* 1. Partial Arc looping around Web Preview */}
+          {/* 1. Left Partial Arc behind Web Preview */}
           <path
             d="M 180 220 C 280 260, 340 380, 260 480"
             stroke="#cbd5e1"
@@ -64,7 +64,7 @@ export default function Hero() {
             opacity="0.75"
           />
 
-          {/* 2. Soft Short Trajectory near Web -> Headline */}
+          {/* 2. Soft Trajectory near Web -> Headline */}
           <path
             d="M 390 320 C 450 300, 490 360, 460 430"
             stroke="#e2e8f0"
@@ -74,7 +74,7 @@ export default function Hero() {
             opacity="0.8"
           />
 
-          {/* 3. Partial Arc under Spatial Orb extending down toward Systems */}
+          {/* 3. Upper-Right Spatial Arc */}
           <path
             d="M 1360 200 C 1220 180, 1140 280, 1190 390"
             stroke="#cbd5e1"
@@ -84,7 +84,7 @@ export default function Hero() {
             opacity="0.75"
           />
 
-          {/* 4. Subtle Partial Lime Curve behind Systems panel */}
+          {/* 4. Subtle Lime Arc behind Systems Panel */}
           <path
             d="M 1240 360 C 1340 340, 1400 420, 1350 510"
             stroke="#84cc16"
@@ -94,17 +94,27 @@ export default function Hero() {
             opacity="0.7"
           />
 
-          {/* 5. Short Ground Curve under Cyclist */}
+          {/* ─── 5. NEW: DEDICATED ORBITAL TRAJECTORY FOR BOTTOM-RIGHT CLUSTER ─── */}
+          {/* Partial hand-drawn curve beginning behind "made to be remembered" and curving around cyclist */}
           <path
-            d="M 1180 880 C 1290 865, 1410 885, 1500 875"
+            d="M 1190 710 C 1280 660, 1440 680, 1490 790 C 1520 860, 1460 920, 1310 930"
             stroke="#cbd5e1"
-            strokeWidth="1.2"
+            strokeWidth="1.1"
+            strokeDasharray="3 5"
             strokeLinecap="round"
-            opacity="0.8"
+            opacity="0.7"
+          />
+          {/* Subtle connecting motion stroke */}
+          <path
+            d="M 1220 890 C 1310 875, 1420 895, 1480 885"
+            stroke="#94a3b8"
+            strokeWidth="1.1"
+            strokeLinecap="round"
+            opacity="0.75"
           />
 
-          {/* 6. Hand-Drawn Editorial Arrows (Thin & Subtle) */}
-          {/* Arrow: Web Preview -> Headline */}
+          {/* 6. Hand-Drawn Editorial Arrows */}
+          {/* Web Preview -> Headline */}
           <path
             d="M 440 380 C 470 388, 485 402, 500 412"
             stroke="#475569"
@@ -113,7 +123,7 @@ export default function Hero() {
           />
           <path d="M 492 404 L 502 414 L 490 418" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
 
-          {/* Arrow: Systems Panel -> Headline */}
+          {/* Systems Panel -> Headline */}
           <path
             d="M 1120 440 C 1090 448, 1070 464, 1052 478"
             stroke="#475569"
@@ -122,7 +132,7 @@ export default function Hero() {
           />
           <path d="M 1062 470 L 1050 480 L 1060 490" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
 
-          {/* Arrow: Spatial Orb -> Central Headline */}
+          {/* Spatial Orb -> Central Headline */}
           <path
             d="M 1160 230 C 1120 245, 1080 262, 1050 278"
             stroke="#475569"
@@ -131,12 +141,27 @@ export default function Hero() {
           />
           <path d="M 1062 270 L 1048 280 L 1058 290" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
 
-          {/* 7. Tiny Green Energy Nodes on Orbits */}
+          {/* NEW: Tiny Arrow near "made to be remembered." pointing toward Cyclist */}
+          <path
+            d="M 1320 780 C 1340 790, 1350 805, 1360 820"
+            stroke="#1e293b"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
+          <path d="M 1352 812 L 1362 822 L 1366 810" stroke="#1e293b" strokeWidth="1.2" strokeLinecap="round" />
+
+          {/* 7. Tiny Green Energy Nodes along Trajectories */}
           <circle cx="260" cy="480" r="3.5" fill="#84cc16" />
           <circle cx="340" cy="380" r="3" fill="#84cc16" />
           <circle cx="1190" cy="390" r="3.5" fill="#84cc16" />
           <circle cx="1350" cy="510" r="3.5" fill="#84cc16" />
           <circle cx="560" cy="710" r="3" fill="#84cc16" />
+
+          {/* Green nodes on bottom-right cluster orbit */}
+          <circle cx="1230" cy="685" r="3" fill="#84cc16" />
+          <circle cx="1440" cy="690" r="3.5" fill="#84cc16" />
+          <circle cx="1490" cy="790" r="3" fill="#84cc16" />
+          <circle cx="1400" cy="915" r="3" fill="#84cc16" />
 
           {/* 8. Hand-Drawn Stars & Sparkles in Negative Spaces */}
           <g transform="translate(680, 140)">
@@ -157,23 +182,28 @@ export default function Hero() {
           <g transform="translate(480, 770)">
             <path d="M0 -7 Q0 0 7 0 Q0 0 0 7 Q0 0 -7 0 Q0 0 0 -7" fill="#84cc16" />
           </g>
-          <g transform="translate(1360, 750)">
-            <path d="M0 -6 Q0 0 6 0 Q0 0 0 6 Q0 0 -6 0 Q0 0 0 -6" fill="#475569" />
+
+          {/* Tiny 4-point star in bottom-right cluster */}
+          <g transform="translate(1430, 730)">
+            <path d="M0 -6 Q0 0 6 0 Q0 0 0 6 Q0 0 -6 0 Q0 0 0 -6" fill="#84cc16" />
           </g>
 
-          {/* 9. Micro-Doodles: Editorial Annotations */}
+          {/* Motion strokes near Cyclist */}
+          <line x1="1470" y1="840" x2="1490" y2="835" stroke="#94a3b8" strokeWidth="1.2" strokeLinecap="round" />
+          <line x1="1465" y1="850" x2="1482" y2="846" stroke="#94a3b8" strokeWidth="1.2" strokeLinecap="round" />
+
+          {/* 9. Micro-Doodles */}
           <text x="320" y="240" fill="#94a3b8" fontSize="13" fontFamily="monospace">✦</text>
           <text x="1230" y="200" fill="#84cc16" fontSize="14" fontFamily="monospace">★</text>
           <text x="1080" y="580" fill="#cbd5e1" fontSize="12" fontFamily="monospace">+</text>
           <text x="520" y="640" fill="#cbd5e1" fontSize="13" fontFamily="monospace">+</text>
-          <text x="1310" y="650" fill="#84cc16" fontSize="12" fontFamily="monospace">✦</text>
         </svg>
 
         {/* ═════════════════════════════════════════════════════════════════════
-            BALANCED ASSETS — INWARD ORBIT CLOSE TO HEADLINE
+            ART-DIRECTED ARTIFACT CLUSTERS AROUND HEADLINE
             ═════════════════════════════════════════════════════════════════════ */}
 
-        {/* ─── 1. TOP-LEFT: EXPLORER CHARACTER + "idea → system → experience" ─── */}
+        {/* ─── 1. TOP-LEFT: EXACT SUPPLIED "idea → system → experience" + EXPLORER ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.5, y: mousePos.y * -0.5 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
@@ -191,7 +221,7 @@ export default function Hero() {
           <div style={{ width: 'clamp(95px, 8.5vw, 135px)' }}>
             <img
               src="/user_uploads/explorer.png"
-              alt="Aether Explorer Character"
+              alt="Aether Explorer"
               style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
             />
           </div>
@@ -204,7 +234,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ─── 2. LEFT: AETHER / WEB MINIATURE PROJECT PREVIEW (INWARD BY ~25PX) ─── */}
+        {/* ─── 2. LEFT: AETHER / WEB MINIATURE PROJECT PREVIEW ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.85, y: mousePos.y * -0.85 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
@@ -226,13 +256,13 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* ─── 3. LOWER-LEFT: CLIENT TESTIMONIAL & 3D GLASS CUBE (UP & INWARD) ─── */}
+        {/* ─── 3. LOWER-LEFT CLUSTER: TESTIMONIAL + 3D GLASS CUBE + FLOATING SERVICE LAB ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.65, y: mousePos.y * -0.65 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            bottom: '15%',
+            bottom: '16%',
             left: 'clamp(3%, 5.5vw, 8%)',
             display: 'flex',
             alignItems: 'center',
@@ -240,7 +270,7 @@ export default function Hero() {
             zIndex: 6,
           }}
         >
-          <div style={{ width: 'clamp(145px, 13vw, 200px)' }}>
+          <div style={{ width: 'clamp(145px, 13vw, 200px)', transform: 'rotate(-1.5deg)' }}>
             <img
               src="/user_uploads/testimonial.png"
               alt="Aether Studio Testimonial"
@@ -248,7 +278,7 @@ export default function Hero() {
             />
           </div>
 
-          <div style={{ width: 'clamp(130px, 13vw, 190px)' }}>
+          <div style={{ width: 'clamp(130px, 13vw, 190px)', transform: 'rotate(2deg)' }}>
             <img
               src="/user_uploads/glass_cube.png"
               alt="3D Glass Cube Artifact"
@@ -257,23 +287,24 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ─── 4. BOTTOM-LEFT: SERVICE LAB BADGE (UP FROM EDGE & INWARD) ─── */}
+        {/* ─── 4. LOWER-LEFT: TILTED FLOATING SERVICE LAB BADGE (-3.5° TILT) ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.5, y: mousePos.y * -0.5 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          whileHover={{ scale: 1.03 }}
+          whileHover={{ scale: 1.04, rotate: -2 }}
           style={{
             position: 'absolute',
-            bottom: '5%',
-            left: 'clamp(3.5%, 5.5vw, 8%)',
-            width: 'clamp(240px, 16vw, 290px)',
+            bottom: '7%',
+            left: 'clamp(4%, 6vw, 9%)',
+            width: 'clamp(250px, 17vw, 300px)',
             background: '#bef264',
             borderRadius: 100,
-            padding: '10px 16px 10px 20px',
+            padding: '11px 18px 11px 22px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            boxShadow: '0 8px 24px rgba(190,242,100,0.35)',
+            transform: 'rotate(-3.5deg)',
+            boxShadow: '0 10px 25px rgba(190,242,100,0.38), 0 4px 10px rgba(0,0,0,0.06)',
             zIndex: 7,
             cursor: 'pointer',
             boxSizing: 'border-box',
@@ -283,7 +314,7 @@ export default function Hero() {
             <span
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 9,
+                fontSize: 9.5,
                 fontWeight: 800,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
@@ -295,7 +326,7 @@ export default function Hero() {
             <span
               style={{
                 fontFamily: "'Syne', sans-serif",
-                fontSize: 13,
+                fontSize: 13.5,
                 fontWeight: 700,
                 color: '#14532d',
                 whiteSpace: 'nowrap',
@@ -322,7 +353,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL 3D ORB (DOWN & LEFT INWARD) ─── */}
+        {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL 3D ORB ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.85, y: mousePos.y * 0.85 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
@@ -341,7 +372,7 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* ─── 6. RIGHT: AETHER / SYSTEMS DESIGN PANEL (INCREASED 15-20% & INWARD) ─── */}
+        {/* ─── 6. RIGHT: AETHER / SYSTEMS DESIGN PANEL ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.75, y: mousePos.y * 0.75 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
@@ -362,60 +393,49 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* ─── 7. LOWER-RIGHT: COLOR PALETTE PILL & GREEN CURSOR ─── */}
-        <motion.div
-          animate={{ x: mousePos.x * 0.65, y: mousePos.y * 0.65 }}
-          transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          style={{
-            position: 'absolute',
-            bottom: '22%',
-            right: 'clamp(4%, 6.5vw, 9.5%)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 12,
-            zIndex: 6,
-          }}
-        >
-          <div style={{ width: 'clamp(140px, 13vw, 190px)' }}>
-            <img
-              src="/user_uploads/palette_pill.png"
-              alt="Color Palette Swatches"
-              style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.05))' }}
-            />
-          </div>
-          <div style={{ width: 28 }}>
-            <img
-              src="/user_uploads/green_cursor.png"
-              alt="Green Cursor"
-              style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
-            />
-          </div>
-        </motion.div>
-
-        {/* ─── 8. BOTTOM-RIGHT: CYCLIST ILLUSTRATION + "made to be remembered." (UP & LEFT) ─── */}
+        {/* ─── 7 & 8. REFINED COHESIVE BOTTOM-RIGHT CLUSTER: SLIDER + ANNOTATION + CYCLIST ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.55, y: mousePos.y * 0.55 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            bottom: '5%',
-            right: 'clamp(3%, 5.5vw, 8%)',
+            bottom: '6%',
+            right: 'clamp(4%, 6.5vw, 9.5%)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-end',
-            zIndex: 5,
-            pointerEvents: 'none',
+            gap: 8,
+            zIndex: 6,
           }}
         >
-          <div style={{ width: 'clamp(130px, 12vw, 180px)', marginBottom: 2 }}>
-            <img
-              src="/user_uploads/remembered_note.png"
-              alt="made to be remembered"
-              style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
-            />
+          {/* Top of Cluster: Palette Pill + Cursor + "made to be remembered." */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+            <div style={{ width: 'clamp(120px, 11vw, 160px)' }}>
+              <img
+                src="/user_uploads/palette_pill.png"
+                alt="Color Palette Swatches"
+                style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.05))' }}
+              />
+            </div>
+            <div style={{ width: 22 }}>
+              <img
+                src="/user_uploads/green_cursor.png"
+                alt="Green Cursor"
+                style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
+              />
+            </div>
+            {/* EXACT SUPPLIED "made to be remembered." IMAGE ASSET */}
+            <div style={{ width: 'clamp(125px, 12vw, 175px)' }}>
+              <img
+                src="/user_uploads/remembered_note.png"
+                alt="made to be remembered"
+                style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
+              />
+            </div>
           </div>
 
-          <div style={{ width: 'clamp(160px, 16vw, 240px)' }}>
+          {/* Bottom of Cluster: Cyclist */}
+          <div style={{ width: 'clamp(155px, 15vw, 230px)', marginTop: 2 }}>
             <img
               src="/user_uploads/cyclist.png"
               alt="Aether Cyclist Illustration"
