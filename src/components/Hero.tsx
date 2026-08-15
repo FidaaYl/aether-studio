@@ -20,7 +20,7 @@ export default function Hero() {
 
   return (
     <div style={{ background: '#ffffff', overflowX: 'hidden', color: '#111827' }} onMouseMove={handleMouseMove}>
-      {/* ✦ 1. AETHER UNIVERSE HERO — CONNECTED RIGHT-SIDE ART-DIRECTION */}
+      {/* ✦ 1. AETHER UNIVERSE HERO — REFINED DUAL ECOSYSTEM (LEFT + RIGHT BALANCED) */}
       <section
         style={{
           position: 'relative',
@@ -39,7 +39,7 @@ export default function Hero() {
         <Navbar />
 
         {/* ═════════════════════════════════════════════════════════════════════
-            EDITED SVG LAYER: RIGHT-SIDE CONNECTING ORBIT TRAJECTORY & DOODLES
+            SVG LAYER: LEFT & RIGHT CONNECTING EDITORIAL ORBIT TRAJECTORIES
             ═════════════════════════════════════════════════════════════════════ */}
         <svg
           style={{
@@ -54,9 +54,9 @@ export default function Hero() {
           preserveAspectRatio="none"
           fill="none"
         >
-          {/* 1. Left Partial Arc behind Web Preview */}
+          {/* ─── 1. LEFT TRAJECTORY: Character → Web → 3D/Testimonial → Service Lab ─── */}
           <path
-            d="M 180 220 C 280 260, 340 380, 260 480"
+            d="M 170 170 C 270 230, 350 340, 260 460 C 180 570, 200 680, 290 750 C 340 790, 280 870, 210 910"
             stroke="#cbd5e1"
             strokeWidth="1.1"
             strokeDasharray="3 5"
@@ -64,9 +64,9 @@ export default function Hero() {
             opacity="0.75"
           />
 
-          {/* 2. Soft Trajectory near Web -> Headline */}
+          {/* Left subtle secondary loop near Web preview */}
           <path
-            d="M 390 320 C 450 300, 490 360, 460 430"
+            d="M 390 310 C 460 290, 490 360, 460 430"
             stroke="#e2e8f0"
             strokeWidth="1.1"
             strokeDasharray="3 5"
@@ -74,9 +74,9 @@ export default function Hero() {
             opacity="0.8"
           />
 
-          {/* 3. Upper-Right Spatial Arc */}
+          {/* ─── 2. RIGHT TRAJECTORY: Spatial Orb → Systems → Bottom-Right Cluster ─── */}
           <path
-            d="M 1360 200 C 1220 180, 1140 280, 1190 390"
+            d="M 1360 170 C 1240 180, 1170 270, 1200 370 C 1240 470, 1370 540, 1340 640 C 1310 710, 1250 740, 1330 810"
             stroke="#cbd5e1"
             strokeWidth="1.1"
             strokeDasharray="3 5"
@@ -84,19 +84,9 @@ export default function Hero() {
             opacity="0.75"
           />
 
-          {/* ─── 4. NEW: CONNECTING TRAJECTORY FROM SYSTEMS CARD TO BOTTOM-RIGHT CLUSTER ─── */}
-          {/* Begins behind Systems card, curves gently through negative space toward "made to be remembered." and cyclist */}
+          {/* Subtle neon-lime accent loop near systems */}
           <path
-            d="M 1250 420 C 1320 480, 1370 560, 1340 650 C 1320 710, 1270 750, 1350 820"
-            stroke="#cbd5e1"
-            strokeWidth="1.1"
-            strokeDasharray="3 5"
-            strokeLinecap="round"
-            opacity="0.75"
-          />
-          {/* Subtle lime accent curve on the connecting path */}
-          <path
-            d="M 1340 650 C 1365 720, 1420 760, 1480 810"
+            d="M 1340 640 C 1365 700, 1420 740, 1470 790"
             stroke="#84cc16"
             strokeWidth="1.1"
             strokeDasharray="3 5"
@@ -104,121 +94,123 @@ export default function Hero() {
             opacity="0.7"
           />
 
-          {/* 5. Simplified loose curved ground line beneath cyclist */}
+          {/* Simplified loose ground line beneath cyclist */}
           <path
-            d="M 1200 890 C 1280 870, 1390 885, 1480 870"
+            d="M 1200 860 C 1280 840, 1390 855, 1480 840"
             stroke="#cbd5e1"
             strokeWidth="1.2"
             strokeLinecap="round"
             opacity="0.75"
           />
 
-          {/* 6. Hand-Drawn Editorial Arrows */}
+          {/* ─── 3. SUBTLE DIRECTIONAL ARROWS ─── */}
           {/* Web Preview -> Headline */}
           <path
-            d="M 440 380 C 470 388, 485 402, 500 412"
+            d="M 450 380 C 475 388, 488 402, 502 412"
             stroke="#475569"
             strokeWidth="1.2"
             strokeLinecap="round"
           />
-          <path d="M 492 404 L 502 414 L 490 418" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M 494 404 L 504 414 L 492 418" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
 
           {/* Systems Panel -> Headline */}
           <path
-            d="M 1120 410 C 1090 418, 1070 434, 1052 448"
+            d="M 1120 400 C 1090 410, 1070 426, 1052 440"
             stroke="#475569"
             strokeWidth="1.2"
             strokeLinecap="round"
           />
-          <path d="M 1062 440 L 1050 450 L 1060 460" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M 1062 432 L 1050 442 L 1060 452" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
 
           {/* Spatial Orb -> Central Headline */}
           <path
-            d="M 1160 230 C 1120 245, 1080 262, 1050 278"
+            d="M 1160 220 C 1120 235, 1080 252, 1050 268"
             stroke="#475569"
             strokeWidth="1.2"
             strokeLinecap="round"
           />
-          <path d="M 1062 270 L 1048 280 L 1058 290" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M 1062 260 L 1048 270 L 1058 280" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
 
           {/* Arrow near "made to be remembered." toward Cyclist */}
           <path
-            d="M 1330 730 C 1350 740, 1360 755, 1370 770"
+            d="M 1330 710 C 1350 720, 1360 735, 1370 750"
             stroke="#1e293b"
             strokeWidth="1.2"
             strokeLinecap="round"
           />
-          <path d="M 1362 762 L 1372 772 L 1376 760" stroke="#1e293b" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M 1362 742 L 1372 752 L 1376 740" stroke="#1e293b" strokeWidth="1.2" strokeLinecap="round" />
 
-          {/* 7. Tiny Green Energy Nodes along Trajectories */}
-          <circle cx="260" cy="480" r="3.5" fill="#84cc16" />
-          <circle cx="340" cy="380" r="3" fill="#84cc16" />
-          <circle cx="1190" cy="390" r="3.5" fill="#84cc16" />
-          <circle cx="560" cy="710" r="3" fill="#84cc16" />
+          {/* ─── 4. NEON-LIME ENERGY NODES ALONG FLOWS ─── */}
+          {/* Left Flow Nodes */}
+          <circle cx="260" cy="460" r="3.5" fill="#84cc16" />
+          <circle cx="340" cy="360" r="3" fill="#84cc16" />
+          <circle cx="290" cy="750" r="3.5" fill="#84cc16" />
+          <circle cx="210" cy="910" r="3" fill="#84cc16" />
 
-          {/* Green nodes along the right-side connecting story */}
-          <circle cx="1290" cy="520" r="3" fill="#84cc16" />
-          <circle cx="1340" cy="650" r="3.5" fill="#84cc16" />
-          <circle cx="1420" cy="760" r="3" fill="#84cc16" />
-          <circle cx="1400" cy="875" r="3" fill="#84cc16" />
+          {/* Right Flow Nodes */}
+          <circle cx="1200" cy="370" r="3.5" fill="#84cc16" />
+          <circle cx="1270" cy="500" r="3" fill="#84cc16" />
+          <circle cx="1340" cy="640" r="3.5" fill="#84cc16" />
+          <circle cx="1410" cy="740" r="3" fill="#84cc16" />
+          <circle cx="1400" cy="850" r="3" fill="#84cc16" />
 
-          {/* 8. Hand-Drawn Stars & Sparkles in Negative Spaces */}
-          <g transform="translate(680, 140)">
-            <path d="M0 -7 Q0 0 7 0 Q0 0 0 7 Q0 0 -7 0 Q0 0 0 -7" fill="#84cc16" />
-          </g>
-          <g transform="translate(200, 310)">
+          {/* ─── 5. SUBTLE SPARKLES & STARS (2-3 PER SIDE) ─── */}
+          {/* Left Sparkles */}
+          <g transform="translate(190, 300)">
             <path d="M0 -8 Q0 0 8 0 Q0 0 0 8 Q0 0 -8 0 Q0 0 0 -8" fill="#475569" />
           </g>
-          <g transform="translate(460, 500)">
+          <g transform="translate(460, 490)">
             <path d="M0 -6 Q0 0 6 0 Q0 0 0 6 Q0 0 -6 0 Q0 0 0 -6" fill="#84cc16" />
           </g>
-          <g transform="translate(1060, 170)">
-            <path d="M0 -8 Q0 0 8 0 Q0 0 0 8 Q0 0 -8 0 Q0 0 0 -8" fill="#84cc16" />
-          </g>
-          <g transform="translate(1380, 330)">
-            <path d="M0 -7 Q0 0 7 0 Q0 0 0 7 Q0 0 -7 0 Q0 0 0 -7" fill="#475569" />
-          </g>
-          <g transform="translate(480, 770)">
+          <g transform="translate(480, 750)">
             <path d="M0 -7 Q0 0 7 0 Q0 0 0 7 Q0 0 -7 0 Q0 0 0 -7" fill="#84cc16" />
           </g>
-          <g transform="translate(1420, 680)">
+
+          {/* Right Sparkles */}
+          <g transform="translate(1060, 160)">
+            <path d="M0 -8 Q0 0 8 0 Q0 0 0 8 Q0 0 -8 0 Q0 0 0 -8" fill="#84cc16" />
+          </g>
+          <g transform="translate(1390, 320)">
+            <path d="M0 -7 Q0 0 7 0 Q0 0 0 7 Q0 0 -7 0 Q0 0 0 -7" fill="#475569" />
+          </g>
+          <g transform="translate(1410, 660)">
             <path d="M0 -6 Q0 0 6 0 Q0 0 0 6 Q0 0 -6 0 Q0 0 0 -6" fill="#84cc16" />
           </g>
 
-          {/* 9. Micro-Doodles */}
-          <text x="320" y="240" fill="#94a3b8" fontSize="13" fontFamily="monospace">✦</text>
-          <text x="1230" y="200" fill="#84cc16" fontSize="14" fontFamily="monospace">★</text>
-          <text x="1080" y="550" fill="#cbd5e1" fontSize="12" fontFamily="monospace">+</text>
-          <text x="520" y="640" fill="#cbd5e1" fontSize="13" fontFamily="monospace">+</text>
+          {/* Micro-Doodles */}
+          <text x="320" y="230" fill="#94a3b8" fontSize="13" fontFamily="monospace">✦</text>
+          <text x="1230" y="190" fill="#84cc16" fontSize="14" fontFamily="monospace">★</text>
+          <text x="1080" y="530" fill="#cbd5e1" fontSize="12" fontFamily="monospace">+</text>
+          <text x="520" y="630" fill="#cbd5e1" fontSize="13" fontFamily="monospace">+</text>
         </svg>
 
         {/* ═════════════════════════════════════════════════════════════════════
-            ART-DIRECTED ARTIFACT CLUSTERS AROUND HEADLINE
+            LEFT SIDE VISUAL ECOSYSTEM (BALANCED & SUBSTANTIAL)
             ═════════════════════════════════════════════════════════════════════ */}
 
-        {/* ─── 1. TOP-LEFT: EXACT SUPPLIED "idea → system → experience" + EXPLORER ─── */}
+        {/* ─── 1. TOP-LEFT: AETHER CHARACTER + EXACT "idea → system → experience" ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.5, y: mousePos.y * -0.5 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            top: '9%',
-            left: 'clamp(3%, 5.5vw, 8%)',
+            top: '8.5%',
+            left: 'clamp(2.5%, 5vw, 7.5%)',
             display: 'flex',
             alignItems: 'flex-start',
-            gap: 12,
+            gap: 14,
             zIndex: 6,
             pointerEvents: 'none',
           }}
         >
-          <div style={{ width: 'clamp(95px, 8.5vw, 135px)' }}>
+          <div style={{ width: 'clamp(105px, 9.5vw, 145px)' }}>
             <img
               src="/user_uploads/explorer.png"
-              alt="Aether Explorer"
+              alt="Aether Character"
               style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
             />
           </div>
-          <div style={{ width: 'clamp(120px, 11vw, 170px)', marginTop: 6 }}>
+          <div style={{ width: 'clamp(130px, 12vw, 185px)', marginTop: 6 }}>
             <img
               src="/user_uploads/idea_note.png"
               alt="idea system experience"
@@ -234,9 +226,9 @@ export default function Hero() {
           whileHover={{ scale: 1.04, rotate: -4 }}
           style={{
             position: 'absolute',
-            top: '26%',
-            left: 'clamp(2.5%, 5vw, 7.5%)',
-            width: 'clamp(290px, 21.5vw, 390px)',
+            top: '25.5%',
+            left: 'clamp(2%, 4.5vw, 7%)',
+            width: 'clamp(300px, 22.5vw, 410px)',
             transform: 'rotate(-5deg)',
             zIndex: 7,
             cursor: 'pointer',
@@ -255,15 +247,15 @@ export default function Hero() {
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            bottom: '16%',
-            left: 'clamp(3%, 5.5vw, 8%)',
+            bottom: '16.5%',
+            left: 'clamp(2.5%, 5vw, 7.5%)',
             display: 'flex',
             alignItems: 'center',
             gap: 16,
             zIndex: 6,
           }}
         >
-          <div style={{ width: 'clamp(145px, 13vw, 200px)', transform: 'rotate(-1.5deg)' }}>
+          <div style={{ width: 'clamp(155px, 14vw, 215px)', transform: 'rotate(-1.5deg)' }}>
             <img
               src="/user_uploads/testimonial.png"
               alt="Aether Studio Testimonial"
@@ -271,7 +263,7 @@ export default function Hero() {
             />
           </div>
 
-          <div style={{ width: 'clamp(130px, 13vw, 190px)', transform: 'rotate(2deg)' }}>
+          <div style={{ width: 'clamp(140px, 13.5vw, 200px)', transform: 'rotate(2deg)' }}>
             <img
               src="/user_uploads/glass_cube.png"
               alt="3D Glass Cube Artifact"
@@ -280,24 +272,24 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ─── 4. LOWER-LEFT: TILTED FLOATING SERVICE LAB BADGE (-3.5° TILT) ─── */}
+        {/* ─── 4. LOWER-LEFT: VISIBLY TILTED SERVICE LAB BADGE (-5° TILT & ENLARGED 6%) ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.5, y: mousePos.y * -0.5 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          whileHover={{ scale: 1.04, rotate: -2 }}
+          whileHover={{ scale: 1.04, rotate: -3 }}
           style={{
             position: 'absolute',
-            bottom: '7%',
-            left: 'clamp(4%, 6vw, 9%)',
-            width: 'clamp(250px, 17vw, 300px)',
+            bottom: '6.5%',
+            left: 'clamp(3.5%, 5.5vw, 8.5%)',
+            width: 'clamp(265px, 18vw, 318px)',
             background: '#bef264',
             borderRadius: 100,
-            padding: '11px 18px 11px 22px',
+            padding: '12px 20px 12px 24px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            transform: 'rotate(-3.5deg)',
-            boxShadow: '0 10px 25px rgba(190,242,100,0.38), 0 4px 10px rgba(0,0,0,0.06)',
+            transform: 'rotate(-5deg)',
+            boxShadow: '0 12px 28px rgba(190,242,100,0.40), 0 4px 12px rgba(0,0,0,0.06)',
             zIndex: 7,
             cursor: 'pointer',
             boxSizing: 'border-box',
@@ -307,7 +299,7 @@ export default function Hero() {
             <span
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 9.5,
+                fontSize: 10,
                 fontWeight: 800,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
@@ -319,7 +311,7 @@ export default function Hero() {
             <span
               style={{
                 fontFamily: "'Syne', sans-serif",
-                fontSize: 13.5,
+                fontSize: 14,
                 fontWeight: 700,
                 color: '#14532d',
                 whiteSpace: 'nowrap',
@@ -331,8 +323,8 @@ export default function Hero() {
 
           <div
             style={{
-              width: 32,
-              height: 32,
+              width: 34,
+              height: 34,
               borderRadius: '50%',
               background: '#111827',
               display: 'flex',
@@ -342,9 +334,13 @@ export default function Hero() {
               flexShrink: 0,
             }}
           >
-            <ArrowRight size={16} strokeWidth={2.5} />
+            <ArrowRight size={17} strokeWidth={2.5} />
           </div>
         </motion.div>
+
+        {/* ═════════════════════════════════════════════════════════════════════
+            RIGHT SIDE VISUAL ECOSYSTEM (CONNECTED SPATIAL-SYSTEMS STORY)
+            ═════════════════════════════════════════════════════════════════════ */}
 
         {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL 3D ORB ─── */}
         <motion.div
@@ -352,9 +348,9 @@ export default function Hero() {
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            top: '10%',
+            top: '9.5%',
             right: 'clamp(3.5%, 6vw, 8.5%)',
-            width: 'clamp(200px, 17vw, 280px)',
+            width: 'clamp(205px, 17.5vw, 290px)',
             zIndex: 6,
           }}
         >
@@ -365,16 +361,16 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* ─── 6. RIGHT: AETHER / SYSTEMS DESIGN PANEL (UP & LEFT BY ~25PX) ─── */}
+        {/* ─── 6. RIGHT: AETHER / SYSTEMS DESIGN PANEL (UP & INWARD BY 25PX) ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.75, y: mousePos.y * 0.75 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           whileHover={{ scale: 1.04, rotate: 2 }}
           style={{
             position: 'absolute',
-            top: '24%',
+            top: '23%',
             right: 'clamp(3.5%, 6vw, 8.5%)',
-            width: 'clamp(270px, 20vw, 360px)',
+            width: 'clamp(280px, 20.5vw, 375px)',
             zIndex: 6,
             cursor: 'pointer',
           }}
@@ -386,14 +382,14 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* ─── 7 & 8. RIGHT-SIDE: LIFTED UNIFIED BOTTOM-RIGHT CLUSTER (UP BY ~80PX) ─── */}
+        {/* ─── 7 & 8. RIGHT-SIDE: LIFTED BOTTOM-RIGHT GROUP (+85PX UP) ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.55, y: mousePos.y * 0.55 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            bottom: '12%',
-            right: 'clamp(4%, 6.5vw, 9.5%)',
+            bottom: '14%',
+            right: 'clamp(3.5%, 6vw, 9%)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-end',
@@ -401,7 +397,7 @@ export default function Hero() {
             zIndex: 6,
           }}
         >
-          {/* Top of Cluster: Palette Pill + Cursor + "made to be remembered." */}
+          {/* Top of Cluster: Palette Pill + Cursor + EXACT "made to be remembered." */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <div style={{ width: 'clamp(120px, 11vw, 160px)' }}>
               <img
@@ -417,7 +413,6 @@ export default function Hero() {
                 style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
               />
             </div>
-            {/* EXACT SUPPLIED "made to be remembered." IMAGE ASSET */}
             <div style={{ width: 'clamp(125px, 12vw, 175px)' }}>
               <img
                 src="/user_uploads/remembered_note.png"
@@ -427,8 +422,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Bottom of Cluster: Cyclist (Enlarged by ~12%) */}
-          <div style={{ width: 'clamp(170px, 16.5vw, 250px)', marginTop: 2 }}>
+          {/* Bottom of Cluster: Cyclist (Enlarged ~12%) */}
+          <div style={{ width: 'clamp(175px, 17vw, 260px)', marginTop: 2 }}>
             <img
               src="/user_uploads/cyclist.png"
               alt="Aether Cyclist Illustration"
