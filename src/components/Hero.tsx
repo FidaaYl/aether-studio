@@ -10,7 +10,9 @@ import {
   Layers,
   ArrowRight,
   MousePointer2,
-  Activity,
+  Play,
+  Sliders,
+  Code2,
 } from 'lucide-react'
 import Navbar from './Navbar'
 import NarrativeSection from './NarrativeSection'
@@ -24,14 +26,14 @@ export default function Hero() {
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const { clientX, clientY } = e
-    const x = (clientX / window.innerWidth - 0.5) * 14
-    const y = (clientY / window.innerHeight - 0.5) * 14
+    const x = (clientX / window.innerWidth - 0.5) * 12
+    const y = (clientY / window.innerHeight - 0.5) * 12
     setMousePos({ x, y })
   }
 
   return (
     <div style={{ background: '#ffffff', overflowX: 'hidden', color: '#111827' }} onMouseMove={handleMouseMove}>
-      {/* ✦ 1. EXACT ART-DIRECTED AETHER STUDIO UNIVERSE HERO */}
+      {/* ✦ 1. EXACT AETHER UNIVERSE HERO COMPOSITION */}
       <section
         style={{
           position: 'relative',
@@ -49,7 +51,7 @@ export default function Hero() {
       >
         <Navbar />
 
-        {/* ─── DOTTED ORBIT PATHS, NODES & SKETCHBOOK ARROWS ─── */}
+        {/* ─── DOTTED ORBIT PATHS, ISOLATED STARS & GREEN NODES ─── */}
         <svg
           aria-hidden="true"
           style={{
@@ -61,57 +63,64 @@ export default function Hero() {
             zIndex: 1,
           }}
         >
-          {/* Orbit paths */}
+          {/* Subtle Delicate Dotted Orbit Curves */}
           <path
-            d="M 120 180 Q 280 200 440 230 T 750 250"
+            d="M 140 180 Q 300 190 440 220 T 780 240"
             fill="none"
             stroke="#cbd5e1"
-            strokeWidth="1.5"
+            strokeWidth="1.2"
             strokeDasharray="4 6"
           />
           <path
-            d="M 750 250 Q 1050 220 1200 240 T 1450 220"
+            d="M 780 240 Q 1040 210 1200 230 T 1500 210"
             fill="none"
             stroke="#cbd5e1"
-            strokeWidth="1.5"
+            strokeWidth="1.2"
             strokeDasharray="4 6"
           />
           <path
-            d="M 850 480 Q 1150 480 1300 560 T 1450 680"
+            d="M 850 490 Q 1120 480 1280 540 T 1480 660"
             fill="none"
             stroke="#cbd5e1"
-            strokeWidth="1.5"
+            strokeWidth="1.2"
             strokeDasharray="4 6"
           />
           <path
-            d="M 320 420 Q 260 520 280 620"
+            d="M 320 400 Q 240 500 260 620"
             fill="none"
             stroke="#cbd5e1"
-            strokeWidth="1.5"
+            strokeWidth="1.2"
             strokeDasharray="4 6"
           />
 
-          {/* Green Nodes on Orbit Lines */}
-          <circle cx="440" cy="230" r="3.5" fill="#84cc16" />
-          <circle cx="1050" cy="220" r="3.5" fill="#84cc16" />
-          <circle cx="1150" cy="480" r="3.5" fill="#84cc16" />
-          <circle cx="280" cy="620" r="3.5" fill="#84cc16" />
+          {/* Green Connecting Nodes */}
+          <circle cx="440" cy="220" r="3.5" fill="#84cc16" />
+          <circle cx="1040" cy="210" r="3.5" fill="#84cc16" />
+          <circle cx="1120" cy="480" r="3.5" fill="#84cc16" />
+          <circle cx="260" cy="620" r="3.5" fill="#84cc16" />
 
-          {/* Sparkle Stars & Annotations */}
-          <path d="M 180 130 L 183 140 L 193 143 L 183 146 L 180 156 L 177 146 L 167 143 L 177 140 Z" fill="#111827" />
-          <path d="M 450 170 L 452 178 L 460 180 L 452 182 L 450 190 L 448 182 L 440 180 L 448 178 Z" fill="#84cc16" />
-          <path d="M 1240 130 L 1243 140 L 1253 143 L 1243 146 L 1240 156 L 1237 146 L 1227 143 L 1237 140 Z" fill="#111827" />
-          <path d="M 1280 300 L 1282 308 L 1290 310 L 1282 312 L 1280 320 L 1278 312 L 1270 310 L 1278 308 Z" fill="#84cc16" />
-          <path d="M 320 540 L 322 546 L 328 548 L 322 550 L 320 556 L 318 550 L 312 548 L 318 546 Z" fill="#111827" />
+          {/* Isolated Stars & Sparkles (Some connected, some floating freely) */}
+          <path d="M 180 120 L 183 130 L 193 133 L 183 136 L 180 146 L 177 136 L 167 133 L 177 130 Z" fill="#111827" />
+          <path d="M 480 160 L 483 170 L 493 173 L 483 176 L 480 186 L 477 176 L 467 173 L 477 170 Z" fill="#84cc16" />
+          <path d="M 1260 120 L 1263 130 L 1273 133 L 1263 136 L 1260 146 L 1257 136 L 1247 133 L 1257 130 Z" fill="#111827" />
+          <path d="M 1300 290 L 1302 298 L 1310 300 L 1302 302 L 1300 310 L 1298 302 L 1290 300 L 1298 298 Z" fill="#84cc16" />
+          <path d="M 1520 180 L 1522 186 L 1528 188 L 1522 190 L 1520 196 L 1518 190 L 1512 188 L 1518 186 Z" fill="#111827" />
+          <path d="M 330 520 L 332 528 L 340 530 L 332 532 L 330 540 L 328 532 L 320 530 L 328 528 Z" fill="#111827" />
+          <path d="M 740 650 L 743 660 L 753 663 L 743 666 L 740 676 L 737 666 L 727 663 L 737 660 Z" fill="#84cc16" />
+
+          {/* Doodled Curved Arrows */}
+          <path d="M 50 360 C 30 380 40 410 55 390 M 55 390 L 45 395 M 55 390 L 48 380" stroke="#111827" strokeWidth="2" strokeLinecap="round" fill="none" />
+          <path d="M 1480 370 C 1500 350 1490 320 1475 340 M 1475 340 L 1485 335 M 1475 340 L 1482 350" stroke="#111827" strokeWidth="2" strokeLinecap="round" fill="none" />
+          <path d="M 730 630 C 760 620 780 650 795 640 M 795 640 L 785 642 M 795 640 L 790 630" stroke="#84cc16" strokeWidth="2" strokeLinecap="round" fill="none" />
         </svg>
 
         {/* ─── 1. TOP-LEFT: EXPLORER CHARACTER & "idea → system → experience" ─── */}
         <motion.div
-          animate={{ x: mousePos.x * -0.8, y: mousePos.y * -0.8 }}
+          animate={{ x: mousePos.x * -0.7, y: mousePos.y * -0.7 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            top: '12%',
+            top: '11%',
             left: 'clamp(2%, 4vw, 7%)',
             display: 'flex',
             alignItems: 'flex-start',
@@ -120,8 +129,7 @@ export default function Hero() {
             pointerEvents: 'none',
           }}
         >
-          {/* Character sitting with tablet SVG */}
-          <div style={{ width: 90, height: 90 }}>
+          <div style={{ width: 92, height: 92 }}>
             <svg viewBox="0 0 100 100" fill="none" style={{ width: '100%', height: '100%' }}>
               <circle cx="50" cy="30" r="14" stroke="#111827" strokeWidth="2.5" />
               <circle cx="45" cy="28" r="3.5" stroke="#16a34a" strokeWidth="1.5" />
@@ -138,15 +146,14 @@ export default function Hero() {
             </svg>
           </div>
 
-          {/* Handwritten "idea → system → experience" */}
           <div
             style={{
               fontFamily: "'Playfair Display', serif",
               fontStyle: 'italic',
-              fontSize: 'clamp(14px, 1.2vw, 17px)',
+              fontSize: 'clamp(14px, 1.25vw, 17px)',
               color: '#111827',
               lineHeight: 1.2,
-              marginTop: 10,
+              marginTop: 8,
             }}
           >
             idea → system →
@@ -155,28 +162,45 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ─── 2. LEFT: TILTED MINIATURE WEBSITE CARD ("AETHER / WEB") ─── */}
+        {/* ─── 2. LEFT: TILTED MINIATURE WEBSITE PREVIEW ("AETHER / WEB") ─── */}
         <motion.div
           animate={{ x: mousePos.x * -1.0, y: mousePos.y * -1.0 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           whileHover={{ scale: 1.05, rotate: -4 }}
           style={{
             position: 'absolute',
-            top: '28%',
+            top: '26%',
             left: 'clamp(1%, 3vw, 5%)',
-            width: 'clamp(220px, 22vw, 290px)',
-            background: '#0f172a',
+            width: 'clamp(230px, 22vw, 290px)',
+            background: '#0b1120',
             border: '2px solid #1e293b',
-            borderRadius: 20,
+            borderRadius: 22,
             padding: 16,
-            boxShadow: '0 20px 40px rgba(0,0,0,0.18)',
+            boxShadow: '0 20px 40px rgba(0,0,0,0.16)',
             transform: 'rotate(-6deg)',
             zIndex: 6,
             color: '#ffffff',
             cursor: 'pointer',
           }}
         >
-          {/* Top Tag & Index */}
+          {/* Side Tag 01 & Top Pill */}
+          <div
+            style={{
+              position: 'absolute',
+              left: -12,
+              top: 36,
+              background: '#bef264',
+              color: '#14532d',
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 9,
+              fontWeight: 800,
+              padding: '4px 6px',
+              borderRadius: '6px 0 0 6px',
+            }}
+          >
+            01
+          </div>
+
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
             <span
               style={{
@@ -192,10 +216,9 @@ export default function Hero() {
             >
               AETHER / WEB
             </span>
-            <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 9, color: '#64748b' }}>[01]</span>
+            <span style={{ fontSize: 10, color: '#64748b' }}>↗</span>
           </div>
 
-          {/* Website Visual & Typography */}
           <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 10 }}>
             <div style={{ flex: 1 }}>
               <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 13, lineHeight: 1.2, marginBottom: 4 }}>
@@ -206,11 +229,11 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Mini 3D floating island graphic */}
+            {/* Floating Island Graphic */}
             <div
               style={{
-                width: 72,
-                height: 52,
+                width: 76,
+                height: 54,
                 borderRadius: 10,
                 background: 'radial-gradient(circle at center, #38bdf8 0%, #0369a1 70%)',
                 display: 'flex',
@@ -222,8 +245,8 @@ export default function Hero() {
             >
               <div
                 style={{
-                  width: 30,
-                  height: 30,
+                  width: 32,
+                  height: 32,
                   borderRadius: '50%',
                   border: '2px solid rgba(255,255,255,0.9)',
                   boxShadow: '0 0 10px #38bdf8',
@@ -233,9 +256,9 @@ export default function Hero() {
                 style={{
                   position: 'absolute',
                   bottom: 2,
-                  width: 44,
+                  width: 48,
                   height: 12,
-                  background: '#1e293b',
+                  background: '#0f172a',
                   borderRadius: 4,
                 }}
               />
@@ -265,7 +288,7 @@ export default function Hero() {
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            bottom: '12%',
+            bottom: '10%',
             left: 'clamp(2%, 4vw, 7%)',
             display: 'flex',
             flexDirection: 'column',
@@ -273,7 +296,6 @@ export default function Hero() {
             zIndex: 6,
           }}
         >
-          {/* Chat Bubble & 3D Glass Cube Row */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             {/* Chat Bubble */}
             <div
@@ -303,7 +325,7 @@ export default function Hero() {
             </div>
 
             {/* 3D Glass Cube Artifact with Lime Core */}
-            <div style={{ position: 'relative', width: 68, height: 68 }}>
+            <div style={{ position: 'relative', width: 70, height: 70 }}>
               <svg viewBox="0 0 80 80" fill="none" style={{ width: '100%', height: '100%' }}>
                 <polygon points="40,6 72,24 40,42 8,24" fill="rgba(255,255,255,0.7)" stroke="#64748b" strokeWidth="1.5" />
                 <polygon points="8,24 40,42 40,74 8,56" fill="rgba(241,245,249,0.8)" stroke="#64748b" strokeWidth="1.5" />
@@ -368,13 +390,13 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* ─── 4. TOP-RIGHT: 3D SPATIAL ORB ("AETHER / SPATIAL") & BLUE PILL ─── */}
+        {/* ─── 4. TOP-RIGHT: 3D SPATIAL ORB ("AETHER / SPATIAL") & BLUE BADGE ─── */}
         <motion.div
           animate={{ x: mousePos.x * 1.0, y: mousePos.y * 1.0 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            top: '12%',
+            top: '11%',
             right: 'clamp(2%, 4vw, 7%)',
             display: 'flex',
             alignItems: 'center',
@@ -382,8 +404,7 @@ export default function Hero() {
             zIndex: 6,
           }}
         >
-          {/* Spatial Glass Orb with Rings & Lime Core */}
-          <div style={{ position: 'relative', width: 90, height: 90 }}>
+          <div style={{ position: 'relative', width: 94, height: 94 }}>
             <span
               style={{
                 position: 'absolute',
@@ -411,7 +432,6 @@ export default function Hero() {
             </svg>
           </div>
 
-          {/* Spatial Computing OS Blue Badge */}
           <div
             style={{
               background: '#ffffff',
@@ -442,22 +462,22 @@ export default function Hero() {
               <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 11, color: '#111827' }}>
                 Spatial Computing OS
               </div>
-              <div style={{ fontSize: 9, color: '#6b7280', fontFamily: "'JetBrains Mono'" }}>★ 4.9 · WebGL Platform</div>
+              <div style={{ fontSize: 9, color: '#6b7280', fontFamily: "'JetBrains Mono'" }}>★ 4.9 · WebGL Platform ↗</div>
             </div>
           </div>
         </motion.div>
 
-        {/* ─── 5. RIGHT: DESIGN SYSTEMS TOKEN CARD ("AETHER / SYSTEMS") ─── */}
+        {/* ─── 5. RIGHT: DESIGN SYSTEMS TOKEN PANEL ("AETHER / SYSTEMS") ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.9, y: mousePos.y * 0.9 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           whileHover={{ scale: 1.05, rotate: 3 }}
           style={{
             position: 'absolute',
-            top: '36%',
+            top: '34%',
             right: 'clamp(2%, 4vw, 7%)',
-            width: 'clamp(180px, 18vw, 220px)',
-            background: 'rgba(255,255,255,0.92)',
+            width: 'clamp(200px, 20vw, 240px)',
+            background: 'rgba(255,255,255,0.95)',
             border: '1px solid #e2e8f0',
             borderRadius: 22,
             padding: 16,
@@ -468,8 +488,25 @@ export default function Hero() {
             cursor: 'pointer',
           }}
         >
-          {/* Top Label & Index */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+          {/* Side Tab 02 */}
+          <div
+            style={{
+              position: 'absolute',
+              right: -12,
+              top: 36,
+              background: '#bef264',
+              color: '#14532d',
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 9,
+              fontWeight: 800,
+              padding: '4px 6px',
+              borderRadius: '0 6px 6px 0',
+            }}
+          >
+            02
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
             <span
               style={{
                 background: '#bef264',
@@ -483,42 +520,49 @@ export default function Hero() {
             >
               AETHER / SYSTEMS
             </span>
-            <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 9, color: '#64748b' }}>[02]</span>
+            <span style={{ fontSize: 10, color: '#64748b' }}>↗</span>
           </div>
 
-          {/* Typography Token "Aa" & Color Swatches */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+          {/* Typography Token "Aa" & Font Family */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, background: '#f8fafc', padding: 8, borderRadius: 10 }}>
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, fontWeight: 700, color: '#111827', lineHeight: 1 }}>
               Aa
             </div>
-            <div style={{ display: 'flex', gap: 4 }}>
-              <span style={{ width: 18, height: 18, borderRadius: 4, background: '#bef264', display: 'inline-block' }} />
-              <span style={{ width: 18, height: 18, borderRadius: 4, background: '#111827', display: 'inline-block' }} />
-              <span style={{ width: 18, height: 18, borderRadius: 4, background: '#94a3b8', display: 'inline-block' }} />
+            <div style={{ fontSize: 9, color: '#64748b', fontFamily: "'Outfit'" }}>
+              <div style={{ fontWeight: 700, color: '#111827' }}>Inter</div>
+              <div>Regular / Medium / Bold</div>
             </div>
           </div>
 
-          {/* Component Primitives */}
-          <div style={{ display: 'flex', gap: 6, marginBottom: 10, background: '#f8fafc', padding: 6, borderRadius: 8 }}>
+          {/* Color Palette Tokens */}
+          <div style={{ display: 'flex', gap: 6, marginBottom: 10 }}>
+            <span style={{ width: 22, height: 22, borderRadius: 6, background: '#bef264', display: 'inline-block' }} />
+            <span style={{ width: 22, height: 22, borderRadius: 6, background: '#0f172a', display: 'inline-block' }} />
+            <span style={{ width: 22, height: 22, borderRadius: 6, background: '#94a3b8', display: 'inline-block' }} />
+            <span style={{ width: 22, height: 22, borderRadius: 6, background: '#f1f5f9', border: '1px solid #cbd5e1', display: 'inline-block' }} />
+          </div>
+
+          {/* Primitive Icons */}
+          <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
             <Box size={14} color="#64748b" />
-            <Layers size={14} color="#64748b" />
             <Sparkles size={14} color="#84cc16" />
+            <Code2 size={14} color="#64748b" />
           </div>
 
           {/* Mini Buttons & Toggle Switch */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', gap: 4 }}>
               <span style={{ background: '#bef264', color: '#14532d', fontSize: 8, fontWeight: 700, padding: '3px 8px', borderRadius: 100 }}>
-                Button
+                Primary
               </span>
-              <span style={{ background: '#f1f5f9', color: '#64748b', fontSize: 8, padding: '3px 6px', borderRadius: 100 }}>
-                Button
+              <span style={{ background: '#f1f5f9', color: '#64748b', fontSize: 8, padding: '3px 6px', borderRadius: 100, border: '1px solid #e2e8f0' }}>
+                Secondary
               </span>
             </div>
 
             <div
               style={{
-                width: 24,
+                width: 26,
                 height: 14,
                 borderRadius: 100,
                 background: '#bef264',
@@ -542,42 +586,73 @@ export default function Hero() {
             position: 'absolute',
             bottom: '22%',
             right: 'clamp(2%, 4vw, 7%)',
-            width: 'clamp(170px, 16vw, 200px)',
+            width: 'clamp(180px, 17vw, 210px)',
             background: '#ffffff',
             border: '1px solid #ede8dc',
-            borderRadius: 18,
-            padding: 12,
+            borderRadius: 20,
+            padding: 14,
             boxShadow: '0 10px 24px rgba(0,0,0,0.04)',
             zIndex: 6,
             cursor: 'pointer',
           }}
         >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+          {/* Side Tab 03 */}
+          <div
+            style={{
+              position: 'absolute',
+              left: -12,
+              top: 24,
+              background: '#bef264',
+              color: '#14532d',
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 9,
+              fontWeight: 800,
+              padding: '4px 6px',
+              borderRadius: '6px 0 0 6px',
+            }}
+          >
+            03
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
             <span
               style={{
-                background: '#f3efe6',
-                color: '#4a443a',
+                background: '#bef264',
+                color: '#14532d',
                 fontFamily: "'JetBrains Mono', monospace",
                 fontSize: 9,
-                fontWeight: 700,
+                fontWeight: 800,
                 padding: '2px 8px',
                 borderRadius: 100,
               }}
             >
               AETHER / MOTION
             </span>
-            <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 9, color: '#84cc16', fontWeight: 700 }}>60 FPS</span>
+            <span style={{ fontSize: 10, color: '#64748b' }}>↗</span>
+          </div>
+
+          <div style={{ fontSize: 9, color: '#6b7280', fontFamily: "'Outfit'", marginBottom: 6 }}>
+            Micro Interaction
           </div>
 
           {/* Easing Trajectory Curve Graph */}
-          <div style={{ height: 36, background: '#faf9f5', borderRadius: 8, padding: '4px 6px', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ height: 42, background: '#faf9f5', borderRadius: 10, padding: '4px 6px', position: 'relative', overflow: 'hidden' }}>
             <svg viewBox="0 0 100 40" fill="none" style={{ width: '100%', height: '100%' }}>
               <path d="M 0 35 C 30 35, 45 5, 100 5" stroke="#84cc16" strokeWidth="2.5" strokeLinecap="round" />
               <circle cx="60" cy="18" r="3.5" fill="#14532d" />
             </svg>
           </div>
-          <div style={{ fontSize: 9, color: '#6b7280', fontFamily: "'Outfit'", marginTop: 4 }}>
-            Kinetic Spring & Physics
+
+          {/* Dot Palette & Play */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 8 }}>
+            <div style={{ display: 'flex', gap: 4 }}>
+              <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#bef264' }} />
+              <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#0f172a' }} />
+              <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#94a3b8' }} />
+            </div>
+            <div style={{ width: 18, height: 18, borderRadius: '50%', background: '#0f172a', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Play size={8} fill="currentColor" />
+            </div>
           </div>
         </motion.div>
 
@@ -587,7 +662,7 @@ export default function Hero() {
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            bottom: '6%',
+            bottom: '5%',
             right: 'clamp(2%, 4vw, 8%)',
             display: 'flex',
             flexDirection: 'column',
@@ -600,7 +675,7 @@ export default function Hero() {
             style={{
               fontFamily: "'Playfair Display', serif",
               fontStyle: 'italic',
-              fontSize: 'clamp(14px, 1.2vw, 17px)',
+              fontSize: 'clamp(14px, 1.25vw, 17px)',
               color: '#111827',
               lineHeight: 1.2,
               marginBottom: 4,
@@ -612,7 +687,6 @@ export default function Hero() {
             remembered. ↗
           </div>
 
-          {/* Cyclist with Basket and Speed Lines SVG */}
           <div style={{ width: 110, height: 85 }}>
             <svg viewBox="0 0 120 100" fill="none" style={{ width: '100%', height: '100%' }}>
               <circle cx="28" cy="74" r="16" stroke="#111827" strokeWidth="2.5" />
