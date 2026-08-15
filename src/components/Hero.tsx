@@ -10,6 +10,7 @@ import {
   Layers,
   ArrowRight,
   MousePointer2,
+  Activity,
 } from 'lucide-react'
 import Navbar from './Navbar'
 import NarrativeSection from './NarrativeSection'
@@ -30,7 +31,7 @@ export default function Hero() {
 
   return (
     <div style={{ background: '#ffffff', overflowX: 'hidden', color: '#111827' }} onMouseMove={handleMouseMove}>
-      {/* ✦ 1. EXACT AETHER UNIVERSE HERO COMPOSITION (MATCHING USER REFERENCE) */}
+      {/* ✦ 1. EXACT ART-DIRECTED AETHER STUDIO UNIVERSE HERO */}
       <section
         style={{
           position: 'relative',
@@ -48,7 +49,7 @@ export default function Hero() {
       >
         <Navbar />
 
-        {/* ─── DOTTED ORBIT PATHS & GREEN NODES (BACKGROUND NETWORK) ─── */}
+        {/* ─── DOTTED ORBIT PATHS, NODES & SKETCHBOOK ARROWS ─── */}
         <svg
           aria-hidden="true"
           style={{
@@ -60,7 +61,7 @@ export default function Hero() {
             zIndex: 1,
           }}
         >
-          {/* Top-Left to Center Orbit */}
+          {/* Orbit paths */}
           <path
             d="M 120 180 Q 280 200 440 230 T 750 250"
             fill="none"
@@ -68,7 +69,6 @@ export default function Hero() {
             strokeWidth="1.5"
             strokeDasharray="4 6"
           />
-          {/* Center to Top-Right Orbit */}
           <path
             d="M 750 250 Q 1050 220 1200 240 T 1450 220"
             fill="none"
@@ -76,7 +76,6 @@ export default function Hero() {
             strokeWidth="1.5"
             strokeDasharray="4 6"
           />
-          {/* Center to Bottom-Right Orbit */}
           <path
             d="M 850 480 Q 1150 480 1300 560 T 1450 680"
             fill="none"
@@ -84,7 +83,6 @@ export default function Hero() {
             strokeWidth="1.5"
             strokeDasharray="4 6"
           />
-          {/* Left to Bottom-Left Orbit */}
           <path
             d="M 320 420 Q 260 520 280 620"
             fill="none"
@@ -99,7 +97,7 @@ export default function Hero() {
           <circle cx="1150" cy="480" r="3.5" fill="#84cc16" />
           <circle cx="280" cy="620" r="3.5" fill="#84cc16" />
 
-          {/* Sparkle Stars */}
+          {/* Sparkle Stars & Annotations */}
           <path d="M 180 130 L 183 140 L 193 143 L 183 146 L 180 156 L 177 146 L 167 143 L 177 140 Z" fill="#111827" />
           <path d="M 450 170 L 452 178 L 460 180 L 452 182 L 450 190 L 448 182 L 440 180 L 448 178 Z" fill="#84cc16" />
           <path d="M 1240 130 L 1243 140 L 1253 143 L 1243 146 L 1240 156 L 1237 146 L 1227 143 L 1237 140 Z" fill="#111827" />
@@ -107,7 +105,7 @@ export default function Hero() {
           <path d="M 320 540 L 322 546 L 328 548 L 322 550 L 320 556 L 318 550 L 312 548 L 318 546 Z" fill="#111827" />
         </svg>
 
-        {/* ─── 1. TOP-LEFT: EXPLORER CHARACTER & HANDWRITTEN NOTE ─── */}
+        {/* ─── 1. TOP-LEFT: EXPLORER CHARACTER & "idea → system → experience" ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.8, y: mousePos.y * -0.8 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
@@ -117,7 +115,7 @@ export default function Hero() {
             left: 'clamp(2%, 4vw, 7%)',
             display: 'flex',
             alignItems: 'flex-start',
-            gap: 16,
+            gap: 14,
             zIndex: 5,
             pointerEvents: 'none',
           }}
@@ -178,7 +176,7 @@ export default function Hero() {
             cursor: 'pointer',
           }}
         >
-          {/* Header Badge */}
+          {/* Top Tag & Index */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
             <span
               style={{
@@ -194,10 +192,7 @@ export default function Hero() {
             >
               AETHER / WEB
             </span>
-            <div style={{ display: 'flex', gap: 4 }}>
-              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#334155' }} />
-              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#334155' }} />
-            </div>
+            <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 9, color: '#64748b' }}>[01]</span>
           </div>
 
           {/* Website Visual & Typography */}
@@ -310,16 +305,13 @@ export default function Hero() {
             {/* 3D Glass Cube Artifact with Lime Core */}
             <div style={{ position: 'relative', width: 68, height: 68 }}>
               <svg viewBox="0 0 80 80" fill="none" style={{ width: '100%', height: '100%' }}>
-                {/* Outer Glass Isometric Cube */}
                 <polygon points="40,6 72,24 40,42 8,24" fill="rgba(255,255,255,0.7)" stroke="#64748b" strokeWidth="1.5" />
                 <polygon points="8,24 40,42 40,74 8,56" fill="rgba(241,245,249,0.8)" stroke="#64748b" strokeWidth="1.5" />
                 <polygon points="40,42 72,24 72,56 40,74" fill="rgba(226,232,240,0.85)" stroke="#64748b" strokeWidth="1.5" />
-                {/* Glowing Lime Core */}
                 <polygon points="40,22 56,31 40,40 24,31" fill="#bef264" />
                 <polygon points="24,31 40,40 40,56 24,47" fill="#84cc16" />
                 <polygon points="40,40 56,31 56,47 40,56" fill="#65a30d" />
               </svg>
-              {/* Tiny Satellite Cube */}
               <div
                 style={{
                   position: 'absolute',
@@ -392,7 +384,6 @@ export default function Hero() {
         >
           {/* Spatial Glass Orb with Rings & Lime Core */}
           <div style={{ position: 'relative', width: 90, height: 90 }}>
-            {/* Top Pill Tag */}
             <span
               style={{
                 position: 'absolute',
@@ -412,12 +403,9 @@ export default function Hero() {
             </span>
 
             <svg viewBox="0 0 100 100" fill="none" style={{ width: '100%', height: '100%' }}>
-              {/* Outer Orbit Rings */}
               <ellipse cx="50" cy="50" rx="46" ry="18" stroke="#334155" strokeWidth="1.5" transform="rotate(-25 50 50)" />
               <ellipse cx="50" cy="50" rx="46" ry="18" stroke="#84cc16" strokeWidth="1" strokeDasharray="3 3" transform="rotate(35 50 50)" />
-              {/* Translucent Glass Sphere */}
               <circle cx="50" cy="50" r="28" fill="rgba(255,255,255,0.7)" stroke="#64748b" strokeWidth="1.5" />
-              {/* Glowing Lime Energy Core */}
               <circle cx="50" cy="50" r="14" fill="#bef264" />
               <circle cx="50" cy="50" r="8" fill="#16a34a" opacity="0.6" />
             </svg>
@@ -466,7 +454,7 @@ export default function Hero() {
           whileHover={{ scale: 1.05, rotate: 3 }}
           style={{
             position: 'absolute',
-            top: '38%',
+            top: '36%',
             right: 'clamp(2%, 4vw, 7%)',
             width: 'clamp(180px, 18vw, 220px)',
             background: 'rgba(255,255,255,0.92)',
@@ -480,7 +468,7 @@ export default function Hero() {
             cursor: 'pointer',
           }}
         >
-          {/* Top Label */}
+          {/* Top Label & Index */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
             <span
               style={{
@@ -495,7 +483,7 @@ export default function Hero() {
             >
               AETHER / SYSTEMS
             </span>
-            <MousePointer2 size={12} color="#111827" />
+            <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 9, color: '#64748b' }}>[02]</span>
           </div>
 
           {/* Typography Token "Aa" & Color Swatches */}
@@ -528,7 +516,6 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Toggle Switch */}
             <div
               style={{
                 width: 24,
@@ -546,13 +533,61 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ─── 6. BOTTOM-RIGHT: "MADE TO BE REMEMBERED" & CYCLIST CHARACTER ─── */}
+        {/* ─── 6. LOWER RIGHT: AETHER / MOTION TRAJECTORY CARD ─── */}
+        <motion.div
+          animate={{ x: mousePos.x * 0.9, y: mousePos.y * 0.9 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 80 }}
+          whileHover={{ scale: 1.05 }}
+          style={{
+            position: 'absolute',
+            bottom: '22%',
+            right: 'clamp(2%, 4vw, 7%)',
+            width: 'clamp(170px, 16vw, 200px)',
+            background: '#ffffff',
+            border: '1px solid #ede8dc',
+            borderRadius: 18,
+            padding: 12,
+            boxShadow: '0 10px 24px rgba(0,0,0,0.04)',
+            zIndex: 6,
+            cursor: 'pointer',
+          }}
+        >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+            <span
+              style={{
+                background: '#f3efe6',
+                color: '#4a443a',
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 9,
+                fontWeight: 700,
+                padding: '2px 8px',
+                borderRadius: 100,
+              }}
+            >
+              AETHER / MOTION
+            </span>
+            <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 9, color: '#84cc16', fontWeight: 700 }}>60 FPS</span>
+          </div>
+
+          {/* Easing Trajectory Curve Graph */}
+          <div style={{ height: 36, background: '#faf9f5', borderRadius: 8, padding: '4px 6px', position: 'relative', overflow: 'hidden' }}>
+            <svg viewBox="0 0 100 40" fill="none" style={{ width: '100%', height: '100%' }}>
+              <path d="M 0 35 C 30 35, 45 5, 100 5" stroke="#84cc16" strokeWidth="2.5" strokeLinecap="round" />
+              <circle cx="60" cy="18" r="3.5" fill="#14532d" />
+            </svg>
+          </div>
+          <div style={{ fontSize: 9, color: '#6b7280', fontFamily: "'Outfit'", marginTop: 4 }}>
+            Kinetic Spring & Physics
+          </div>
+        </motion.div>
+
+        {/* ─── 7. BOTTOM-RIGHT: "MADE TO BE REMEMBERED" & CYCLIST CHARACTER ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.8, y: mousePos.y * 0.8 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            bottom: '8%',
+            bottom: '6%',
             right: 'clamp(2%, 4vw, 8%)',
             display: 'flex',
             flexDirection: 'column',
@@ -561,7 +596,6 @@ export default function Hero() {
             pointerEvents: 'none',
           }}
         >
-          {/* Handwritten Annotation */}
           <div
             style={{
               fontFamily: "'Playfair Display', serif",
@@ -569,7 +603,7 @@ export default function Hero() {
               fontSize: 'clamp(14px, 1.2vw, 17px)',
               color: '#111827',
               lineHeight: 1.2,
-              marginBottom: 6,
+              marginBottom: 4,
               transform: 'rotate(-4deg)',
             }}
           >
@@ -579,29 +613,24 @@ export default function Hero() {
           </div>
 
           {/* Cyclist with Basket and Speed Lines SVG */}
-          <div style={{ width: 110, height: 90 }}>
+          <div style={{ width: 110, height: 85 }}>
             <svg viewBox="0 0 120 100" fill="none" style={{ width: '100%', height: '100%' }}>
-              {/* Wheels */}
               <circle cx="28" cy="74" r="16" stroke="#111827" strokeWidth="2.5" />
               <circle cx="92" cy="74" r="16" stroke="#111827" strokeWidth="2.5" />
               <circle cx="28" cy="74" r="3" fill="#84cc16" />
               <circle cx="92" cy="74" r="3" fill="#84cc16" />
-              {/* Frame */}
               <path d="M28 74L56 74L80 50L92 74M56 74L65 46L78 46M65 46L44 56" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" />
-              {/* Basket */}
               <rect x="84" y="38" width="14" height="12" rx="2" stroke="#111827" strokeWidth="2" fill="#bef264" />
-              {/* Rider */}
               <circle cx="60" cy="22" r="10" stroke="#111827" strokeWidth="2.5" />
               <path d="M54 38C54 30 60 28 66 28C72 28 76 32 72 50L58 60" stroke="#111827" strokeWidth="2.5" fill="#ffffff" />
               <path d="M64 28L78 36" stroke="#84cc16" strokeWidth="2.5" strokeLinecap="round" />
-              {/* Speed Lines */}
               <line x1="96" y1="20" x2="108" y2="16" stroke="#111827" strokeWidth="2" strokeLinecap="round" />
               <line x1="102" y1="26" x2="114" y2="22" stroke="#111827" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </div>
         </motion.div>
 
-        {/* ─── 7. CENTER HERO HEADLINE & ACTIONS (MATCHING BASE) ─── */}
+        {/* ─── 8. CENTER HERO HEADLINE & ACTIONS (MATCHING BASE) ─── */}
         <div style={{ maxWidth: 880, textAlign: 'center', position: 'relative', zIndex: 10 }}>
           {/* Top Pill Tag */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
@@ -697,7 +726,6 @@ export default function Hero() {
 
           {/* Action Buttons with Narrowed Indicator Arrow */}
           <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-            {/* Hand-Drawn Indicator Callout & Arrow */}
             <div
               style={{
                 position: 'absolute',
