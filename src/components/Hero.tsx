@@ -13,14 +13,14 @@ export default function Hero() {
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const { clientX, clientY } = e
-    const x = (clientX / window.innerWidth - 0.5) * 12
-    const y = (clientY / window.innerHeight - 0.5) * 12
+    const x = (clientX / window.innerWidth - 0.5) * 10
+    const y = (clientY / window.innerHeight - 0.5) * 10
     setMousePos({ x, y })
   }
 
   return (
     <div style={{ background: '#ffffff', overflowX: 'hidden', color: '#111827' }} onMouseMove={handleMouseMove}>
-      {/* ✦ PHASE 1: ASSET PLACEMENT & COMPOSITION (FROM D:\Downloads\Untitled design) */}
+      {/* ✦ EXACT AETHER HERO COMPOSITION MATCHING REFERENCE A */}
       <section
         style={{
           position: 'relative',
@@ -32,171 +32,167 @@ export default function Hero() {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          padding: 'clamp(140px, 15vw, 170px) 24px clamp(80px, 9vw, 110px)',
+          padding: 'clamp(120px, 14vw, 160px) 24px clamp(60px, 8vw, 100px)',
           boxSizing: 'border-box',
         }}
       >
         <Navbar />
 
-        {/* ─── 1. TOP-LEFT: EXPLORER ILLUSTRATION & "idea → system → experience" ─── */}
+        {/* ─── 1. TOP-LEFT: EXPLORER CHARACTER & "idea → system → experience" ─── */}
         <motion.div
-          animate={{ x: mousePos.x * -0.7, y: mousePos.y * -0.7 }}
+          animate={{ x: mousePos.x * -0.6, y: mousePos.y * -0.6 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            top: '8%',
-            left: 'clamp(2%, 4vw, 7%)',
-            width: 'clamp(210px, 22vw, 310px)',
+            top: '6%',
+            left: 'clamp(1.5%, 3vw, 5%)',
+            width: 'clamp(200px, 20vw, 290px)',
             zIndex: 5,
             pointerEvents: 'none',
           }}
         >
           <img
             src="/hero/explorer_character.png"
-            alt="Aether Explorer Illustration"
+            alt="Explorer Illustration"
             style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
           />
         </motion.div>
 
-        {/* ─── 2. LEFT: AETHER / WEB PROJECT PREVIEW ─── */}
+        {/* ─── 2. LEFT: AETHER / WEB MINIATURE PROJECT PREVIEW ─── */}
         <motion.div
-          animate={{ x: mousePos.x * -1.0, y: mousePos.y * -1.0 }}
+          animate={{ x: mousePos.x * -0.9, y: mousePos.y * -0.9 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          whileHover={{ scale: 1.04, y: -4 }}
+          whileHover={{ scale: 1.03, y: -2 }}
           style={{
             position: 'absolute',
-            top: '25%',
-            left: 'clamp(1%, 3vw, 4%)',
-            width: 'clamp(250px, 24vw, 350px)',
+            top: '23%',
+            left: 'clamp(1%, 2.5vw, 4%)',
+            width: 'clamp(240px, 23vw, 330px)',
             zIndex: 6,
             cursor: 'pointer',
           }}
         >
           <img
             src="/hero/aether_web_card.png"
-            alt="Aether Web Project Preview"
-            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 14px 28px rgba(0,0,0,0.12))' }}
+            alt="Aether Web Project"
+            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.09))' }}
           />
         </motion.div>
 
-        {/* ─── 3. LOWER-LEFT: CLIENT TESTIMONIAL & 3D CRYSTAL/GLASS CUBE ─── */}
+        {/* ─── 3. LOWER-LEFT: CLIENT TESTIMONIAL & 3D GLASS CUBE ─── */}
         <motion.div
-          animate={{ x: mousePos.x * -0.8, y: mousePos.y * -0.8 }}
+          animate={{ x: mousePos.x * -0.7, y: mousePos.y * -0.7 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            bottom: '14%',
-            left: 'clamp(2%, 4vw, 6%)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 16,
-            zIndex: 6,
-          }}
-        >
-          {/* Testimonial Card */}
-          <div style={{ width: 'clamp(150px, 15vw, 200px)' }}>
-            <img
-              src="/hero/client_quote_card.png"
-              alt="Aether Testimonial Card"
-              style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 8px 20px rgba(0,0,0,0.06))' }}
-            />
-          </div>
-
-          {/* 3D Crystal / Glass Cube */}
-          <div style={{ width: 'clamp(120px, 14vw, 180px)' }}>
-            <img
-              src="/hero/glass_cube_artifact.png"
-              alt="3D Crystal Glass Object"
-              style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
-            />
-          </div>
-        </motion.div>
-
-        {/* ─── 4. BOTTOM-LEFT: SERVICE BADGE ─── */}
-        <motion.div
-          animate={{ x: mousePos.x * -0.6, y: mousePos.y * -0.6 }}
-          transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          whileHover={{ scale: 1.04 }}
-          style={{
-            position: 'absolute',
-            bottom: '4%',
-            left: 'clamp(2%, 4vw, 6%)',
-            width: 'clamp(180px, 18vw, 240px)',
-            zIndex: 7,
-            cursor: 'pointer',
-          }}
-        >
-          <img
-            src="/hero/service_lab_pill.png"
-            alt="Service Badge"
-            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 8px 20px rgba(190,242,100,0.3))' }}
-          />
-        </motion.div>
-
-        {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL ASSET & SPATIAL COMPUTING OS CARD ─── */}
-        <motion.div
-          animate={{ x: mousePos.x * 1.0, y: mousePos.y * 1.0 }}
-          transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          style={{
-            position: 'absolute',
-            top: '8%',
-            right: 'clamp(2%, 4vw, 6%)',
+            bottom: '12%',
+            left: 'clamp(1.5%, 3vw, 5%)',
             display: 'flex',
             alignItems: 'center',
             gap: 12,
             zIndex: 6,
           }}
         >
-          {/* Spatial 3D Asset */}
-          <div style={{ width: 'clamp(140px, 15vw, 190px)' }}>
+          <div style={{ width: 'clamp(140px, 13vw, 190px)' }}>
             <img
-              src="/hero/aether_spatial_orb.png"
-              alt="Aether Spatial Asset"
-              style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
+              src="/hero/client_quote_card.png"
+              alt="Client Testimonial"
+              style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.05))' }}
             />
           </div>
 
-          {/* Spatial Computing OS Card */}
-          <div style={{ width: 'clamp(130px, 13vw, 170px)' }}>
+          <div style={{ width: 'clamp(110px, 12vw, 160px)' }}>
             <img
-              src="/hero/spatial_os_badge.png"
-              alt="Spatial Computing OS Card"
-              style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.06))' }}
+              src="/hero/glass_cube_artifact.png"
+              alt="3D Glass Cube"
+              style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
             />
           </div>
         </motion.div>
 
-        {/* ─── 6. RIGHT: AETHER / SYSTEMS DESIGN-SYSTEM PANEL ─── */}
+        {/* ─── 4. BOTTOM-LEFT: SERVICE LAB BADGE ─── */}
+        <motion.div
+          animate={{ x: mousePos.x * -0.5, y: mousePos.y * -0.5 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 80 }}
+          whileHover={{ scale: 1.03 }}
+          style={{
+            position: 'absolute',
+            bottom: '3%',
+            left: 'clamp(1.5%, 3vw, 5%)',
+            width: 'clamp(170px, 16vw, 230px)',
+            zIndex: 7,
+            cursor: 'pointer',
+          }}
+        >
+          <img
+            src="/hero/service_lab_pill.png"
+            alt="Service Lab Badge"
+            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 6px 18px rgba(190,242,100,0.28))' }}
+          />
+        </motion.div>
+
+        {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL ORB & SPATIAL OS BADGE ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.9, y: mousePos.y * 0.9 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          whileHover={{ scale: 1.04, y: -4 }}
           style={{
             position: 'absolute',
-            top: '32%',
-            right: 'clamp(2%, 4vw, 6%)',
-            width: 'clamp(220px, 21vw, 290px)',
+            top: '6%',
+            right: 'clamp(1.5%, 3vw, 5%)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 10,
+            zIndex: 6,
+          }}
+        >
+          <div style={{ width: 'clamp(130px, 13vw, 180px)' }}>
+            <img
+              src="/hero/aether_spatial_orb.png"
+              alt="Aether Spatial 3D"
+              style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
+            />
+          </div>
+
+          <div style={{ width: 'clamp(120px, 12vw, 160px)' }}>
+            <img
+              src="/hero/spatial_os_badge.png"
+              alt="Spatial OS Badge"
+              style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.05))' }}
+            />
+          </div>
+        </motion.div>
+
+        {/* ─── 6. RIGHT: AETHER / SYSTEMS DESIGN PANEL ─── */}
+        <motion.div
+          animate={{ x: mousePos.x * 0.8, y: mousePos.y * 0.8 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 80 }}
+          whileHover={{ scale: 1.03, y: -2 }}
+          style={{
+            position: 'absolute',
+            top: '28%',
+            right: 'clamp(1.5%, 3vw, 5%)',
+            width: 'clamp(200px, 19vw, 270px)',
             zIndex: 6,
             cursor: 'pointer',
           }}
         >
           <img
             src="/hero/aether_systems_panel.png"
-            alt="Aether Systems Design Panel"
-            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 12px 28px rgba(0,0,0,0.08))' }}
+            alt="Aether Systems Panel"
+            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 10px 24px rgba(0,0,0,0.07))' }}
           />
         </motion.div>
 
         {/* ─── 7. LOWER-RIGHT: AETHER / MOTION CARD ─── */}
         <motion.div
-          animate={{ x: mousePos.x * 0.8, y: mousePos.y * 0.8 }}
+          animate={{ x: mousePos.x * 0.7, y: mousePos.y * 0.7 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          whileHover={{ scale: 1.04 }}
+          whileHover={{ scale: 1.03 }}
           style={{
             position: 'absolute',
-            bottom: '22%',
-            right: 'clamp(2%, 4vw, 7%)',
-            width: 'clamp(180px, 17vw, 230px)',
+            bottom: '18%',
+            right: 'clamp(1.5%, 3vw, 5%)',
+            width: 'clamp(170px, 15vw, 210px)',
             zIndex: 6,
             cursor: 'pointer',
           }}
@@ -204,18 +200,18 @@ export default function Hero() {
           <img
             src="/hero/aether_motion_card.png"
             alt="Aether Motion Card"
-            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 8px 20px rgba(0,0,0,0.06))' }}
+            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.05))' }}
           />
         </motion.div>
 
         {/* ─── 8. BOTTOM-RIGHT: CYCLIST ILLUSTRATION & "made to be remembered." ─── */}
         <motion.div
-          animate={{ x: mousePos.x * 0.7, y: mousePos.y * 0.7 }}
+          animate={{ x: mousePos.x * 0.6, y: mousePos.y * 0.6 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            bottom: '4%',
-            right: 'clamp(2%, 4vw, 7%)',
+            bottom: '3%',
+            right: 'clamp(1.5%, 3vw, 5%)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-end',
@@ -223,27 +219,25 @@ export default function Hero() {
             pointerEvents: 'none',
           }}
         >
-          {/* Handwritten Annotation */}
-          <div style={{ width: 'clamp(130px, 13vw, 170px)', marginBottom: 2 }}>
+          <div style={{ width: 'clamp(120px, 11vw, 150px)', marginBottom: 2 }}>
             <img
               src="/hero/made_to_remembered.png"
-              alt="made to be remembered."
+              alt="made to be remembered"
               style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
             />
           </div>
 
-          {/* Cyclist Illustration */}
-          <div style={{ width: 'clamp(140px, 15vw, 190px)' }}>
+          <div style={{ width: 'clamp(130px, 13vw, 170px)' }}>
             <img
               src="/hero/cyclist_illustration.png"
-              alt="Aether Cyclist Illustration"
+              alt="Cyclist Illustration"
               style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
             />
           </div>
         </motion.div>
 
         {/* ─── 9. CENTER HERO HEADLINE & ACTIONS (UNCHANGED BASE) ─── */}
-        <div style={{ maxWidth: 880, textAlign: 'center', position: 'relative', zIndex: 10 }}>
+        <div style={{ maxWidth: 840, textAlign: 'center', position: 'relative', zIndex: 10 }}>
           {/* Top Pill Tag */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
             <div
@@ -283,7 +277,7 @@ export default function Hero() {
             style={{
               fontFamily: "'Syne', sans-serif",
               fontWeight: 800,
-              fontSize: 'clamp(44px, 6.4vw, 84px)',
+              fontSize: 'clamp(42px, 6vw, 80px)',
               letterSpacing: '-0.04em',
               lineHeight: 1.05,
               color: '#111827',
@@ -324,19 +318,19 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.15 }}
             style={{
               fontFamily: "'Outfit', sans-serif",
-              fontSize: 'clamp(15px, 1.25vw, 18px)',
+              fontSize: 'clamp(15px, 1.2vw, 17px)',
               fontWeight: 300,
               lineHeight: 1.65,
               color: '#6b7280',
-              maxWidth: 560,
-              margin: '0 auto 32px',
+              maxWidth: 540,
+              margin: '0 auto 30px',
             }}
           >
             We partner with visionary founders and iconic brands to design bespoke web experiences, 3D spatial
             interfaces, and scalable token design systems.
           </motion.p>
 
-          {/* Action Buttons */}
+          {/* Action Buttons with Indicator Arrow */}
           <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
             <div
               style={{
