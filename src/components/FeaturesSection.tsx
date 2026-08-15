@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Layers, Terminal, Sparkles, Cpu, Check, ArrowRight } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Layers, Zap, Sparkles, Check, ArrowRight, Play, CheckCircle2 } from 'lucide-react'
 import { Reveal } from './cinematic-hooks'
 
 interface Props {
@@ -8,429 +8,412 @@ interface Props {
   L: boolean
 }
 
-const DISCIPLINES = [
+const FEATURE_CARDS = [
   {
-    id: '01',
-    icon: Sparkles,
-    title: 'Brand Architecture & Spatial Worlds',
-    tagline: 'Definitive visual languages and 3D brand environments',
-    summary:
-      'We craft iconic visual systems, custom typography, and 3D virtual spaces that establish category leadership and emotional resonance.',
-    deliverables: [
-      'Visual Identity & Art Direction',
-      '3D Spatial Environments & CGI',
-      'Typography & Custom Type Treatment',
-      'Motion Design Guidelines',
-      'Interactive Design Token Systems',
-    ],
-    tech: ['Cinema 4D', 'Blender', 'Figma Tokens', 'Spline 3D'],
+    title: 'User-friendly editor',
+    desc: 'Create amazing motion graphics and interactive layouts with an intuitive visual canvas.',
+    badge: 'VISUAL CANVAS',
+    accent: '#3b82f6',
+    preview: (
+      <div
+        style={{
+          background: '#111827',
+          borderRadius: 14,
+          padding: 16,
+          height: 170,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          border: '1px solid rgba(255,255,255,0.1)',
+        }}
+      >
+        <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+          <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#ef4444' }} />
+          <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#f59e0b' }} />
+          <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#10b981' }} />
+        </div>
+        <div style={{ background: '#1f2937', borderRadius: 8, height: 48, padding: 8, display: 'flex', alignItems: 'center', gap: 8 }}>
+          <div style={{ width: 32, height: 32, borderRadius: 6, background: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Play size={14} color="#fff" />
+          </div>
+          <div style={{ flex: 1, height: 6, background: '#374151', borderRadius: 4, position: 'relative', overflow: 'hidden' }}>
+            <div style={{ width: '65%', height: '100%', background: '#60a5fa', borderRadius: 4 }} />
+          </div>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, color: '#9ca3af', fontFamily: "'JetBrains Mono'" }}>
+          <span>00:04:12</span>
+          <span>60 FPS</span>
+        </div>
+      </div>
+    ),
   },
   {
-    id: '02',
-    icon: Terminal,
-    title: 'Creative Development & WebGL',
-    tagline: 'High-performance interactive physics and custom shaders',
-    summary:
-      'Pushing the browser to native GPU performance. We engineer custom fragment shaders, particle systems, and 60fps micro-interactions.',
-    deliverables: [
-      'Custom WebGL & Three.js Canvas',
-      'GLSL Fragment & Vertex Shaders',
-      'Fluid Kinetic Micro-Interactions',
-      'Procedural Physics Simulation',
-      'WebAudio Reactive Synthesizers',
-    ],
-    tech: ['Three.js', 'GLSL', 'Framer Motion', 'Canvas API', 'TypeScript'],
+    title: 'Render at lightning speed',
+    desc: 'Test and compile your web experiences directly in the browser without long build queues.',
+    badge: 'SUB-SECOND ENGINE',
+    accent: '#10b981',
+    preview: (
+      <div
+        style={{
+          background: '#064e3b',
+          borderRadius: 14,
+          padding: 18,
+          height: 170,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          textAlign: 'center',
+          color: '#ffffff',
+          position: 'relative',
+        }}
+      >
+        <div
+          style={{
+            width: 48,
+            height: 48,
+            borderRadius: '50%',
+            background: '#10b981',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginBottom: 12,
+            boxShadow: '0 0 20px rgba(16,185,129,0.5)',
+          }}
+        >
+          <Zap size={24} color="#ffffff" />
+        </div>
+        <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 24, lineHeight: 1 }}>0.42s</div>
+        <div style={{ fontSize: 11, color: '#a7f3d0', marginTop: 4, fontFamily: "'Outfit'" }}>Ultra-fast Edge Execution</div>
+      </div>
+    ),
   },
   {
-    id: '03',
-    icon: Layers,
-    title: 'Product Design & Design Systems',
-    tagline: 'Scalable multi-platform token architectures for ambitious products',
-    summary:
-      'From complex SaaS workflows to consumer flagship mobile apps, we engineer cohesive interfaces that eliminate friction and scale seamlessly.',
-    deliverables: [
-      'Enterprise Component Systems (Atomic)',
-      'Multi-Platform Design Tokens (CSS/Tailwind)',
-      'Accessibility & WCAG AAA Verification',
-      'Interactive Prototypes & State Machines',
-      'UX Research & Conversion Architecture',
-    ],
-    tech: ['React / Next.js', 'Tailwind CSS', 'Radix UI', 'Figma Components'],
+    title: 'High-quality design templates',
+    desc: 'Never start from a blank canvas with our ever-growing token architecture and component systems.',
+    badge: 'DESIGN TOKENS',
+    accent: '#8b5cf6',
+    preview: (
+      <div
+        style={{
+          background: '#581c87',
+          borderRadius: 14,
+          padding: 16,
+          height: 170,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          color: '#ffffff',
+        }}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span style={{ fontSize: 11, fontWeight: 600, fontFamily: "'JetBrains Mono'" }}>ATOMIC KIT v2.4</span>
+          <span style={{ background: '#7c3aed', padding: '2px 8px', borderRadius: 100, fontSize: 10 }}>NEW</span>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 6 }}>
+          {[1, 2, 3].map(n => (
+            <div key={n} style={{ background: '#7e22ce', borderRadius: 8, height: 54, border: '1px solid #9333ea' }} />
+          ))}
+        </div>
+        <div style={{ fontSize: 11, color: '#e9d5ff', fontFamily: "'Outfit'" }}>50+ Ready UI Components</div>
+      </div>
+    ),
+  },
+]
+
+const STEPS = [
+  {
+    step: '01',
+    title: 'Simple And Fast Setup',
+    desc: 'Connect your repositories, domain, and tokens in minutes with zero configuration hurdles.',
   },
   {
-    id: '04',
-    icon: Cpu,
-    title: 'High-Scale Performance & Infrastructure',
-    tagline: 'Sub-second global latency, headless commerce, and Edge speed',
-    summary:
-      'Design without performance is failure. We optimize every millisecond of Time-to-Interactive, asset streaming, and serverless edge delivery.',
-    deliverables: [
-      'Next.js 15 / Turbopack Optimization',
-      'Headless Commerce & Supabase Realtime',
-      'Global Edge Caching & CDN Strategy',
-      'Sub-Second LCP / Core Web Vitals 100/100',
-      'Automated CI/CD & Security Audits',
-    ],
-    tech: ['Next.js App Router', 'Supabase', 'Vercel Edge', 'Cloudflare Workers'],
+    step: '02',
+    title: 'Work Together Effortlessly',
+    desc: 'Seamless real-time collaboration with instant previews and live interactive state review.',
+  },
+  {
+    step: '03',
+    title: 'Monitor Your Progress & Scale',
+    desc: 'Comprehensive telemetry and Core Web Vitals analytics for exceptional decision making.',
   },
 ]
 
 export default function FeaturesSection({ T, L }: Props) {
-  const [activeTab, setActiveTab] = useState<number>(0)
+  const [activeStep, setActiveStep] = useState(0)
 
   return (
     <section
-      id="services"
       style={{
-        background: T.siteBg,
+        background: '#ffffff',
         position: 'relative',
-        transition: 'background 0.5s',
-        padding: 'clamp(80px, 10vw, 160px) clamp(24px, 5vw, 80px)',
-        borderTop: `1px solid ${T.line}`,
+        padding: 'clamp(80px, 10vw, 140px) clamp(24px, 5vw, 80px)',
       }}
     >
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        {/* Section Header */}
+        {/* Fast and Simple Header */}
         <Reveal>
-          <div style={{ marginBottom: 'clamp(48px, 6vw, 72px)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-              <div style={{ width: 24, height: 1, background: T.gold }} />
-              <span
-                style={{
-                  fontFamily: "'Outfit', sans-serif",
-                  fontSize: 11,
-                  fontWeight: 600,
-                  letterSpacing: '0.22em',
-                  textTransform: 'uppercase',
-                  color: T.gold,
-                }}
-              >
-                03 / Capabilities & Craft
-              </span>
-            </div>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'flex-start',
+              flexWrap: 'wrap',
+              gap: 24,
+              marginBottom: 'clamp(40px, 6vw, 64px)',
+            }}
+          >
             <h2
               style={{
                 fontFamily: "'Syne', sans-serif",
-                fontWeight: 700,
-                fontSize: 'clamp(32px, 4.5vw, 56px)',
+                fontWeight: 800,
+                fontSize: 'clamp(36px, 5vw, 56px)',
                 letterSpacing: '-0.04em',
-                lineHeight: 1.08,
-                color: T.text,
+                color: '#111827',
                 margin: 0,
-                transition: 'color 0.5s',
               }}
             >
-              Disciplines built for{' '}
-              <span
-                style={{
-                  fontFamily: "'Instrument Serif', serif",
-                  fontStyle: 'italic',
-                  fontWeight: 400,
-                  color: T.gold,
-                }}
-              >
-                uncompromising standards
-              </span>
+              Fast and simple
             </h2>
+
+            <p
+              style={{
+                fontFamily: "'Outfit', sans-serif",
+                fontSize: 16,
+                fontWeight: 300,
+                color: '#6b7280',
+                maxWidth: 420,
+                margin: 0,
+                lineHeight: 1.6,
+              }}
+            >
+              —No matter your scale or complexity, it’s effortless to ship world-class digital experiences with Aether.
+            </p>
           </div>
         </Reveal>
 
-        {/* Interactive Capabilities Matrix */}
+        {/* 3-Card Product Feature Row */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(12, 1fr)',
-            gap: 'clamp(20px, 3vw, 40px)',
-            alignItems: 'start',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: 24,
+            marginBottom: 'clamp(80px, 10vw, 140px)',
           }}
         >
-          {/* Left: Discipline Selector Tabs */}
-          <div style={{ gridColumn: 'span 5', display: 'flex', flexDirection: 'column', gap: 10 }}>
-            {DISCIPLINES.map((d, i) => {
-              const isActive = activeTab === i
-              const Icon = d.icon
+          {FEATURE_CARDS.map((fc, i) => (
+            <Reveal key={fc.title} delay={0.08 * i}>
+              <motion.div
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.25 }}
+                style={{
+                  background: '#f9fafb',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: 24,
+                  padding: 24,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 20,
+                  boxShadow: '0 2px 10px rgba(0,0,0,0.03)',
+                }}
+              >
+                {/* Visual Preview */}
+                {fc.preview}
 
-              return (
-                <motion.button
-                  key={d.id}
-                  onClick={() => setActiveTab(i)}
-                  whileHover={{ x: 4 }}
-                  transition={{ duration: 0.2 }}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    textAlign: 'left',
-                    width: '100%',
-                    padding: '20px 22px',
-                    borderRadius: 14,
-                    cursor: 'pointer',
-                    background: isActive
-                      ? L
-                        ? 'rgba(255,255,255,0.95)'
-                        : 'rgba(28,24,16,0.95)'
-                      : 'transparent',
-                    border: `1px solid ${isActive ? T.goldBdr : T.line}`,
-                    boxShadow: isActive ? T.shadow : 'none',
-                    transition: 'all 0.3s ease',
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                    <div
-                      style={{
-                        width: 36,
-                        height: 36,
-                        borderRadius: 10,
-                        background: isActive ? T.goldBg : 'rgba(255,255,255,0.03)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: isActive ? T.gold : T.muted,
-                        border: `1px solid ${isActive ? T.goldBdr : 'transparent'}`,
-                        transition: 'all 0.3s',
-                      }}
-                    >
-                      <Icon size={18} strokeWidth={1.8} />
-                    </div>
-
-                    <div>
-                      <div
-                        style={{
-                          fontFamily: "'JetBrains Mono', monospace",
-                          fontSize: 10,
-                          color: isActive ? T.gold : T.muted,
-                          letterSpacing: '0.1em',
-                          marginBottom: 4,
-                        }}
-                      >
-                        {d.id}
-                      </div>
-                      <div
-                        style={{
-                          fontFamily: "'Syne', sans-serif",
-                          fontWeight: 700,
-                          fontSize: 15,
-                          color: isActive ? T.text : T.sub,
-                          letterSpacing: '-0.02em',
-                          transition: 'color 0.3s',
-                        }}
-                      >
-                        {d.title}
-                      </div>
-                    </div>
-                  </div>
-
-                  <ArrowRight
-                    size={16}
-                    color={isActive ? T.gold : T.muted}
+                <div>
+                  <h3
                     style={{
-                      transform: isActive ? 'translateX(0)' : 'translateX(-4px)',
-                      opacity: isActive ? 1 : 0.4,
-                      transition: 'all 0.3s',
-                    }}
-                  />
-                </motion.button>
-              )
-            })}
-          </div>
-
-          {/* Right: Active Discipline Deep Dive Panel */}
-          <div style={{ gridColumn: 'span 7' }}>
-            <AnimatePresence mode="wait">
-              {(() => {
-                const cur = DISCIPLINES[activeTab]
-                const Icon = cur.icon
-
-                return (
-                  <motion.div
-                    key={cur.id}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -12 }}
-                    transition={{ duration: 0.3, ease: 'easeOut' }}
-                    style={{
-                      background: L ? 'rgba(255,255,255,0.85)' : 'rgba(22,18,12,0.85)',
-                      border: `1px solid ${T.goldBdr}`,
-                      borderRadius: 18,
-                      padding: 'clamp(28px, 4vw, 44px)',
-                      boxShadow: T.shadowMd,
-                      position: 'relative',
-                      overflow: 'hidden',
+                      fontFamily: "'Syne', sans-serif",
+                      fontWeight: 700,
+                      fontSize: 20,
+                      color: '#111827',
+                      margin: '0 0 8px',
+                      letterSpacing: '-0.02em',
                     }}
                   >
-                    {/* Top ambient badge */}
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        marginBottom: 20,
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: 8,
-                          background: T.goldBg,
-                          border: `1px solid ${T.goldBdr}`,
-                          borderRadius: 100,
-                          padding: '4px 14px',
-                        }}
-                      >
-                        <Icon size={14} color={T.gold} />
-                        <span
-                          style={{
-                            fontFamily: "'JetBrains Mono', monospace",
-                            fontSize: 10,
-                            letterSpacing: '0.12em',
-                            textTransform: 'uppercase',
-                            color: T.gold,
-                          }}
-                        >
-                          DISCIPLINE {cur.id}
-                        </span>
-                      </div>
+                    {fc.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "'Outfit', sans-serif",
+                      fontSize: 14,
+                      fontWeight: 300,
+                      lineHeight: 1.6,
+                      color: '#6b7280',
+                      margin: 0,
+                    }}
+                  >
+                    {fc.desc}
+                  </p>
+                </div>
+              </motion.div>
+            </Reveal>
+          ))}
+        </div>
 
-                      <span
-                        style={{
-                          fontFamily: "'Outfit', sans-serif",
-                          fontSize: 12,
-                          color: T.muted,
-                        }}
-                      >
-                        Studio Core
-                      </span>
-                    </div>
+        {/* 3 Easy Steps Section (from TaskGo) */}
+        <div style={{ paddingTop: 'clamp(40px, 6vw, 60px)', borderTop: '1px solid #f3f4f6' }}>
+          <div style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto clamp(48px, 6vw, 64px)' }}>
+            <Reveal>
+              <h2
+                style={{
+                  fontFamily: "'Syne', sans-serif",
+                  fontWeight: 800,
+                  fontSize: 'clamp(32px, 4.2vw, 48px)',
+                  letterSpacing: '-0.035em',
+                  color: '#111827',
+                  margin: '0 0 12px',
+                }}
+              >
+                Get Started In Just 3 Easy Steps
+              </h2>
+            </Reveal>
 
-                    <h3
-                      style={{
-                        fontFamily: "'Syne', sans-serif",
-                        fontWeight: 700,
-                        fontSize: 'clamp(24px, 2.5vw, 34px)',
-                        letterSpacing: '-0.03em',
-                        color: T.text,
-                        lineHeight: 1.15,
-                        margin: '0 0 10px',
-                      }}
-                    >
-                      {cur.title}
-                    </h3>
+            <Reveal delay={0.05}>
+              <p
+                style={{
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: 15,
+                  fontWeight: 300,
+                  color: '#6b7280',
+                  margin: 0,
+                  lineHeight: 1.6,
+                }}
+              >
+                Launch your digital project with a guided studio onboarding experience designed for speed and simplicity.
+              </p>
+            </Reveal>
+          </div>
 
-                    <p
-                      style={{
-                        fontFamily: "'Outfit', sans-serif",
-                        fontSize: 14,
-                        fontWeight: 400,
-                        color: T.gold,
-                        margin: '0 0 18px',
-                      }}
-                    >
-                      {cur.tagline}
-                    </p>
+          {/* Split 2-Column: Left App UI Card, Right 3 Steps */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(12, 1fr)',
+              gap: 'clamp(24px, 4vw, 48px)',
+              alignItems: 'center',
+            }}
+          >
+            {/* Left: App UI Card */}
+            <div style={{ gridColumn: 'span 7' }}>
+              <Reveal delay={0.1}>
+                <div
+                  style={{
+                    background: '#111827',
+                    borderRadius: 24,
+                    padding: 24,
+                    boxShadow: '0 20px 50px rgba(0,0,0,0.15)',
+                    border: '1px solid #374151',
+                    color: '#ffffff',
+                  }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
+                    <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 16 }}>Aether TaskBoard</span>
+                    <span style={{ fontSize: 11, color: '#9ca3af', fontFamily: "'JetBrains Mono'" }}>Sprint 42 // Live</span>
+                  </div>
 
-                    <p
-                      style={{
-                        fontFamily: "'Outfit', sans-serif",
-                        fontSize: 14,
-                        fontWeight: 300,
-                        lineHeight: 1.7,
-                        color: T.sub,
-                        margin: '0 0 28px',
-                      }}
-                    >
-                      {cur.summary}
-                    </p>
-
-                    {/* Key Deliverables */}
-                    <div style={{ marginBottom: 28 }}>
-                      <div
-                        style={{
-                          fontFamily: "'Outfit', sans-serif",
-                          fontSize: 11,
-                          fontWeight: 600,
-                          letterSpacing: '0.16em',
-                          textTransform: 'uppercase',
-                          color: T.gold,
-                          marginBottom: 12,
-                        }}
-                      >
-                        Signature Deliverables
-                      </div>
-
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 8 }}>
-                        {cur.deliverables.map((item, idx) => (
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
+                    {[
+                      { col: 'To Do', items: ['Design Token Architecture', 'GLSL Shader Review'] },
+                      { col: 'In Progress', items: ['Spatial Computing OS', 'WebGL Rendering'] },
+                      { col: 'Done', items: ['Vercel Edge Setup', 'Client Audit 100/100'] },
+                    ].map(col => (
+                      <div key={col.col} style={{ background: '#1f2937', borderRadius: 12, padding: 12 }}>
+                        <div style={{ fontSize: 11, fontWeight: 600, color: '#d1d5db', marginBottom: 8 }}>{col.col}</div>
+                        {col.items.map(item => (
                           <div
-                            key={idx}
+                            key={item}
                             style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: 10,
-                              fontFamily: "'Outfit', sans-serif",
-                              fontSize: 13,
-                              color: T.text,
+                              background: '#374151',
+                              borderRadius: 8,
+                              padding: '8px 10px',
+                              fontSize: 11,
+                              marginBottom: 6,
+                              color: '#f3f4f6',
                             }}
                           >
-                            <div
-                              style={{
-                                width: 18,
-                                height: 18,
-                                borderRadius: '50%',
-                                background: T.goldBg,
-                                border: `1px solid ${T.goldBdr}`,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                flexShrink: 0,
-                              }}
-                            >
-                              <Check size={11} color={T.gold} strokeWidth={2.5} />
-                            </div>
-                            <span>{item}</span>
+                            {item}
                           </div>
                         ))}
                       </div>
-                    </div>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            </div>
 
-                    {/* Technologies */}
-                    <div>
+            {/* Right: 3 Numbered Steps */}
+            <div style={{ gridColumn: 'span 5', display: 'flex', flexDirection: 'column', gap: 16 }}>
+              {STEPS.map((s, idx) => {
+                const isCurrent = activeStep === idx
+
+                return (
+                  <Reveal key={s.step} delay={0.1 + idx * 0.05}>
+                    <motion.div
+                      onClick={() => setActiveStep(idx)}
+                      whileHover={{ x: 4 }}
+                      style={{
+                        background: isCurrent ? '#f9fafb' : '#ffffff',
+                        border: `1px solid ${isCurrent ? '#2563eb' : '#e5e7eb'}`,
+                        borderRadius: 18,
+                        padding: 20,
+                        cursor: 'pointer',
+                        display: 'flex',
+                        gap: 16,
+                        boxShadow: isCurrent ? '0 4px 16px rgba(37,99,235,0.08)' : 'none',
+                        transition: 'all 0.25s',
+                      }}
+                    >
                       <div
                         style={{
-                          fontFamily: "'Outfit', sans-serif",
-                          fontSize: 11,
-                          fontWeight: 600,
-                          letterSpacing: '0.16em',
-                          textTransform: 'uppercase',
-                          color: T.muted,
-                          marginBottom: 10,
+                          width: 36,
+                          height: 36,
+                          borderRadius: 10,
+                          background: isCurrent ? '#2563eb' : '#f3f4f6',
+                          color: isCurrent ? '#ffffff' : '#6b7280',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontFamily: "'Syne', sans-serif",
+                          fontWeight: 700,
+                          fontSize: 14,
+                          flexShrink: 0,
+                          transition: 'all 0.25s',
                         }}
                       >
-                        Core Stack & Tools
+                        {s.step}
                       </div>
 
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-                        {cur.tech.map(tk => (
-                          <span
-                            key={tk}
-                            style={{
-                              fontFamily: "'JetBrains Mono', monospace",
-                              fontSize: 11,
-                              color: T.sub,
-                              background: L ? 'rgba(0,0,0,0.04)' : 'rgba(255,255,255,0.04)',
-                              border: `1px solid ${T.cardBdr}`,
-                              padding: '3px 10px',
-                              borderRadius: 6,
-                            }}
-                          >
-                            {tk}
-                          </span>
-                        ))}
+                      <div>
+                        <h4
+                          style={{
+                            fontFamily: "'Syne', sans-serif",
+                            fontWeight: 700,
+                            fontSize: 16,
+                            color: '#111827',
+                            margin: '0 0 4px',
+                          }}
+                        >
+                          {s.title}
+                        </h4>
+                        <p
+                          style={{
+                            fontFamily: "'Outfit', sans-serif",
+                            fontSize: 13,
+                            fontWeight: 300,
+                            lineHeight: 1.55,
+                            color: '#6b7280',
+                            margin: 0,
+                          }}
+                        >
+                          {s.desc}
+                        </p>
                       </div>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  </Reveal>
                 )
-              })()}
-            </AnimatePresence>
+              })}
+            </div>
           </div>
         </div>
       </div>
