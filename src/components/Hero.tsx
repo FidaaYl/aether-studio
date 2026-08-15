@@ -13,8 +13,8 @@ export default function Hero() {
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const { clientX, clientY } = e
-    const x = (clientX / window.innerWidth - 0.5) * 12
-    const y = (clientY / window.innerHeight - 0.5) * 12
+    const x = (clientX / window.innerWidth - 0.5) * 14
+    const y = (clientY / window.innerHeight - 0.5) * 14
     setMousePos({ x, y })
   }
 
@@ -32,7 +32,7 @@ export default function Hero() {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          padding: 'clamp(110px, 12vw, 150px) 20px clamp(60px, 7vw, 90px)',
+          padding: 'clamp(140px, 14vw, 180px) 20px clamp(70px, 8vw, 100px)',
           boxSizing: 'border-box',
         }}
       >
@@ -104,7 +104,6 @@ export default function Hero() {
           />
 
           {/* 3. Subtle Directional Arrows */}
-          {/* Web Preview -> Headline */}
           <path
             d="M 450 380 C 475 388, 488 402, 502 412"
             stroke="#475569"
@@ -113,7 +112,6 @@ export default function Hero() {
           />
           <path d="M 494 404 L 504 414 L 492 418" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
 
-          {/* Systems Panel -> Headline */}
           <path
             d="M 1100 480 C 1070 490, 1050 505, 1030 520"
             stroke="#475569"
@@ -122,7 +120,6 @@ export default function Hero() {
           />
           <path d="M 1042 510 L 1028 522 L 1038 532" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
 
-          {/* Spatial Orb -> Central Headline */}
           <path
             d="M 1160 220 C 1120 235, 1080 252, 1050 268"
             stroke="#475569"
@@ -131,7 +128,6 @@ export default function Hero() {
           />
           <path d="M 1062 260 L 1048 270 L 1058 280" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
 
-          {/* Arrow near "made to be remembered." toward Cyclist */}
           <path
             d="M 1330 710 C 1350 720, 1360 735, 1370 750"
             stroke="#1e293b"
@@ -181,7 +177,7 @@ export default function Hero() {
         </svg>
 
         {/* ═════════════════════════════════════════════════════════════════════
-            LEFT SIDE VISUAL ECOSYSTEM
+            LEFT SIDE VISUAL ECOSYSTEM (WITH ORIGINKIT-STYLE HOVER MICRO-INTERACTIONS)
             ═════════════════════════════════════════════════════════════════════ */}
 
         {/* ─── 1. TOP-LEFT: AETHER CHARACTER + EXACT "idea → system → experience" ─── */}
@@ -196,30 +192,37 @@ export default function Hero() {
             alignItems: 'flex-start',
             gap: 14,
             zIndex: 6,
-            pointerEvents: 'none',
           }}
         >
-          <div style={{ width: 'clamp(105px, 9.5vw, 145px)' }}>
+          <motion.div
+            whileHover={{ scale: 1.08, rotate: -3, y: -4 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+            style={{ width: 'clamp(105px, 9.5vw, 145px)', cursor: 'pointer' }}
+          >
             <img
               src="/user_uploads/explorer.png"
               alt="Aether Character"
               style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
             />
-          </div>
-          <div style={{ width: 'clamp(130px, 12vw, 185px)', marginTop: 6 }}>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05, y: -2 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            style={{ width: 'clamp(130px, 12vw, 185px)', marginTop: 6, cursor: 'default' }}
+          >
             <img
               src="/user_uploads/idea_note.png"
               alt="idea system experience"
               style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
             />
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* ─── 2. LEFT: AETHER / WEB MINIATURE PROJECT PREVIEW ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.85, y: mousePos.y * -0.85 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          whileHover={{ scale: 1.04, rotate: -4 }}
+          whileHover={{ scale: 1.05, rotate: -3, y: -6 }}
           style={{
             position: 'absolute',
             top: '25.5%',
@@ -237,7 +240,7 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* ─── 3. LOWER-LEFT: ENLARGED TESTIMONIAL CARD + 3D GLASS CUBE ─── */}
+        {/* ─── 3. LOWER-LEFT: ENLARGED TESTIMONIAL CARD (1.4×) + 3D GLASS CUBE ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.65, y: mousePos.y * -0.65 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
@@ -251,28 +254,36 @@ export default function Hero() {
             zIndex: 6,
           }}
         >
-          <div style={{ width: 'clamp(210px, 19.5vw, 295px)', transform: 'rotate(-2deg)', marginBottom: 14 }}>
+          <motion.div
+            whileHover={{ scale: 1.05, y: -4, rotate: -1 }}
+            transition={{ type: 'spring', stiffness: 350, damping: 18 }}
+            style={{ width: 'clamp(210px, 19.5vw, 295px)', transform: 'rotate(-2deg)', marginBottom: 14, cursor: 'pointer' }}
+          >
             <img
               src="/user_uploads/testimonial.png"
               alt="Aether Studio Testimonial"
               style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 10px 24px rgba(0,0,0,0.07))' }}
             />
-          </div>
+          </motion.div>
 
-          <div style={{ width: 'clamp(140px, 13.5vw, 200px)', transform: 'rotate(2deg)' }}>
+          <motion.div
+            whileHover={{ scale: 1.1, rotate: 6, y: -5 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+            style={{ width: 'clamp(140px, 13.5vw, 200px)', transform: 'rotate(2deg)', cursor: 'pointer' }}
+          >
             <img
               src="/user_uploads/glass_cube.png"
               alt="3D Glass Cube Artifact"
               style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
             />
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* ─── 4. LOWER-LEFT: PERMANENTLY TILTED SERVICE LAB BADGE (-5° TILT) ─── */}
+        {/* ─── 4. LOWER-LEFT: TILTED SERVICE LAB BADGE (TILTED AT -5° WITH SMOOTH HOVER) ─── */}
         <motion.div
-          animate={{ x: mousePos.x * -0.5, y: mousePos.y * -0.5, rotate: -5 }}
+          animate={{ x: mousePos.x * -0.5, y: mousePos.y * -0.5 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          whileHover={{ scale: 1.04, rotate: -3 }}
+          whileHover={{ scale: 1.06, rotate: -2, y: -4 }}
           style={{
             position: 'absolute',
             bottom: '6.5%',
@@ -284,7 +295,7 @@ export default function Hero() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            rotate: '-5deg',
+            transform: 'rotate(-5deg)',
             boxShadow: '0 12px 28px rgba(190,242,100,0.40), 0 4px 12px rgba(0,0,0,0.06)',
             zIndex: 7,
             cursor: 'pointer',
@@ -317,7 +328,8 @@ export default function Hero() {
             </span>
           </div>
 
-          <div
+          <motion.div
+            whileHover={{ x: 4 }}
             style={{
               width: 34,
               height: 34,
@@ -331,23 +343,25 @@ export default function Hero() {
             }}
           >
             <ArrowRight size={17} strokeWidth={2.5} />
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* ═════════════════════════════════════════════════════════════════════
-            RIGHT SIDE VISUAL ECOSYSTEM
+            RIGHT SIDE VISUAL ECOSYSTEM (WITH ORIGINKIT-STYLE HOVER MICRO-INTERACTIONS)
             ═════════════════════════════════════════════════════════════════════ */}
 
         {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL 3D ORB ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.85, y: mousePos.y * 0.85 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
+          whileHover={{ scale: 1.08, rotate: 4, y: -6 }}
           style={{
             position: 'absolute',
             top: '9.5%',
             right: 'clamp(3.5%, 6vw, 8.5%)',
             width: 'clamp(205px, 17.5vw, 290px)',
             zIndex: 6,
+            cursor: 'pointer',
           }}
         >
           <img
@@ -361,7 +375,7 @@ export default function Hero() {
         <motion.div
           animate={{ x: mousePos.x * 0.75, y: mousePos.y * 0.75 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          whileHover={{ scale: 1.04, rotate: 2 }}
+          whileHover={{ scale: 1.05, rotate: 3, y: -5 }}
           style={{
             position: 'absolute',
             top: '32%',
@@ -395,37 +409,51 @@ export default function Hero() {
         >
           {/* Top of Cluster: Palette Pill + Cursor + EXACT "made to be remembered." */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            <div style={{ width: 'clamp(120px, 11vw, 160px)' }}>
+            <motion.div
+              whileHover={{ scale: 1.08, y: -2 }}
+              style={{ width: 'clamp(120px, 11vw, 160px)', cursor: 'pointer' }}
+            >
               <img
                 src="/user_uploads/palette_pill.png"
                 alt="Color Palette Swatches"
                 style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.05))' }}
               />
-            </div>
-            <div style={{ width: 22 }}>
+            </motion.div>
+            <motion.div
+              animate={{ x: [0, 3, 0], y: [0, -3, 0] }}
+              transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut' }}
+              style={{ width: 22 }}
+            >
               <img
                 src="/user_uploads/green_cursor.png"
                 alt="Green Cursor"
                 style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
               />
-            </div>
-            <div style={{ width: 'clamp(125px, 12vw, 175px)' }}>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              style={{ width: 'clamp(125px, 12vw, 175px)', cursor: 'default' }}
+            >
               <img
                 src="/user_uploads/remembered_note.png"
                 alt="made to be remembered"
                 style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
               />
-            </div>
+            </motion.div>
           </div>
 
-          {/* Bottom of Cluster: Cyclist */}
-          <div style={{ width: 'clamp(175px, 17vw, 260px)', marginTop: 2 }}>
+          {/* Bottom of Cluster: Cyclist with playful hover bounce */}
+          <motion.div
+            whileHover={{ scale: 1.08, x: -6, y: -4 }}
+            transition={{ type: 'spring', stiffness: 350, damping: 15 }}
+            style={{ width: 'clamp(175px, 17vw, 260px)', marginTop: 2, cursor: 'pointer' }}
+          >
             <img
               src="/user_uploads/cyclist.png"
               alt="Aether Cyclist Illustration"
               style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
             />
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* ═════════════════════════════════════════════════════════════════════
@@ -434,7 +462,8 @@ export default function Hero() {
         <div style={{ maxWidth: 840, textAlign: 'center', position: 'relative', zIndex: 10, opacity: 1, visibility: 'visible' }}>
           {/* Top Pill Tag (EXACTLY 1 GREEN DOT ON TOP TITLE) */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
-            <div
+            <motion.div
+              whileHover={{ scale: 1.04 }}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -444,6 +473,7 @@ export default function Hero() {
                 borderRadius: 100,
                 padding: '6px 18px',
                 boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                cursor: 'default',
               }}
             >
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#84cc16' }} />
@@ -459,10 +489,10 @@ export default function Hero() {
               >
                 TRUSTED BY OVER 200+ GLOBAL BRANDS
               </span>
-            </div>
+            </motion.div>
           </div>
 
-          {/* Central Headline (PERMANENTLY VISIBLE) */}
+          {/* Central Headline */}
           <h1
             style={{
               fontFamily: "'Syne', sans-serif",
@@ -502,7 +532,7 @@ export default function Hero() {
             together
           </h1>
 
-          {/* Descriptive Subtitle Paragraph (PERMANENTLY VISIBLE) */}
+          {/* Descriptive Subtitle Paragraph */}
           <p
             style={{
               fontFamily: "'Outfit', sans-serif",
@@ -569,7 +599,7 @@ export default function Hero() {
               {/* Primary Button */}
               <motion.a
                 href="#contact"
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ scale: 1.06, y: -3, boxShadow: '0 12px 28px rgba(190,242,100,0.45)' }}
                 whileTap={{ scale: 0.96 }}
                 style={{
                   display: 'inline-flex',
@@ -592,7 +622,7 @@ export default function Hero() {
               {/* Secondary Button */}
               <motion.a
                 href="#services"
-                whileHover={{ scale: 1.04, y: -2 }}
+                whileHover={{ scale: 1.05, y: -2, background: '#f9fafb' }}
                 whileTap={{ scale: 0.96 }}
                 style={{
                   display: 'inline-flex',
