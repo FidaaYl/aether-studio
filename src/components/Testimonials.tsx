@@ -1,115 +1,280 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Reveal, useMouse } from './cinematic-hooks'
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react'
+import { Reveal } from './cinematic-hooks'
 
-interface Props { T: any; L: boolean }
+interface Props {
+  T: any
+  L: boolean
+}
 
-const QUOTES = [
-  { q: 'Aether transformed our brand from forgettable to iconic. Every pixel felt intentional — like they could see the future we wanted.', name: 'Sarah Chen', role: 'CEO, Luminary', ini: 'SC', metric: '+312%', metricLabel: 'conversion' },
-  { q: "The site won Awwwards SOTD in week one. It wasn't just beautiful — it converted. That's the difference between decoration and design.", name: 'Marcus Reid', role: 'Founder, Orbit', ini: 'MR', metric: 'SOTD', metricLabel: 'awwwards' },
-  { q: "Working with Aether felt like gaining a creative partner who understands craft. No briefs needed. No revisions wasted. Just excellence.", name: 'Yuki Tanaka', role: 'CPO, Solstice', ini: 'YT', metric: '4.2×', metricLabel: 'engagement' },
-] as const
+const CLIENT_LOGOS = [
+  'CHRONOS SPATIAL',
+  'VELOCE AUTOMOTIVE',
+  'NEXUS PROTOCOL',
+  'SOLIS ACOUSTICS',
+  'MONOLITH VENTURES',
+  'AURA HARDWARE',
+]
+
+const TESTIMONIALS = [
+  {
+    quote:
+      'Aether took our spatial product from an ambitious concept to a culturally defining digital flagship. The conversion rate jumped by 240% in our first quarter post-launch.',
+    author: 'Julian Thorne',
+    role: 'Founder & CEO',
+    company: 'Chronos Spatial',
+    year: '2025 Commission',
+  },
+  {
+    quote:
+      'The sheer engineering rigor and visual obsession Aether brings to the table is unmatched. They delivered a ray-traced 3D configurator with sub-second loading on mobile.',
+    author: 'Elena Rostova',
+    role: 'VP of Digital Experience',
+    company: 'Veloce Hypercars',
+    year: '2025 Commission',
+  },
+  {
+    quote:
+      'They do not build standard templates. Aether constructs bespoke digital architecture that elevates your entire brand perception to institutional tier.',
+    author: 'Dr. Marcus Vance',
+    role: 'Managing Partner',
+    company: 'Nexus Capital',
+    year: '2024 Commission',
+  },
+]
 
 export default function Testimonials({ T, L }: Props) {
-  const [idx, setIdx] = useState(0)
-  const mouse = useMouse()
-  const q = QUOTES[idx]
+  const [currentIdx, setCurrentIdx] = useState<number>(0)
 
-  useEffect(() => {
-    const timer = setInterval(() => setIdx(i => (i + 1) % QUOTES.length), 7000)
-    return () => clearInterval(timer)
-  }, [])
+  const nextTestimonial = () => {
+    setCurrentIdx(prev => (prev + 1) % TESTIMONIALS.length)
+  }
+
+  const prevTestimonial = () => {
+    setCurrentIdx(prev => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)
+  }
 
   return (
-    <section style={{ background: T.siteBg, transition: 'background 0.5s' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: 'clamp(100px,14vw,200px) clamp(28px,5vw,80px)', position: 'relative', overflow: 'hidden', minHeight: 500 }}>
-
-        {/* Label */}
+    <section
+      style={{
+        background: T.siteBg,
+        position: 'relative',
+        transition: 'background 0.5s',
+        padding: 'clamp(80px, 10vw, 140px) clamp(24px, 5vw, 80px)',
+        borderTop: `1px solid ${T.line}`,
+      }}
+    >
+      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+        {/* Section Header */}
         <Reveal>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 56 }}>
-            <div style={{ width: 20, height: 1, background: T.goldDim }} />
-            <span style={{ fontFamily: "'Outfit'", fontSize: 11, fontWeight: 500, letterSpacing: '0.25em', textTransform: 'uppercase' as const, color: T.goldDim }}>Client voices</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
+            <div style={{ width: 24, height: 1, background: T.gold }} />
+            <span
+              style={{
+                fontFamily: "'Outfit', sans-serif",
+                fontSize: 11,
+                fontWeight: 600,
+                letterSpacing: '0.22em',
+                textTransform: 'uppercase',
+                color: T.gold,
+              }}
+            >
+              04 / Client Impact & Trust
+            </span>
           </div>
         </Reveal>
 
-        {/* Giant ghost metric in background */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={idx + '-metric'}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 0.5, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.5 }}
+        {/* Client Logos Marquee */}
+        <Reveal delay={0.05}>
+          <div
             style={{
-              position: 'absolute', right: 'clamp(0px,2vw,60px)', top: '50%',
-              fontFamily: "'JetBrains Mono'", fontWeight: 300,
-              fontSize: 'clamp(100px,18vw,260px)', color: T.muted,
-              transform: `translateY(-50%) translate(${(mouse.x - 0.5) * -10}px, ${(mouse.y - 0.5) * -8}px)`,
-              letterSpacing: '-0.06em', lineHeight: 1,
-              userSelect: 'none', pointerEvents: 'none',
+              padding: '24px 0 clamp(48px, 6vw, 72px)',
+              borderBottom: `1px solid ${T.line}`,
+              marginBottom: 'clamp(48px, 6vw, 72px)',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '20px 40px',
             }}
-          >{q.metric}</motion.div>
-        </AnimatePresence>
-
-        {/* Quote content */}
-        <div style={{ position: 'relative', zIndex: 2, maxWidth: 720 }}>
-
-          {/* Giant quotation mark */}
-          <div style={{
-            fontFamily: "'Instrument Serif'", fontStyle: 'italic',
-            fontSize: 'clamp(100px,14vw,180px)', color: T.muted,
-            lineHeight: 0.6, marginBottom: -16, userSelect: 'none', opacity: 0.5,
-            transition: 'color 0.5s',
-          }}>"</div>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 16, filter: 'blur(4px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: -12, filter: 'blur(4px)' }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <p style={{
-                fontFamily: "'Instrument Serif'", fontStyle: 'italic',
-                fontSize: 'clamp(24px,3vw,40px)', letterSpacing: '-0.01em',
-                lineHeight: 1.4, color: T.text, margin: '0 0 40px',
-                transition: 'color 0.5s',
-              }}>
-                {q.q}
-              </p>
-
-              {/* Author */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                <div style={{
-                  width: 44, height: 44, borderRadius: '50%',
-                  background: `linear-gradient(135deg, ${T.gold}, #c07830)`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                }}>
-                  <span style={{ fontFamily: "'Outfit'", fontSize: 13, fontWeight: 600, color: L ? '#fff' : '#0c0a07' }}>{q.ini}</span>
-                </div>
-                <div>
-                  <div style={{ fontFamily: "'Syne'", fontWeight: 600, fontSize: 15, color: T.text, letterSpacing: '-0.01em', transition: 'color 0.5s' }}>{q.name}</div>
-                  <div style={{ fontFamily: "'Outfit'", fontSize: 13, color: T.muted, marginTop: 2, transition: 'color 0.5s' }}>{q.role}</div>
-                </div>
-                <div style={{ marginLeft: 'auto' }}>
-                  <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 11, color: T.muted, letterSpacing: '0.1em', textTransform: 'uppercase' as const }}>{q.metricLabel}</span>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Pagination */}
-          <div style={{ display: 'flex', gap: 8, marginTop: 48 }}>
-            {QUOTES.map((_, i) => (
-              <button key={i} onClick={() => setIdx(i)} style={{
-                width: i === idx ? 32 : 8, height: 3, border: 'none', cursor: 'pointer',
-                background: i === idx ? T.gold : T.line, borderRadius: 2, padding: 0,
-                transition: 'all 0.4s cubic-bezier(0.16,1,0.3,1)',
-              }} />
+          >
+            {CLIENT_LOGOS.map((name, i) => (
+              <span
+                key={name}
+                style={{
+                  fontFamily: "'Syne', sans-serif",
+                  fontWeight: 700,
+                  fontSize: 'clamp(12px, 1.2vw, 15px)',
+                  letterSpacing: '0.12em',
+                  color: T.sub,
+                  opacity: 0.5,
+                  transition: 'opacity 0.3s, color 0.3s',
+                }}
+              >
+                {name}
+              </span>
             ))}
           </div>
-        </div>
+        </Reveal>
+
+        {/* Featured Testimonial Card */}
+        <Reveal delay={0.1}>
+          <div
+            style={{
+              background: L ? 'rgba(255,255,255,0.9)' : 'rgba(22,18,12,0.9)',
+              border: `1px solid ${T.goldBdr}`,
+              borderRadius: 20,
+              padding: 'clamp(32px, 5vw, 64px)',
+              position: 'relative',
+              boxShadow: T.shadowMd,
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                marginBottom: 32,
+              }}
+            >
+              <div
+                style={{
+                  width: 44,
+                  height: 44,
+                  borderRadius: 12,
+                  background: T.goldBg,
+                  border: `1px solid ${T.goldBdr}`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <Quote size={20} color={T.gold} />
+              </div>
+
+              {/* Slider Controls */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 11,
+                    color: T.muted,
+                    marginRight: 8,
+                  }}
+                >
+                  0{currentIdx + 1} / 0{TESTIMONIALS.length}
+                </span>
+
+                <motion.button
+                  onClick={prevTestimonial}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: '50%',
+                    background: 'transparent',
+                    border: `1px solid ${T.cardBdr}`,
+                    color: T.text,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <ChevronLeft size={16} />
+                </motion.button>
+
+                <motion.button
+                  onClick={nextTestimonial}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: '50%',
+                    background: T.goldBg,
+                    border: `1px solid ${T.goldBdr}`,
+                    color: T.gold,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <ChevronRight size={16} />
+                </motion.button>
+              </div>
+            </div>
+
+            {/* Quote Body */}
+            <motion.p
+              key={currentIdx}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              style={{
+                fontFamily: "'Outfit', sans-serif",
+                fontSize: 'clamp(20px, 2.6vw, 32px)',
+                fontWeight: 300,
+                lineHeight: 1.45,
+                color: T.text,
+                margin: '0 0 36px',
+                letterSpacing: '-0.01em',
+              }}
+            >
+              “{TESTIMONIALS[currentIdx].quote}”
+            </motion.p>
+
+            {/* Author Footer */}
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-end',
+                flexWrap: 'wrap',
+                gap: 16,
+                paddingTop: 24,
+                borderTop: `1px solid ${T.line}`,
+              }}
+            >
+              <div>
+                <div
+                  style={{
+                    fontFamily: "'Syne', sans-serif",
+                    fontWeight: 700,
+                    fontSize: 18,
+                    color: T.text,
+                    marginBottom: 4,
+                  }}
+                >
+                  {TESTIMONIALS[currentIdx].author}
+                </div>
+                <div
+                  style={{
+                    fontFamily: "'Outfit', sans-serif",
+                    fontSize: 13,
+                    color: T.sub,
+                  }}
+                >
+                  {TESTIMONIALS[currentIdx].role}, <strong style={{ color: T.gold }}>{TESTIMONIALS[currentIdx].company}</strong>
+                </div>
+              </div>
+
+              <span
+                style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: 11,
+                  color: T.muted,
+                  letterSpacing: '0.08em',
+                }}
+              >
+                {TESTIMONIALS[currentIdx].year}
+              </span>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )
