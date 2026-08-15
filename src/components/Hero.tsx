@@ -20,7 +20,7 @@ export default function Hero() {
 
   return (
     <div style={{ background: '#ffffff', overflowX: 'hidden', color: '#111827' }} onMouseMove={handleMouseMove}>
-      {/* ✦ 1. AETHER UNIVERSE HERO — DENSE ORBITAL COMPOSITION (REFERENCE A BLUEPRINT) */}
+      {/* ✦ 1. AETHER UNIVERSE HERO — REFINED ORBITAL COMPOSITION */}
       <section
         style={{
           position: 'relative',
@@ -39,7 +39,7 @@ export default function Hero() {
         <Navbar />
 
         {/* ═════════════════════════════════════════════════════════════════════
-            PHASE 2: EDITORIAL DOODLE, ORBIT PATH & SPARKLE NETWORK (SVG LAYER)
+            REFINED: SUBTLE FRAGMENTED EDITORIAL ORBIT ARCS & DOODLES (SVG)
             ═════════════════════════════════════════════════════════════════════ */}
         <svg
           style={{
@@ -54,126 +54,123 @@ export default function Hero() {
           preserveAspectRatio="none"
           fill="none"
         >
-          {/* 1. Orbit Arc from Top-Left Explorer down around Web Preview */}
+          {/* 1. Partial Arc looping around Web Preview */}
           <path
-            d="M 120 180 C 260 220, 360 380, 240 520 C 140 640, 180 780, 320 820"
+            d="M 180 220 C 280 260, 340 380, 260 480"
             stroke="#cbd5e1"
-            strokeWidth="1.5"
-            strokeDasharray="4 6"
-            strokeLinecap="round"
-          />
-
-          {/* 2. Loose Orbit passing behind AETHER / WEB toward Headline */}
-          <path
-            d="M 380 260 C 480 230, 540 320, 480 430 C 420 540, 310 590, 210 560"
-            stroke="#94a3b8"
-            strokeWidth="1.2"
+            strokeWidth="1.1"
             strokeDasharray="3 5"
             strokeLinecap="round"
+            opacity="0.75"
           />
 
-          {/* 3. Orbit from Spatial Orb extending toward central headline */}
+          {/* 2. Soft Short Trajectory near Web -> Headline */}
           <path
-            d="M 1480 140 C 1280 90, 1050 180, 1140 340 C 1220 480, 1420 440, 1460 620"
-            stroke="#cbd5e1"
-            strokeWidth="1.5"
-            strokeDasharray="4 6"
-            strokeLinecap="round"
-          />
-
-          {/* 4. Neon-Lime connecting trajectory behind Systems panel */}
-          <path
-            d="M 1180 320 C 1320 280, 1460 360, 1380 500 C 1300 640, 1140 680, 1260 840"
-            stroke="#84cc16"
-            strokeWidth="1.5"
+            d="M 390 320 C 450 300, 490 360, 460 430"
+            stroke="#e2e8f0"
+            strokeWidth="1.1"
             strokeDasharray="3 5"
             strokeLinecap="round"
             opacity="0.8"
           />
 
-          {/* 5. Curved ground/trajectory line under Cyclist */}
+          {/* 3. Partial Arc under Spatial Orb extending down toward Systems */}
           <path
-            d="M 1120 920 C 1260 900, 1420 930, 1560 910"
-            stroke="#64748b"
-            strokeWidth="1.6"
+            d="M 1360 200 C 1220 180, 1140 280, 1190 390"
+            stroke="#cbd5e1"
+            strokeWidth="1.1"
+            strokeDasharray="3 5"
             strokeLinecap="round"
+            opacity="0.75"
           />
+
+          {/* 4. Subtle Partial Lime Curve behind Systems panel */}
           <path
-            d="M 1200 935 C 1320 925, 1460 945, 1540 930"
-            stroke="#94a3b8"
+            d="M 1240 360 C 1340 340, 1400 420, 1350 510"
+            stroke="#84cc16"
+            strokeWidth="1.2"
+            strokeDasharray="3 5"
+            strokeLinecap="round"
+            opacity="0.7"
+          />
+
+          {/* 5. Short Ground Curve under Cyclist */}
+          <path
+            d="M 1180 880 C 1290 865, 1410 885, 1500 875"
+            stroke="#cbd5e1"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            opacity="0.8"
+          />
+
+          {/* 6. Hand-Drawn Editorial Arrows (Thin & Subtle) */}
+          {/* Arrow: Web Preview -> Headline */}
+          <path
+            d="M 440 380 C 470 388, 485 402, 500 412"
+            stroke="#475569"
             strokeWidth="1.2"
             strokeLinecap="round"
           />
+          <path d="M 492 404 L 502 414 L 490 418" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
 
-          {/* 6. Hand-Drawn Editorial Arrows */}
-          {/* Arrow: Web Preview -> Headline */}
+          {/* Arrow: Systems Panel -> Headline */}
           <path
-            d="M 420 380 C 460 390, 480 410, 500 420"
-            stroke="#1e293b"
-            strokeWidth="1.5"
+            d="M 1120 440 C 1090 448, 1070 464, 1052 478"
+            stroke="#475569"
+            strokeWidth="1.2"
             strokeLinecap="round"
           />
-          <path d="M 490 410 L 502 422 L 488 428" stroke="#1e293b" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M 1062 470 L 1050 480 L 1060 490" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
 
-          {/* Arrow: Systems Panel -> Central Idea */}
+          {/* Arrow: Spatial Orb -> Central Headline */}
           <path
-            d="M 1140 440 C 1100 450, 1070 470, 1050 490"
-            stroke="#1e293b"
-            strokeWidth="1.5"
+            d="M 1160 230 C 1120 245, 1080 262, 1050 278"
+            stroke="#475569"
+            strokeWidth="1.2"
             strokeLinecap="round"
           />
-          <path d="M 1062 480 L 1048 492 L 1060 502" stroke="#1e293b" strokeWidth="1.5" strokeLinecap="round" />
-
-          {/* Arrow: Spatial Orb -> Headline */}
-          <path
-            d="M 1190 220 C 1140 240, 1080 260, 1040 280"
-            stroke="#1e293b"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-          <path d="M 1054 270 L 1038 282 L 1050 292" stroke="#1e293b" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M 1062 270 L 1048 280 L 1058 290" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
 
           {/* 7. Tiny Green Energy Nodes on Orbits */}
-          <circle cx="240" cy="520" r="4.5" fill="#84cc16" />
-          <circle cx="360" cy="380" r="3.5" fill="#84cc16" />
-          <circle cx="1140" cy="340" r="4.5" fill="#84cc16" />
-          <circle cx="1380" cy="500" r="4" fill="#84cc16" />
-          <circle cx="1200" cy="820" r="4" fill="#84cc16" />
-          <circle cx="580" cy="740" r="3.5" fill="#84cc16" />
+          <circle cx="260" cy="480" r="3.5" fill="#84cc16" />
+          <circle cx="340" cy="380" r="3" fill="#84cc16" />
+          <circle cx="1190" cy="390" r="3.5" fill="#84cc16" />
+          <circle cx="1350" cy="510" r="3.5" fill="#84cc16" />
+          <circle cx="560" cy="710" r="3" fill="#84cc16" />
 
           {/* 8. Hand-Drawn Stars & Sparkles in Negative Spaces */}
           <g transform="translate(680, 140)">
-            <path d="M0 -8 Q0 0 8 0 Q0 0 0 8 Q0 0 -8 0 Q0 0 0 -8" fill="#84cc16" />
-          </g>
-          <g transform="translate(180, 310)">
-            <path d="M0 -10 Q0 0 10 0 Q0 0 0 10 Q0 0 -10 0 Q0 0 0 -10" fill="#1e293b" />
-          </g>
-          <g transform="translate(460, 520)">
             <path d="M0 -7 Q0 0 7 0 Q0 0 0 7 Q0 0 -7 0 Q0 0 0 -7" fill="#84cc16" />
           </g>
-          <g transform="translate(1080, 160)">
-            <path d="M0 -9 Q0 0 9 0 Q0 0 0 9 Q0 0 -9 0 Q0 0 0 -9" fill="#84cc16" />
+          <g transform="translate(200, 310)">
+            <path d="M0 -8 Q0 0 8 0 Q0 0 0 8 Q0 0 -8 0 Q0 0 0 -8" fill="#475569" />
           </g>
-          <g transform="translate(1440, 360)">
-            <path d="M0 -8 Q0 0 8 0 Q0 0 0 8 Q0 0 -8 0 Q0 0 0 -8" fill="#1e293b" />
+          <g transform="translate(460, 500)">
+            <path d="M0 -6 Q0 0 6 0 Q0 0 0 6 Q0 0 -6 0 Q0 0 0 -6" fill="#84cc16" />
           </g>
-          <g transform="translate(480, 810)">
+          <g transform="translate(1060, 170)">
             <path d="M0 -8 Q0 0 8 0 Q0 0 0 8 Q0 0 -8 0 Q0 0 0 -8" fill="#84cc16" />
           </g>
-          <g transform="translate(1420, 780)">
-            <path d="M0 -7 Q0 0 7 0 Q0 0 0 7 Q0 0 -7 0 Q0 0 0 -7" fill="#1e293b" />
+          <g transform="translate(1380, 360)">
+            <path d="M0 -7 Q0 0 7 0 Q0 0 0 7 Q0 0 -7 0 Q0 0 0 -7" fill="#475569" />
+          </g>
+          <g transform="translate(480, 770)">
+            <path d="M0 -7 Q0 0 7 0 Q0 0 0 7 Q0 0 -7 0 Q0 0 0 -7" fill="#84cc16" />
+          </g>
+          <g transform="translate(1360, 750)">
+            <path d="M0 -6 Q0 0 6 0 Q0 0 0 6 Q0 0 -6 0 Q0 0 0 -6" fill="#475569" />
           </g>
 
-          {/* 9. Micro-Doodles: Crosses, Dashes & Tiny Circles */}
-          <text x="320" y="240" fill="#94a3b8" fontSize="14" fontFamily="monospace">✦</text>
-          <text x="1260" y="190" fill="#84cc16" fontSize="16" fontFamily="monospace">★</text>
-          <text x="1100" y="620" fill="#94a3b8" fontSize="12" fontFamily="monospace">+</text>
-          <text x="520" y="660" fill="#94a3b8" fontSize="14" fontFamily="monospace">+</text>
-          <text x="1360" y="680" fill="#84cc16" fontSize="12" fontFamily="monospace">✦</text>
+          {/* 9. Micro-Doodles: Editorial Annotations */}
+          <text x="320" y="240" fill="#94a3b8" fontSize="13" fontFamily="monospace">✦</text>
+          <text x="1230" y="200" fill="#84cc16" fontSize="14" fontFamily="monospace">★</text>
+          <text x="1080" y="580" fill="#cbd5e1" fontSize="12" fontFamily="monospace">+</text>
+          <text x="520" y="640" fill="#cbd5e1" fontSize="13" fontFamily="monospace">+</text>
+          <text x="1310" y="650" fill="#84cc16" fontSize="12" fontFamily="monospace">✦</text>
         </svg>
 
         {/* ═════════════════════════════════════════════════════════════════════
-            PROPORTIONAL LARGE ASSETS BROUGHT CLOSE TO HEADLINE
+            BALANCED ASSETS — INWARD ORBIT CLOSE TO HEADLINE
             ═════════════════════════════════════════════════════════════════════ */}
 
         {/* ─── 1. TOP-LEFT: EXPLORER CHARACTER + "idea → system → experience" ─── */}
@@ -182,8 +179,8 @@ export default function Hero() {
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            top: '8%',
-            left: 'clamp(2%, 4.5vw, 7%)',
+            top: '9%',
+            left: 'clamp(3%, 5.5vw, 8%)',
             display: 'flex',
             alignItems: 'flex-start',
             gap: 12,
@@ -191,14 +188,14 @@ export default function Hero() {
             pointerEvents: 'none',
           }}
         >
-          <div style={{ width: 'clamp(100px, 9vw, 140px)' }}>
+          <div style={{ width: 'clamp(95px, 8.5vw, 135px)' }}>
             <img
               src="/user_uploads/explorer.png"
               alt="Aether Explorer Character"
               style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
             />
           </div>
-          <div style={{ width: 'clamp(130px, 12vw, 180px)', marginTop: 8 }}>
+          <div style={{ width: 'clamp(120px, 11vw, 170px)', marginTop: 6 }}>
             <img
               src="/user_uploads/idea_note.png"
               alt="idea system experience"
@@ -207,7 +204,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ─── 2. LEFT: AETHER / WEB MINIATURE PROJECT PREVIEW (19-22vw LARGE) ─── */}
+        {/* ─── 2. LEFT: AETHER / WEB MINIATURE PROJECT PREVIEW (INWARD BY ~25PX) ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.85, y: mousePos.y * -0.85 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
@@ -215,8 +212,8 @@ export default function Hero() {
           style={{
             position: 'absolute',
             top: '26%',
-            left: 'clamp(1.5%, 4vw, 6%)',
-            width: 'clamp(280px, 21vw, 380px)',
+            left: 'clamp(2.5%, 5vw, 7.5%)',
+            width: 'clamp(290px, 21.5vw, 390px)',
             transform: 'rotate(-5deg)',
             zIndex: 7,
             cursor: 'pointer',
@@ -229,21 +226,21 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* ─── 3. LOWER-LEFT: CLIENT TESTIMONIAL & 3D GLASS CUBE (14-16vw) ─── */}
+        {/* ─── 3. LOWER-LEFT: CLIENT TESTIMONIAL & 3D GLASS CUBE (UP & INWARD) ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.65, y: mousePos.y * -0.65 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            bottom: '12%',
-            left: 'clamp(2%, 4.5vw, 7%)',
+            bottom: '15%',
+            left: 'clamp(3%, 5.5vw, 8%)',
             display: 'flex',
             alignItems: 'center',
             gap: 16,
             zIndex: 6,
           }}
         >
-          <div style={{ width: 'clamp(150px, 14vw, 220px)' }}>
+          <div style={{ width: 'clamp(145px, 13vw, 200px)' }}>
             <img
               src="/user_uploads/testimonial.png"
               alt="Aether Studio Testimonial"
@@ -251,7 +248,7 @@ export default function Hero() {
             />
           </div>
 
-          <div style={{ width: 'clamp(120px, 12vw, 180px)' }}>
+          <div style={{ width: 'clamp(130px, 13vw, 190px)' }}>
             <img
               src="/user_uploads/glass_cube.png"
               alt="3D Glass Cube Artifact"
@@ -260,15 +257,15 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ─── 4. BOTTOM-LEFT: RESTORED SERVICE LAB BADGE (250-300px) ─── */}
+        {/* ─── 4. BOTTOM-LEFT: SERVICE LAB BADGE (UP FROM EDGE & INWARD) ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.5, y: mousePos.y * -0.5 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           whileHover={{ scale: 1.03 }}
           style={{
             position: 'absolute',
-            bottom: '3%',
-            left: 'clamp(2.5%, 4.5vw, 7%)',
+            bottom: '5%',
+            left: 'clamp(3.5%, 5.5vw, 8%)',
             width: 'clamp(240px, 16vw, 290px)',
             background: '#bef264',
             borderRadius: 100,
@@ -325,15 +322,15 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL 3D ORB (15-18vw LARGE & INWARD) ─── */}
+        {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL 3D ORB (DOWN & LEFT INWARD) ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.85, y: mousePos.y * 0.85 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            top: '7%',
-            right: 'clamp(2%, 4.5vw, 7%)',
-            width: 'clamp(200px, 17vw, 290px)',
+            top: '10%',
+            right: 'clamp(3.5%, 6vw, 8.5%)',
+            width: 'clamp(200px, 17vw, 280px)',
             zIndex: 6,
           }}
         >
@@ -344,16 +341,16 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* ─── 6. RIGHT: AETHER / SYSTEMS DESIGN PANEL (16-19vw LARGE & INWARD) ─── */}
+        {/* ─── 6. RIGHT: AETHER / SYSTEMS DESIGN PANEL (INCREASED 15-20% & INWARD) ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.75, y: mousePos.y * 0.75 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           whileHover={{ scale: 1.04, rotate: 2 }}
           style={{
             position: 'absolute',
-            top: '29%',
-            right: 'clamp(2%, 4vw, 6.5%)',
-            width: 'clamp(230px, 18vw, 320px)',
+            top: '28%',
+            right: 'clamp(3%, 5.5vw, 8%)',
+            width: 'clamp(270px, 20vw, 360px)',
             zIndex: 6,
             cursor: 'pointer',
           }}
@@ -371,8 +368,8 @@ export default function Hero() {
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            bottom: '20%',
-            right: 'clamp(3%, 5vw, 8%)',
+            bottom: '22%',
+            right: 'clamp(4%, 6.5vw, 9.5%)',
             display: 'flex',
             alignItems: 'center',
             gap: 12,
@@ -395,14 +392,14 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ─── 8. BOTTOM-RIGHT: CYCLIST ILLUSTRATION + "made to be remembered." (15-18vw) ─── */}
+        {/* ─── 8. BOTTOM-RIGHT: CYCLIST ILLUSTRATION + "made to be remembered." (UP & LEFT) ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.55, y: mousePos.y * 0.55 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            bottom: '2%',
-            right: 'clamp(2%, 4vw, 6.5%)',
+            bottom: '5%',
+            right: 'clamp(3%, 5.5vw, 8%)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-end',
