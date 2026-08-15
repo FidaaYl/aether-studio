@@ -6,9 +6,6 @@ import {
   Check,
   Star,
   Zap,
-  MousePointer2,
-  Smile,
-  Compass,
 } from 'lucide-react'
 import Navbar from './Navbar'
 import NarrativeSection from './NarrativeSection'
@@ -78,29 +75,23 @@ export default function Hero() {
           }}
         >
           <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto' }}>
-            {/* Minimalist Designer Sitting with Tablet */}
             <circle cx="100" cy="55" r="22" stroke="#111827" strokeWidth="3" />
             <path d="M88 48C90 44 95 40 105 40C115 40 118 46 118 50" stroke="#111827" strokeWidth="3" strokeLinecap="round" />
             <circle cx="94" cy="54" r="2.5" fill="#111827" />
             <circle cx="106" cy="54" r="2.5" fill="#111827" />
             <path d="M98 62C100 64 104 64 106 62" stroke="#111827" strokeWidth="2.5" strokeLinecap="round" />
-            {/* Glasses */}
             <circle cx="94" cy="54" r="6" stroke="#16a34a" strokeWidth="2" />
             <circle cx="106" cy="54" r="6" stroke="#16a34a" strokeWidth="2" />
             <line x1="100" y1="54" x2="100" y2="54" stroke="#16a34a" strokeWidth="2" />
-            {/* Body & Clothes */}
             <path d="M78 85C78 78 86 74 100 74C114 74 122 78 122 85L128 130H72L78 85Z" stroke="#111827" strokeWidth="3" fill="#ffffff" />
             <path d="M82 95L118 95" stroke="#84cc16" strokeWidth="2.5" strokeLinecap="round" />
             <path d="M84 108L116 108" stroke="#84cc16" strokeWidth="2.5" strokeLinecap="round" />
-            {/* Tablet */}
             <rect x="88" y="105" width="46" height="34" rx="4" transform="rotate(-15 88 105)" fill="#bef264" stroke="#111827" strokeWidth="2.5" />
             <line x1="94" y1="112" x2="114" y2="107" stroke="#14532d" strokeWidth="2" strokeLinecap="round" />
-            {/* Studio Plant & Dog Outline */}
             <path d="M148 140C148 125 158 120 168 120C178 120 186 125 186 140H148Z" stroke="#111827" strokeWidth="3" fill="#bef264" />
             <circle cx="158" cy="130" r="2.5" fill="#14532d" />
             <circle cx="174" cy="130" r="2.5" fill="#14532d" />
             <path d="M164 135C166 137 168 137 170 135" stroke="#14532d" strokeWidth="2" />
-            {/* Rug */}
             <ellipse cx="100" cy="155" rx="75" ry="16" stroke="#d1d5db" strokeWidth="2" strokeDasharray="4 4" />
           </svg>
         </motion.div>
@@ -235,22 +226,17 @@ export default function Hero() {
           }}
         >
           <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto' }}>
-            {/* Bicycle Wheels */}
             <circle cx="50" cy="150" r="26" stroke="#111827" strokeWidth="3" />
             <circle cx="150" cy="150" r="26" stroke="#111827" strokeWidth="3" />
             <circle cx="50" cy="150" r="4" fill="#84cc16" />
             <circle cx="150" cy="150" r="4" fill="#84cc16" />
-            {/* Frame */}
             <path d="M50 150L90 150L130 110L150 150M90 150L105 105L125 105M105 105L70 120" stroke="#16a34a" strokeWidth="3" strokeLinecap="round" />
-            {/* Basket with Blueprints */}
             <rect x="135" y="90" width="22" height="18" rx="3" stroke="#111827" strokeWidth="2.5" fill="#bef264" />
             <line x1="140" y1="85" x2="144" y2="105" stroke="#111827" strokeWidth="2" />
             <line x1="148" y1="82" x2="152" y2="105" stroke="#111827" strokeWidth="2" />
-            {/* Rider */}
             <circle cx="95" cy="65" r="14" stroke="#111827" strokeWidth="3" />
             <path d="M85 92C85 82 95 78 105 78C115 78 120 85 115 110L90 125" stroke="#111827" strokeWidth="3" fill="#ffffff" />
             <path d="M102 78L125 90" stroke="#84cc16" strokeWidth="3" strokeLinecap="round" />
-            {/* Flying Ideas / Birds */}
             <path d="M165 50C170 45 175 48 180 44" stroke="#111827" strokeWidth="2" strokeLinecap="round" />
             <path d="M150 35C155 30 160 33 165 29" stroke="#111827" strokeWidth="2" strokeLinecap="round" />
           </svg>
@@ -395,8 +381,46 @@ export default function Hero() {
             interfaces, and scalable token design systems.
           </motion.p>
 
-          {/* Action Buttons with Hand-Drawn Indicator Arrow */}
-          <div style={{ position: 'relative', display: 'inline-block' }}>
+          {/* Action Buttons with Indicator Arrow Pointing Directly to "Start a Project" */}
+          <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+            {/* Hand-Drawn Indicator Callout & Arrow (Positioned above and pointing directly down to "Start a Project") */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '-36px',
+                left: '20px',
+                display: 'flex',
+                alignItems: 'flex-end',
+                gap: 4,
+                pointerEvents: 'none',
+                zIndex: 10,
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontStyle: 'italic',
+                  fontSize: 13,
+                  color: '#16a34a',
+                  fontWeight: 600,
+                  whiteSpace: 'nowrap',
+                  lineHeight: 1,
+                  marginBottom: 2,
+                }}
+              >
+                ✦ Book intro call
+              </span>
+              <svg width="28" height="24" viewBox="0 0 28 24" fill="none">
+                <path
+                  d="M2 2C8 8 16 14 22 20M22 20L14 20M22 20L20 12"
+                  stroke="#16a34a"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -454,41 +478,6 @@ export default function Hero() {
                 Explore Our Services
               </motion.a>
             </motion.div>
-
-            {/* Hand-Drawn Indicator Arrow (OriginKit Style) */}
-            <div
-              style={{
-                position: 'absolute',
-                top: '-40px',
-                right: '-110px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 6,
-                pointerEvents: 'none',
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontStyle: 'italic',
-                  fontSize: 13,
-                  color: '#16a34a',
-                  fontWeight: 600,
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                ✦ Book intro call
-              </span>
-              <svg width="34" height="28" viewBox="0 0 34 28" fill="none" style={{ transform: 'rotate(-20deg)' }}>
-                <path
-                  d="M2 2C10 12 18 20 28 24M28 24L20 24M28 24L24 16"
-                  stroke="#16a34a"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
           </div>
         </div>
       </section>
