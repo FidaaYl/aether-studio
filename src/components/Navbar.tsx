@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
 
 const NAV_LINKS = [
   { label: 'Home', href: '#' },
@@ -13,7 +12,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30)
+    const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -30,7 +29,7 @@ export default function Navbar() {
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       style={{
         position: 'fixed',
         top: 0,
@@ -48,15 +47,15 @@ export default function Navbar() {
           alignItems: 'center',
           justifyContent: 'space-between',
           width: '100%',
-          maxWidth: 1120,
-          background: scrolled ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.2)',
-          border: '1px solid rgba(255,255,255,0.4)',
+          maxWidth: 1100,
+          background: scrolled ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.85)',
+          border: '1px solid rgba(0,0,0,0.08)',
           borderRadius: 100,
           padding: '8px 12px 8px 24px',
-          backdropFilter: 'blur(24px)',
-          WebkitBackdropFilter: 'blur(24px)',
-          boxShadow: scrolled ? '0 10px 30px rgba(0,0,0,0.08)' : '0 4px 20px rgba(0,0,0,0.03)',
-          transition: 'all 0.4s ease',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          boxShadow: scrolled ? '0 10px 30px rgba(0,0,0,0.08)' : '0 4px 20px rgba(0,0,0,0.04)',
+          transition: 'all 0.3s ease',
           gap: 20,
         }}
       >
@@ -77,14 +76,14 @@ export default function Navbar() {
         >
           <span
             style={{
-              width: 22,
-              height: 22,
+              width: 26,
+              height: 26,
               borderRadius: '50%',
               background: '#bef264',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: 10,
+              fontSize: 12,
               color: '#14532d',
               fontWeight: 800,
             }}
@@ -94,14 +93,23 @@ export default function Navbar() {
           <span
             style={{
               fontFamily: "'Syne', sans-serif",
-              fontSize: 16,
+              fontSize: 17,
               fontWeight: 800,
-              color: scrolled ? '#111827' : '#ffffff',
-              letterSpacing: '-0.02em',
-              transition: 'color 0.3s',
+              color: '#111827',
+              letterSpacing: '-0.03em',
             }}
           >
             Aether
+          </span>
+          <span
+            style={{
+              fontFamily: "'Outfit', sans-serif",
+              fontSize: 13,
+              fontWeight: 500,
+              color: '#6b7280',
+            }}
+          >
+            Studio
           </span>
         </a>
 
@@ -125,19 +133,17 @@ export default function Navbar() {
                 onClick={() => scrollTo(href)}
                 style={{
                   fontFamily: "'Outfit', sans-serif",
-                  fontSize: 13,
-                  fontWeight: 500,
-                  color: scrolled ? '#4b5563' : 'rgba(255,255,255,0.9)',
+                  fontSize: 14,
+                  fontWeight: 600,
+                  color: '#374151',
                   background: 'none',
                   border: 'none',
                   cursor: 'pointer',
                   padding: 0,
                   transition: 'color 0.2s',
                 }}
-                onMouseEnter={e => (e.currentTarget.style.color = scrolled ? '#0284c7' : '#bef264')}
-                onMouseLeave={e =>
-                  (e.currentTarget.style.color = scrolled ? '#4b5563' : 'rgba(255,255,255,0.9)')
-                }
+                onMouseEnter={e => (e.currentTarget.style.color = '#0284c7')}
+                onMouseLeave={e => (e.currentTarget.style.color = '#374151')}
               >
                 {label}
               </button>
@@ -145,7 +151,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Contact CTA Button (Matching Aeline) */}
+        {/* Contact CTA Button */}
         <motion.button
           onClick={() => scrollTo('#contact')}
           whileHover={{ scale: 1.05 }}
@@ -163,7 +169,7 @@ export default function Navbar() {
             fontSize: 13,
             fontWeight: 700,
             cursor: 'pointer',
-            boxShadow: '0 2px 10px rgba(0,0,0,0.08)',
+            boxShadow: '0 2px 10px rgba(190,242,100,0.4)',
           }}
         >
           CONTACT US
