@@ -20,7 +20,7 @@ export default function Hero() {
 
   return (
     <div style={{ background: '#ffffff', overflowX: 'hidden', color: '#111827' }} onMouseMove={handleMouseMove}>
-      {/* ✦ 1. EXACT AETHER STUDIO UNIVERSE HERO WITH EXTRACTED ASSET COLLECTION */}
+      {/* ✦ 1. EXACT AETHER STUDIO UNIVERSE HERO WITH SEPARATED ASSET COLLECTION */}
       <section
         style={{
           position: 'relative',
@@ -169,25 +169,36 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ─── 4. BOTTOM-LEFT: SERVICE LAB BADGE ─── */}
+        {/* ─── 4. BOTTOM-LEFT: SERVICE LAB BADGE & ORGANIC GLASS SHAPES ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.6, y: mousePos.y * -0.6 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          whileHover={{ scale: 1.04 }}
           style={{
             position: 'absolute',
             bottom: '4%',
             left: 'clamp(2%, 4vw, 6%)',
-            width: 'clamp(180px, 18vw, 240px)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 16,
             zIndex: 7,
-            cursor: 'pointer',
           }}
         >
-          <img
-            src="/hero/service_lab_pill.png"
-            alt="Service Lab Design Systems"
-            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 8px 20px rgba(190,242,100,0.3))' }}
-          />
+          <div style={{ width: 'clamp(180px, 18vw, 240px)', cursor: 'pointer' }}>
+            <img
+              src="/hero/service_lab_pill.png"
+              alt="Service Lab Design Systems"
+              style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 8px 20px rgba(190,242,100,0.3))' }}
+            />
+          </div>
+
+          {/* Organic Glass Clover & Prism */}
+          <div style={{ width: 'clamp(80px, 9vw, 120px)' }}>
+            <img
+              src="/hero/organic_glass_shapes.png"
+              alt="Organic Glass Artifacts"
+              style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
+            />
+          </div>
         </motion.div>
 
         {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL ORB & SPATIAL OS BADGE ─── */}
@@ -244,7 +255,7 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* ─── 7. LOWER-RIGHT: AETHER / MOTION CARD ─── */}
+        {/* ─── 7. LOWER-RIGHT: AETHER / MOTION CARD & PALETTE PILL ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.8, y: mousePos.y * 0.8 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
@@ -253,16 +264,29 @@ export default function Hero() {
             position: 'absolute',
             bottom: '22%',
             right: 'clamp(2%, 4vw, 7%)',
-            width: 'clamp(180px, 17vw, 230px)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-end',
+            gap: 8,
             zIndex: 6,
             cursor: 'pointer',
           }}
         >
-          <img
-            src="/hero/aether_motion_card.png"
-            alt="Aether Motion Card"
-            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 8px 20px rgba(0,0,0,0.06))' }}
-          />
+          <div style={{ width: 'clamp(180px, 17vw, 230px)' }}>
+            <img
+              src="/hero/aether_motion_card.png"
+              alt="Aether Motion Card"
+              style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 8px 20px rgba(0,0,0,0.06))' }}
+            />
+          </div>
+
+          <div style={{ width: 'clamp(100px, 10vw, 130px)' }}>
+            <img
+              src="/hero/palette_pill.png"
+              alt="Color Palette Swatches"
+              style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.04))' }}
+            />
+          </div>
         </motion.div>
 
         {/* ─── 8. BOTTOM-RIGHT: "MADE TO BE REMEMBERED" & CYCLIST ─── */}
