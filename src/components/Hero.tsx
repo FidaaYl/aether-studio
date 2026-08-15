@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, ArrowRight } from 'lucide-react'
 import Navbar from './Navbar'
 import NarrativeSection from './NarrativeSection'
 import WorkShowcase from './WorkShowcase'
@@ -142,31 +142,24 @@ export default function Hero() {
           <circle cx="580" cy="740" r="3.5" fill="#84cc16" />
 
           {/* 8. Hand-Drawn Stars & Sparkles in Negative Spaces */}
-          {/* Sparkle near Top-Center */}
           <g transform="translate(680, 140)">
             <path d="M0 -8 Q0 0 8 0 Q0 0 0 8 Q0 0 -8 0 Q0 0 0 -8" fill="#84cc16" />
           </g>
-          {/* Sparkle near Left Web Preview */}
           <g transform="translate(180, 310)">
             <path d="M0 -10 Q0 0 10 0 Q0 0 0 10 Q0 0 -10 0 Q0 0 0 -10" fill="#1e293b" />
           </g>
-          {/* Sparkle between Web and Headline */}
           <g transform="translate(460, 520)">
             <path d="M0 -7 Q0 0 7 0 Q0 0 0 7 Q0 0 -7 0 Q0 0 0 -7" fill="#84cc16" />
           </g>
-          {/* Sparkle near Upper-Right Spatial */}
           <g transform="translate(1080, 160)">
             <path d="M0 -9 Q0 0 9 0 Q0 0 0 9 Q0 0 -9 0 Q0 0 0 -9" fill="#84cc16" />
           </g>
-          {/* Sparkle near Systems Panel */}
           <g transform="translate(1440, 360)">
             <path d="M0 -8 Q0 0 8 0 Q0 0 0 8 Q0 0 -8 0 Q0 0 0 -8" fill="#1e293b" />
           </g>
-          {/* Sparkle near Lower-Left Glass Cube */}
           <g transform="translate(480, 810)">
             <path d="M0 -8 Q0 0 8 0 Q0 0 0 8 Q0 0 -8 0 Q0 0 0 -8" fill="#84cc16" />
           </g>
-          {/* Sparkle near Lower-Right Cyclist */}
           <g transform="translate(1420, 780)">
             <path d="M0 -7 Q0 0 7 0 Q0 0 0 7 Q0 0 -7 0 Q0 0 0 -7" fill="#1e293b" />
           </g>
@@ -180,7 +173,7 @@ export default function Hero() {
         </svg>
 
         {/* ═════════════════════════════════════════════════════════════════════
-            PHASE 1 CORRECTION: PROPORTIONAL LARGE ASSETS BROUGHT CLOSE TO HEADLINE
+            PROPORTIONAL LARGE ASSETS BROUGHT CLOSE TO HEADLINE
             ═════════════════════════════════════════════════════════════════════ */}
 
         {/* ─── 1. TOP-LEFT: EXPLORER CHARACTER + "idea → system → experience" ─── */}
@@ -267,23 +260,69 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ─── 4. BOTTOM-LEFT: ORGANIC GLASS SHAPES (10-12vw) ─── */}
+        {/* ─── 4. BOTTOM-LEFT: RESTORED SERVICE LAB BADGE (250-300px) ─── */}
         <motion.div
-          animate={{ x: mousePos.x * -0.45, y: mousePos.y * -0.45 }}
+          animate={{ x: mousePos.x * -0.5, y: mousePos.y * -0.5 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
+          whileHover={{ scale: 1.03 }}
           style={{
             position: 'absolute',
-            bottom: '2%',
-            left: 'clamp(3%, 5.5vw, 8%)',
-            width: 'clamp(130px, 11vw, 170px)',
-            zIndex: 5,
+            bottom: '3%',
+            left: 'clamp(2.5%, 4.5vw, 7%)',
+            width: 'clamp(240px, 16vw, 290px)',
+            background: '#bef264',
+            borderRadius: 100,
+            padding: '10px 16px 10px 20px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            boxShadow: '0 8px 24px rgba(190,242,100,0.35)',
+            zIndex: 7,
+            cursor: 'pointer',
+            boxSizing: 'border-box',
           }}
         >
-          <img
-            src="/user_uploads/organic_glass.png"
-            alt="Organic Glass Prisms"
-            style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
-          />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <span
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 9,
+                fontWeight: 800,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                color: '#166534',
+              }}
+            >
+              SERVICE LAB
+            </span>
+            <span
+              style={{
+                fontFamily: "'Syne', sans-serif",
+                fontSize: 13,
+                fontWeight: 700,
+                color: '#14532d',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              Design Systems & 3D UI
+            </span>
+          </div>
+
+          <div
+            style={{
+              width: 32,
+              height: 32,
+              borderRadius: '50%',
+              background: '#111827',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#ffffff',
+              flexShrink: 0,
+            }}
+          >
+            <ArrowRight size={16} strokeWidth={2.5} />
+          </div>
         </motion.div>
 
         {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL 3D ORB (15-18vw LARGE & INWARD) ─── */}
