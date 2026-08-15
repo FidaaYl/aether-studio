@@ -20,7 +20,7 @@ export default function Hero() {
 
   return (
     <div style={{ background: '#ffffff', overflowX: 'hidden', color: '#111827' }} onMouseMove={handleMouseMove}>
-      {/* ✦ 1. AETHER UNIVERSE HERO — ART-DIRECTED EDITORIAL COMPOSITION */}
+      {/* ✦ 1. AETHER UNIVERSE HERO — CONNECTED RIGHT-SIDE ART-DIRECTION */}
       <section
         style={{
           position: 'relative',
@@ -39,7 +39,7 @@ export default function Hero() {
         <Navbar />
 
         {/* ═════════════════════════════════════════════════════════════════════
-            EDITED SVG LAYER: DELICATE EDITORIAL TRAJECTORIES & DOODLE NETWORK
+            EDITED SVG LAYER: RIGHT-SIDE CONNECTING ORBIT TRAJECTORY & DOODLES
             ═════════════════════════════════════════════════════════════════════ */}
         <svg
           style={{
@@ -84,31 +84,31 @@ export default function Hero() {
             opacity="0.75"
           />
 
-          {/* 4. Subtle Lime Arc behind Systems Panel */}
+          {/* ─── 4. NEW: CONNECTING TRAJECTORY FROM SYSTEMS CARD TO BOTTOM-RIGHT CLUSTER ─── */}
+          {/* Begins behind Systems card, curves gently through negative space toward "made to be remembered." and cyclist */}
           <path
-            d="M 1240 360 C 1340 340, 1400 420, 1350 510"
+            d="M 1250 420 C 1320 480, 1370 560, 1340 650 C 1320 710, 1270 750, 1350 820"
+            stroke="#cbd5e1"
+            strokeWidth="1.1"
+            strokeDasharray="3 5"
+            strokeLinecap="round"
+            opacity="0.75"
+          />
+          {/* Subtle lime accent curve on the connecting path */}
+          <path
+            d="M 1340 650 C 1365 720, 1420 760, 1480 810"
             stroke="#84cc16"
-            strokeWidth="1.2"
+            strokeWidth="1.1"
             strokeDasharray="3 5"
             strokeLinecap="round"
             opacity="0.7"
           />
 
-          {/* ─── 5. NEW: DEDICATED ORBITAL TRAJECTORY FOR BOTTOM-RIGHT CLUSTER ─── */}
-          {/* Partial hand-drawn curve beginning behind "made to be remembered" and curving around cyclist */}
+          {/* 5. Simplified loose curved ground line beneath cyclist */}
           <path
-            d="M 1190 710 C 1280 660, 1440 680, 1490 790 C 1520 860, 1460 920, 1310 930"
+            d="M 1200 890 C 1280 870, 1390 885, 1480 870"
             stroke="#cbd5e1"
-            strokeWidth="1.1"
-            strokeDasharray="3 5"
-            strokeLinecap="round"
-            opacity="0.7"
-          />
-          {/* Subtle connecting motion stroke */}
-          <path
-            d="M 1220 890 C 1310 875, 1420 895, 1480 885"
-            stroke="#94a3b8"
-            strokeWidth="1.1"
+            strokeWidth="1.2"
             strokeLinecap="round"
             opacity="0.75"
           />
@@ -125,12 +125,12 @@ export default function Hero() {
 
           {/* Systems Panel -> Headline */}
           <path
-            d="M 1120 440 C 1090 448, 1070 464, 1052 478"
+            d="M 1120 410 C 1090 418, 1070 434, 1052 448"
             stroke="#475569"
             strokeWidth="1.2"
             strokeLinecap="round"
           />
-          <path d="M 1062 470 L 1050 480 L 1060 490" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M 1062 440 L 1050 450 L 1060 460" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
 
           {/* Spatial Orb -> Central Headline */}
           <path
@@ -141,27 +141,26 @@ export default function Hero() {
           />
           <path d="M 1062 270 L 1048 280 L 1058 290" stroke="#475569" strokeWidth="1.2" strokeLinecap="round" />
 
-          {/* NEW: Tiny Arrow near "made to be remembered." pointing toward Cyclist */}
+          {/* Arrow near "made to be remembered." toward Cyclist */}
           <path
-            d="M 1320 780 C 1340 790, 1350 805, 1360 820"
+            d="M 1330 730 C 1350 740, 1360 755, 1370 770"
             stroke="#1e293b"
             strokeWidth="1.2"
             strokeLinecap="round"
           />
-          <path d="M 1352 812 L 1362 822 L 1366 810" stroke="#1e293b" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M 1362 762 L 1372 772 L 1376 760" stroke="#1e293b" strokeWidth="1.2" strokeLinecap="round" />
 
           {/* 7. Tiny Green Energy Nodes along Trajectories */}
           <circle cx="260" cy="480" r="3.5" fill="#84cc16" />
           <circle cx="340" cy="380" r="3" fill="#84cc16" />
           <circle cx="1190" cy="390" r="3.5" fill="#84cc16" />
-          <circle cx="1350" cy="510" r="3.5" fill="#84cc16" />
           <circle cx="560" cy="710" r="3" fill="#84cc16" />
 
-          {/* Green nodes on bottom-right cluster orbit */}
-          <circle cx="1230" cy="685" r="3" fill="#84cc16" />
-          <circle cx="1440" cy="690" r="3.5" fill="#84cc16" />
-          <circle cx="1490" cy="790" r="3" fill="#84cc16" />
-          <circle cx="1400" cy="915" r="3" fill="#84cc16" />
+          {/* Green nodes along the right-side connecting story */}
+          <circle cx="1290" cy="520" r="3" fill="#84cc16" />
+          <circle cx="1340" cy="650" r="3.5" fill="#84cc16" />
+          <circle cx="1420" cy="760" r="3" fill="#84cc16" />
+          <circle cx="1400" cy="875" r="3" fill="#84cc16" />
 
           {/* 8. Hand-Drawn Stars & Sparkles in Negative Spaces */}
           <g transform="translate(680, 140)">
@@ -176,26 +175,20 @@ export default function Hero() {
           <g transform="translate(1060, 170)">
             <path d="M0 -8 Q0 0 8 0 Q0 0 0 8 Q0 0 -8 0 Q0 0 0 -8" fill="#84cc16" />
           </g>
-          <g transform="translate(1380, 360)">
+          <g transform="translate(1380, 330)">
             <path d="M0 -7 Q0 0 7 0 Q0 0 0 7 Q0 0 -7 0 Q0 0 0 -7" fill="#475569" />
           </g>
           <g transform="translate(480, 770)">
             <path d="M0 -7 Q0 0 7 0 Q0 0 0 7 Q0 0 -7 0 Q0 0 0 -7" fill="#84cc16" />
           </g>
-
-          {/* Tiny 4-point star in bottom-right cluster */}
-          <g transform="translate(1430, 730)">
+          <g transform="translate(1420, 680)">
             <path d="M0 -6 Q0 0 6 0 Q0 0 0 6 Q0 0 -6 0 Q0 0 0 -6" fill="#84cc16" />
           </g>
-
-          {/* Motion strokes near Cyclist */}
-          <line x1="1470" y1="840" x2="1490" y2="835" stroke="#94a3b8" strokeWidth="1.2" strokeLinecap="round" />
-          <line x1="1465" y1="850" x2="1482" y2="846" stroke="#94a3b8" strokeWidth="1.2" strokeLinecap="round" />
 
           {/* 9. Micro-Doodles */}
           <text x="320" y="240" fill="#94a3b8" fontSize="13" fontFamily="monospace">✦</text>
           <text x="1230" y="200" fill="#84cc16" fontSize="14" fontFamily="monospace">★</text>
-          <text x="1080" y="580" fill="#cbd5e1" fontSize="12" fontFamily="monospace">+</text>
+          <text x="1080" y="550" fill="#cbd5e1" fontSize="12" fontFamily="monospace">+</text>
           <text x="520" y="640" fill="#cbd5e1" fontSize="13" fontFamily="monospace">+</text>
         </svg>
 
@@ -256,7 +249,7 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* ─── 3. LOWER-LEFT CLUSTER: TESTIMONIAL + 3D GLASS CUBE + FLOATING SERVICE LAB ─── */}
+        {/* ─── 3. LOWER-LEFT CLUSTER: TESTIMONIAL + 3D GLASS CUBE ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.65, y: mousePos.y * -0.65 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
@@ -372,15 +365,15 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* ─── 6. RIGHT: AETHER / SYSTEMS DESIGN PANEL ─── */}
+        {/* ─── 6. RIGHT: AETHER / SYSTEMS DESIGN PANEL (UP & LEFT BY ~25PX) ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.75, y: mousePos.y * 0.75 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           whileHover={{ scale: 1.04, rotate: 2 }}
           style={{
             position: 'absolute',
-            top: '28%',
-            right: 'clamp(3%, 5.5vw, 8%)',
+            top: '24%',
+            right: 'clamp(3.5%, 6vw, 8.5%)',
             width: 'clamp(270px, 20vw, 360px)',
             zIndex: 6,
             cursor: 'pointer',
@@ -393,13 +386,13 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* ─── 7 & 8. REFINED COHESIVE BOTTOM-RIGHT CLUSTER: SLIDER + ANNOTATION + CYCLIST ─── */}
+        {/* ─── 7 & 8. RIGHT-SIDE: LIFTED UNIFIED BOTTOM-RIGHT CLUSTER (UP BY ~80PX) ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.55, y: mousePos.y * 0.55 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            bottom: '6%',
+            bottom: '12%',
             right: 'clamp(4%, 6.5vw, 9.5%)',
             display: 'flex',
             flexDirection: 'column',
@@ -434,8 +427,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Bottom of Cluster: Cyclist */}
-          <div style={{ width: 'clamp(155px, 15vw, 230px)', marginTop: 2 }}>
+          {/* Bottom of Cluster: Cyclist (Enlarged by ~12%) */}
+          <div style={{ width: 'clamp(170px, 16.5vw, 250px)', marginTop: 2 }}>
             <img
               src="/user_uploads/cyclist.png"
               alt="Aether Cyclist Illustration"
