@@ -20,7 +20,7 @@ export default function Hero() {
 
   return (
     <div style={{ background: '#ffffff', overflowX: 'hidden', color: '#111827' }} onMouseMove={handleMouseMove}>
-      {/* ✦ EXACT AETHER HERO COMPOSITION MATCHING REFERENCE A */}
+      {/* ✦ 1. EXACT AETHER STUDIO HERO WITH ALL USER UPLOADED ASSETS */}
       <section
         style={{
           position: 'relative',
@@ -44,18 +44,29 @@ export default function Hero() {
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            top: '6%',
-            left: 'clamp(1.5%, 3vw, 5%)',
-            width: 'clamp(200px, 20vw, 290px)',
+            top: '7%',
+            left: 'clamp(1.5%, 3.5vw, 6%)',
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: 8,
             zIndex: 5,
             pointerEvents: 'none',
           }}
         >
-          <img
-            src="/hero/explorer_character.png"
-            alt="Explorer Illustration"
-            style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
-          />
+          <div style={{ width: 'clamp(80px, 8vw, 120px)' }}>
+            <img
+              src="/user_uploads/explorer.png"
+              alt="Aether Explorer"
+              style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
+            />
+          </div>
+          <div style={{ width: 'clamp(110px, 11vw, 160px)', marginTop: 4 }}>
+            <img
+              src="/user_uploads/idea_note.png"
+              alt="idea system experience"
+              style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
+            />
+          </div>
         </motion.div>
 
         {/* ─── 2. LEFT: AETHER / WEB MINIATURE PROJECT PREVIEW ─── */}
@@ -65,17 +76,17 @@ export default function Hero() {
           whileHover={{ scale: 1.03, y: -2 }}
           style={{
             position: 'absolute',
-            top: '23%',
-            left: 'clamp(1%, 2.5vw, 4%)',
-            width: 'clamp(240px, 23vw, 330px)',
+            top: '24%',
+            left: 'clamp(1%, 2.5vw, 4.5%)',
+            width: 'clamp(240px, 23vw, 340px)',
             zIndex: 6,
             cursor: 'pointer',
           }}
         >
           <img
-            src="/hero/aether_web_card.png"
+            src="/user_uploads/aether_web.png"
             alt="Aether Web Project"
-            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.09))' }}
+            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.08))' }}
           />
         </motion.div>
 
@@ -93,73 +104,59 @@ export default function Hero() {
             zIndex: 6,
           }}
         >
-          <div style={{ width: 'clamp(140px, 13vw, 190px)' }}>
+          <div style={{ width: 'clamp(130px, 13vw, 180px)' }}>
             <img
-              src="/hero/client_quote_card.png"
+              src="/user_uploads/testimonial.png"
               alt="Client Testimonial"
               style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.05))' }}
             />
           </div>
 
-          <div style={{ width: 'clamp(110px, 12vw, 160px)' }}>
+          <div style={{ width: 'clamp(110px, 11vw, 150px)' }}>
             <img
-              src="/hero/glass_cube_artifact.png"
+              src="/user_uploads/glass_cube.png"
               alt="3D Glass Cube"
               style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
             />
           </div>
         </motion.div>
 
-        {/* ─── 4. BOTTOM-LEFT: SERVICE LAB BADGE ─── */}
+        {/* ─── 4. BOTTOM-LEFT: ORGANIC GLASS SHAPES ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.5, y: mousePos.y * -0.5 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          whileHover={{ scale: 1.03 }}
           style={{
             position: 'absolute',
             bottom: '3%',
             left: 'clamp(1.5%, 3vw, 5%)',
-            width: 'clamp(170px, 16vw, 230px)',
+            width: 'clamp(130px, 13vw, 180px)',
             zIndex: 7,
-            cursor: 'pointer',
           }}
         >
           <img
-            src="/hero/service_lab_pill.png"
-            alt="Service Lab Badge"
-            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 6px 18px rgba(190,242,100,0.28))' }}
+            src="/user_uploads/organic_glass.png"
+            alt="Organic Glass Prisms"
+            style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
           />
         </motion.div>
 
-        {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL ORB & SPATIAL OS BADGE ─── */}
+        {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL ORB ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.9, y: mousePos.y * 0.9 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
           style={{
             position: 'absolute',
-            top: '6%',
-            right: 'clamp(1.5%, 3vw, 5%)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 10,
+            top: '7%',
+            right: 'clamp(1.5%, 3.5vw, 6%)',
+            width: 'clamp(170px, 17vw, 240px)',
             zIndex: 6,
           }}
         >
-          <div style={{ width: 'clamp(130px, 13vw, 180px)' }}>
-            <img
-              src="/hero/aether_spatial_orb.png"
-              alt="Aether Spatial 3D"
-              style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
-            />
-          </div>
-
-          <div style={{ width: 'clamp(120px, 12vw, 160px)' }}>
-            <img
-              src="/hero/spatial_os_badge.png"
-              alt="Spatial OS Badge"
-              style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.05))' }}
-            />
-          </div>
+          <img
+            src="/user_uploads/spatial_orb.png"
+            alt="Aether Spatial 3D Orb"
+            style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
+          />
         </motion.div>
 
         {/* ─── 6. RIGHT: AETHER / SYSTEMS DESIGN PANEL ─── */}
@@ -171,37 +168,46 @@ export default function Hero() {
             position: 'absolute',
             top: '28%',
             right: 'clamp(1.5%, 3vw, 5%)',
-            width: 'clamp(200px, 19vw, 270px)',
+            width: 'clamp(200px, 20vw, 280px)',
             zIndex: 6,
             cursor: 'pointer',
           }}
         >
           <img
-            src="/hero/aether_systems_panel.png"
+            src="/user_uploads/systems_panel.png"
             alt="Aether Systems Panel"
-            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 10px 24px rgba(0,0,0,0.07))' }}
+            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 10px 22px rgba(0,0,0,0.06))' }}
           />
         </motion.div>
 
-        {/* ─── 7. LOWER-RIGHT: AETHER / MOTION CARD ─── */}
+        {/* ─── 7. LOWER-RIGHT: COLOR PALETTE PILL & GREEN CURSOR ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.7, y: mousePos.y * 0.7 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
-          whileHover={{ scale: 1.03 }}
           style={{
             position: 'absolute',
             bottom: '18%',
             right: 'clamp(1.5%, 3vw, 5%)',
-            width: 'clamp(170px, 15vw, 210px)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 12,
             zIndex: 6,
-            cursor: 'pointer',
           }}
         >
-          <img
-            src="/hero/aether_motion_card.png"
-            alt="Aether Motion Card"
-            style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.05))' }}
-          />
+          <div style={{ width: 'clamp(120px, 12vw, 160px)' }}>
+            <img
+              src="/user_uploads/palette_pill.png"
+              alt="Color Palette Swatches"
+              style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.04))' }}
+            />
+          </div>
+          <div style={{ width: 24 }}>
+            <img
+              src="/user_uploads/green_cursor.png"
+              alt="Green Cursor"
+              style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
+            />
+          </div>
         </motion.div>
 
         {/* ─── 8. BOTTOM-RIGHT: CYCLIST ILLUSTRATION & "made to be remembered." ─── */}
@@ -219,18 +225,18 @@ export default function Hero() {
             pointerEvents: 'none',
           }}
         >
-          <div style={{ width: 'clamp(120px, 11vw, 150px)', marginBottom: 2 }}>
+          <div style={{ width: 'clamp(110px, 11vw, 150px)', marginBottom: 2 }}>
             <img
-              src="/hero/made_to_remembered.png"
+              src="/user_uploads/remembered_note.png"
               alt="made to be remembered"
               style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
             />
           </div>
 
-          <div style={{ width: 'clamp(130px, 13vw, 170px)' }}>
+          <div style={{ width: 'clamp(140px, 14vw, 190px)' }}>
             <img
-              src="/hero/cyclist_illustration.png"
-              alt="Cyclist Illustration"
+              src="/user_uploads/cyclist.png"
+              alt="Aether Cyclist"
               style={{ width: '100%', height: 'auto', display: 'block', mixBlendMode: 'multiply' }}
             />
           </div>
@@ -330,7 +336,7 @@ export default function Hero() {
             interfaces, and scalable token design systems.
           </motion.p>
 
-          {/* Action Buttons with Indicator Arrow */}
+          {/* Action Buttons */}
           <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
             <div
               style={{
