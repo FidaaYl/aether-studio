@@ -31,16 +31,71 @@ const STATS = [
   },
 ]
 
+const PARTNER_LOGOS = [
+  {
+    name: 'Microsoft',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+        <rect x="1" y="1" width="8.5" height="8.5" fill="#f25022" />
+        <rect x="10.5" y="1" width="8.5" height="8.5" fill="#7fba00" />
+        <rect x="1" y="10.5" width="8.5" height="8.5" fill="#00a4ef" />
+        <rect x="10.5" y="10.5" width="8.5" height="8.5" fill="#ffb900" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Dropbox',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#0061ff">
+        <path d="M6 2L0 6L6 10L12 6L6 2ZM18 2L12 6L18 10L24 6L18 2ZM0 14L6 18L12 14L6 10L0 14ZM24 14L18 10L12 14L18 18L24 14ZM6 19.5L12 15.5L18 19.5L12 23.5L6 19.5Z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Klarna',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <circle cx="12" cy="12" r="10" fill="#ffb3c7" />
+        <path d="M8 7V17M12 7V17M12 12L16 7M12 12L16 17" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Squarespace',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2L2 12L12 22L22 12L12 2ZM8 12L12 8L16 12L12 16L8 12Z" fill="#111827" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Shopify',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#95bf47">
+        <path d="M19.5 6L16.5 2H7.5L4.5 6L2 22H22L19.5 6ZM12 5C13.1 5 14 5.9 14 7H10C10 5.9 10.9 5 12 5Z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Zapier',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#ff4a00">
+        <path d="M12 2L14 9H21L15 13L18 20L12 15L6 20L9 13L3 9H10L12 2Z" />
+      </svg>
+    ),
+  },
+]
+
 export default function Testimonials({ T, L }: Props) {
   return (
     <section
       style={{
-        background: '#f9fafb',
+        background: '#ffffff',
         position: 'relative',
-        padding: 'clamp(80px, 10vw, 140px) clamp(24px, 5vw, 80px) 0',
+        padding: 'clamp(80px, 10vw, 140px) 0 0',
       }}
     >
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 clamp(24px, 5vw, 80px)' }}>
         {/* Header */}
         <div style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto clamp(48px, 6vw, 64px)' }}>
           <Reveal>
@@ -89,11 +144,11 @@ export default function Testimonials({ T, L }: Props) {
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.25 }}
                 style={{
-                  background: '#ffffff',
+                  background: '#f9fafb',
                   border: '1px solid #e5e7eb',
                   borderRadius: 20,
                   padding: 24,
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.02)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
@@ -118,7 +173,7 @@ export default function Testimonials({ T, L }: Props) {
                       width: 8,
                       height: 8,
                       borderRadius: '50%',
-                      background: '#7c3aed',
+                      background: '#10b981',
                       display: 'block',
                     }}
                   />
@@ -138,13 +193,15 @@ export default function Testimonials({ T, L }: Props) {
         </div>
       </div>
 
-      {/* Full-Width Lavender Partner Banner (from Reference 2 - Artboard) */}
+      {/* Harmonized Off-White Brand Proof Banner (Clean Studio Palette) */}
       <div
         style={{
-          background: '#ede9fe',
+          background: '#faf9f5',
+          borderTop: '1px solid #ede8dc',
+          borderBottom: '1px solid #ede8dc',
           padding: 'clamp(60px, 8vw, 90px) clamp(24px, 5vw, 80px)',
           textAlign: 'center',
-          color: '#1e1b4b',
+          color: '#111827',
         }}
       >
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
@@ -155,42 +212,53 @@ export default function Testimonials({ T, L }: Props) {
                 fontWeight: 700,
                 fontSize: 'clamp(20px, 2.5vw, 32px)',
                 letterSpacing: '-0.02em',
-                margin: '0 0 32px',
-                color: '#1e1b4b',
+                margin: '0 0 36px',
+                color: '#111827',
               }}
             >
               Join the world’s best design and creative professionals
             </h3>
           </Reveal>
 
-          {/* Logos Row */}
+          {/* Real Brand Icons & Names Row */}
           <Reveal delay={0.05}>
             <div
               style={{
                 display: 'flex',
                 justifyContent: 'center',
                 flexWrap: 'wrap',
-                gap: '24px 44px',
+                gap: '28px 48px',
                 alignItems: 'center',
-                marginBottom: 36,
-                opacity: 0.85,
+                marginBottom: 40,
               }}
             >
-              {['Dropbox', 'Microsoft', 'Klarna', 'Squarespace', 'Shopify', 'Zapier', 'GoDaddy', 'Sephora'].map(
-                name => (
+              {PARTNER_LOGOS.map(partner => (
+                <div
+                  key={partner.name}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    background: '#ffffff',
+                    border: '1px solid #e5e7eb',
+                    padding: '8px 18px',
+                    borderRadius: 100,
+                    boxShadow: '0 2px 6px rgba(0,0,0,0.03)',
+                  }}
+                >
+                  {partner.icon}
                   <span
-                    key={name}
                     style={{
                       fontFamily: "'Syne', sans-serif",
-                      fontWeight: 800,
-                      fontSize: 'clamp(14px, 1.4vw, 17px)',
-                      color: '#1e1b4b',
+                      fontWeight: 700,
+                      fontSize: 14,
+                      color: '#1f2937',
                     }}
                   >
-                    {name}
+                    {partner.name}
                   </span>
-                )
-              )}
+                </div>
+              ))}
             </div>
           </Reveal>
 
@@ -203,18 +271,18 @@ export default function Testimonials({ T, L }: Props) {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 8,
-                background: '#111827',
-                color: '#ffffff',
+                background: '#bef264',
+                color: '#14532d',
                 padding: '12px 28px',
                 borderRadius: 100,
                 textDecoration: 'none',
                 fontFamily: "'Syne', sans-serif",
                 fontSize: 14,
                 fontWeight: 700,
-                boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+                boxShadow: '0 4px 20px rgba(190,242,100,0.35)',
               }}
             >
-              Start Free Today <ArrowUpRight size={15} strokeWidth={2.4} />
+              Start Free Today <ArrowUpRight size={15} strokeWidth={2.5} />
             </motion.a>
           </Reveal>
         </div>
