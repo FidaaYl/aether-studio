@@ -381,17 +381,17 @@ export default function Hero() {
             interfaces, and scalable token design systems.
           </motion.p>
 
-          {/* Action Buttons with Indicator Arrow Pointing Directly to "Start a Project" */}
+          {/* Action Buttons with Narrowed Swooping Indicator Arrow */}
           <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-            {/* Hand-Drawn Indicator Callout & Arrow (Positioned above and pointing directly down to "Start a Project") */}
+            {/* Narrowed Curved Indicator Callout & Arrow (Arches gracefully from the left towards the button) */}
             <div
               style={{
                 position: 'absolute',
-                top: '-36px',
-                left: '20px',
+                top: '-34px',
+                left: '-14px',
                 display: 'flex',
-                alignItems: 'flex-end',
-                gap: 4,
+                alignItems: 'center',
+                gap: 6,
                 pointerEvents: 'none',
                 zIndex: 10,
               }}
@@ -404,17 +404,15 @@ export default function Hero() {
                   color: '#16a34a',
                   fontWeight: 600,
                   whiteSpace: 'nowrap',
-                  lineHeight: 1,
-                  marginBottom: 2,
                 }}
               >
                 ✦ Book intro call
               </span>
-              <svg width="28" height="24" viewBox="0 0 28 24" fill="none">
+              <svg width="42" height="28" viewBox="0 0 42 28" fill="none">
                 <path
-                  d="M2 2C8 8 16 14 22 20M22 20L14 20M22 20L20 12"
+                  d="M2 4C14 2 28 8 36 22M36 22L27 21M36 22L34 13"
                   stroke="#16a34a"
-                  strokeWidth="2.2"
+                  strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
