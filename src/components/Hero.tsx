@@ -237,7 +237,7 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* ─── 3. LOWER-LEFT: ENLARGED TESTIMONIAL CARD (1.4×) + 3D GLASS CUBE ─── */}
+        {/* ─── 3. LOWER-LEFT: ENLARGED TESTIMONIAL CARD + 3D GLASS CUBE ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.65, y: mousePos.y * -0.65 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
@@ -338,7 +338,7 @@ export default function Hero() {
             RIGHT SIDE VISUAL ECOSYSTEM
             ═════════════════════════════════════════════════════════════════════ */}
 
-        {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL 3D ORB (FIXED AT TOP-RIGHT) ─── */}
+        {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL 3D ORB ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.85, y: mousePos.y * 0.85 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
@@ -357,7 +357,7 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* ─── 6. RIGHT: AETHER / SYSTEMS DESIGN PANEL (70-100PX DOWNWARD & 20-30PX TOWARD CENTER) ─── */}
+        {/* ─── 6. RIGHT: AETHER / SYSTEMS DESIGN PANEL ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.75, y: mousePos.y * 0.75 }}
           transition={{ type: 'spring', damping: 25, stiffness: 80 }}
@@ -429,10 +429,10 @@ export default function Hero() {
         </motion.div>
 
         {/* ═════════════════════════════════════════════════════════════════════
-            BASE HERO: RESTORED EXACT CENTRAL HEADLINE, PARAGRAPH, ARROW & CTAS
+            BASE HERO: FULLY VISIBLE CENTRAL HEADLINE, HIGHLIGHT, PARAGRAPH & CTAS
             ═════════════════════════════════════════════════════════════════════ */}
-        <div style={{ maxWidth: 840, textAlign: 'center', position: 'relative', zIndex: 10 }}>
-          {/* Top Pill Tag (EXACT TWO GREEN DOTS ONLY) */}
+        <div style={{ maxWidth: 840, textAlign: 'center', position: 'relative', zIndex: 10, opacity: 1, visibility: 'visible' }}>
+          {/* Top Pill Tag (EXACTLY 1 GREEN DOT ON TOP TITLE) */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
             <div
               style={{
@@ -446,7 +446,6 @@ export default function Hero() {
                 boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
               }}
             >
-              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#84cc16' }} />
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#84cc16' }} />
               <span
                 style={{
@@ -463,11 +462,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Central Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+          {/* Central Headline (PERMANENTLY VISIBLE) */}
+          <h1
             style={{
               fontFamily: "'Syne', sans-serif",
               fontWeight: 800,
@@ -476,6 +472,7 @@ export default function Hero() {
               lineHeight: 1.05,
               color: '#111827',
               margin: '0 0 20px',
+              display: 'block',
             }}
           >
             Aether helps
@@ -503,13 +500,10 @@ export default function Hero() {
             </span>
             <br />
             together
-          </motion.h1>
+          </h1>
 
-          {/* Descriptive Subtitle Paragraph */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+          {/* Descriptive Subtitle Paragraph (PERMANENTLY VISIBLE) */}
+          <p
             style={{
               fontFamily: "'Outfit', sans-serif",
               fontSize: 'clamp(15px, 1.2vw, 17px)',
@@ -518,11 +512,12 @@ export default function Hero() {
               color: '#6b7280',
               maxWidth: 540,
               margin: '0 auto 30px',
+              display: 'block',
             }}
           >
             We partner with visionary founders and iconic brands to design bespoke web experiences, 3D spatial
             interfaces, and scalable token design systems.
-          </motion.p>
+          </p>
 
           {/* Action Buttons with Indicator Arrow */}
           <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -562,10 +557,7 @@ export default function Hero() {
               </svg>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+            <div
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -620,7 +612,7 @@ export default function Hero() {
               >
                 Explore Our Services
               </motion.a>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
