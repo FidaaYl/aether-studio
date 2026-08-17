@@ -21,7 +21,10 @@ export default function Navbar() {
     if (href === '#') {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
-      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+      const el = document.querySelector(href)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
     }
   }
 
