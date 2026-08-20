@@ -13,9 +13,9 @@ export default function NarrativeSection({ T, L }: Props) {
     <section
       id="about"
       style={{
-        background: '#ffffff',
+        background: 'linear-gradient(180deg, #faf9f5 0%, #ffffff 220px, #ffffff calc(100% - 240px), #faf9f5 100%)',
         position: 'relative',
-        padding: 'clamp(80px, 10vw, 140px) clamp(24px, 5vw, 80px)',
+        padding: 'clamp(40px, 4.5vw, 60px) clamp(24px, 5vw, 80px) clamp(60px, 6vw, 90px)',
         color: '#111827',
       }}
     >
@@ -28,11 +28,11 @@ export default function NarrativeSection({ T, L }: Props) {
               justifyContent: 'space-between',
               alignItems: 'center',
               flexWrap: 'wrap',
-              gap: '24px 48px',
-              paddingBottom: 'clamp(48px, 6vw, 72px)',
-              borderBottom: '1px solid #f3f4f6',
-              marginBottom: 'clamp(48px, 6vw, 72px)',
-              opacity: 0.45,
+              gap: '20px 40px',
+              paddingBottom: 'clamp(24px, 3vw, 36px)',
+              borderBottom: '1px solid rgba(0,0,0,0.06)',
+              marginBottom: 'clamp(32px, 4vw, 48px)',
+              opacity: 0.5,
             }}
           >
             {['Dropbox', 'Microsoft', 'Klarna', 'Squarespace', 'Shopify', 'Zapier', 'Sephora'].map(logo => (

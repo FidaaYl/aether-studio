@@ -1,418 +1,896 @@
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Layers, Zap, Sparkles, Check, ArrowRight, Play, CheckCircle2 } from 'lucide-react'
-import { Reveal } from './cinematic-hooks'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowUpRight, Check } from 'lucide-react'
 
-interface Props {
-  T: any
-  L: boolean
-}
+export const FeaturesSection: React.FC<{ T?: any; L?: boolean }> = () => {
+  const [activeStep, setActiveStep] = useState<number>(0)
 
-const FEATURE_CARDS = [
-  {
-    title: 'User-friendly editor',
-    desc: 'Create amazing motion graphics and interactive layouts with an intuitive visual canvas.',
-    badge: 'VISUAL CANVAS',
-    accent: '#3b82f6',
-    preview: (
-      <div
-        style={{
-          background: '#111827',
-          borderRadius: 14,
-          padding: 16,
-          height: 170,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          border: '1px solid rgba(255,255,255,0.1)',
-        }}
-      >
-        <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
-          <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#ef4444' }} />
-          <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#f59e0b' }} />
-          <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#10b981' }} />
-        </div>
-        <div style={{ background: '#1f2937', borderRadius: 8, height: 48, padding: 8, display: 'flex', alignItems: 'center', gap: 8 }}>
-          <div style={{ width: 32, height: 32, borderRadius: 6, background: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Play size={14} color="#fff" />
-          </div>
-          <div style={{ flex: 1, height: 6, background: '#374151', borderRadius: 4, position: 'relative', overflow: 'hidden' }}>
-            <div style={{ width: '65%', height: '100%', background: '#60a5fa', borderRadius: 4 }} />
-          </div>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, color: '#9ca3af', fontFamily: "'JetBrains Mono'" }}>
-          <span>00:04:12</span>
-          <span>60 FPS</span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Render at lightning speed',
-    desc: 'Test and compile your web experiences directly in the browser without long build queues.',
-    badge: 'SUB-SECOND ENGINE',
-    accent: '#10b981',
-    preview: (
-      <div
-        style={{
-          background: '#064e3b',
-          borderRadius: 14,
-          padding: 18,
-          height: 170,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
-          color: '#ffffff',
-          position: 'relative',
-        }}
-      >
-        <div
-          style={{
-            width: 48,
-            height: 48,
-            borderRadius: '50%',
-            background: '#10b981',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: 12,
-            boxShadow: '0 0 20px rgba(16,185,129,0.5)',
-          }}
-        >
-          <Zap size={24} color="#ffffff" />
-        </div>
-        <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 24, lineHeight: 1 }}>0.42s</div>
-        <div style={{ fontSize: 11, color: '#a7f3d0', marginTop: 4, fontFamily: "'Outfit'" }}>Ultra-fast Edge Execution</div>
-      </div>
-    ),
-  },
-  {
-    title: 'High-quality design templates',
-    desc: 'Never start from a blank canvas with our ever-growing token architecture and component systems.',
-    badge: 'DESIGN TOKENS',
-    accent: '#8b5cf6',
-    preview: (
-      <div
-        style={{
-          background: '#581c87',
-          borderRadius: 14,
-          padding: 16,
-          height: 170,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          color: '#ffffff',
-        }}
-      >
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontSize: 11, fontWeight: 600, fontFamily: "'JetBrains Mono'" }}>ATOMIC KIT v2.4</span>
-          <span style={{ background: '#7c3aed', padding: '2px 8px', borderRadius: 100, fontSize: 10 }}>NEW</span>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 6 }}>
-          {[1, 2, 3].map(n => (
-            <div key={n} style={{ background: '#7e22ce', borderRadius: 8, height: 54, border: '1px solid #9333ea' }} />
-          ))}
-        </div>
-        <div style={{ fontSize: 11, color: '#e9d5ff', fontFamily: "'Outfit'" }}>50+ Ready UI Components</div>
-      </div>
-    ),
-  },
-]
-
-const STEPS = [
-  {
-    step: '01',
-    title: 'Simple And Fast Setup',
-    desc: 'Connect your repositories, domain, and tokens in minutes with zero configuration hurdles.',
-  },
-  {
-    step: '02',
-    title: 'Work Together Effortlessly',
-    desc: 'Seamless real-time collaboration with instant previews and live interactive state review.',
-  },
-  {
-    step: '03',
-    title: 'Monitor Your Progress & Scale',
-    desc: 'Comprehensive telemetry and Core Web Vitals analytics for exceptional decision making.',
-  },
-]
-
-export default function FeaturesSection({ T, L }: Props) {
-  const [activeStep, setActiveStep] = useState(0)
+  const stepsData = [
+    {
+      id: 0,
+      num: '01',
+      title: 'Simple And Fast Setup',
+      desc: 'Connect your repositories, choose, and kickstart your studio with zero configuration hassle.',
+      icon: '/assets/features/11.png',
+      color: '#2563eb',
+      borderActive: '#3b82f6',
+      shadowActive: '0 16px 40px rgba(37, 99, 235, 0.14), 0 2px 8px rgba(0,0,0,0.02)',
+      bgActive: '#ffffff',
+    },
+    {
+      id: 1,
+      num: '02',
+      title: 'Work Together Effortlessly',
+      desc: 'Seamless real-time collaboration with instant previews and live interactive state review.',
+      icon: '/assets/features/12.png',
+      color: '#65a30d',
+      borderActive: '#84cc16',
+      shadowActive: '0 16px 40px rgba(132, 204, 22, 0.14), 0 2px 8px rgba(0,0,0,0.02)',
+      bgActive: '#ffffff',
+    },
+    {
+      id: 2,
+      num: '03',
+      title: 'Monitor Your Progress & Scale',
+      desc: 'Comprehensive telemetry and Core Web Vitals analytics for exceptional decision making.',
+      icon: '/assets/features/13.png',
+      color: '#7c3aed',
+      borderActive: '#a855f7',
+      shadowActive: '0 16px 40px rgba(168, 85, 247, 0.14), 0 2px 8px rgba(0,0,0,0.02)',
+      bgActive: '#ffffff',
+    },
+  ]
 
   return (
     <section
+      id="features"
       style={{
-        background: '#ffffff',
         position: 'relative',
-        padding: 'clamp(80px, 10vw, 140px) clamp(24px, 5vw, 80px)',
+        background: 'linear-gradient(180deg, #f8fafc 0%, #f8fafc 85%, #fafbfc 100%)',
+        padding: '40px 32px 50px',
+        overflow: 'hidden',
+        width: '100%',
       }}
     >
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        {/* Fast and Simple Header */}
-        <Reveal>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'flex-start',
-              flexWrap: 'wrap',
-              gap: 24,
-              marginBottom: 'clamp(40px, 6vw, 64px)',
-            }}
-          >
-            <h2
-              style={{
-                fontFamily: "'Syne', sans-serif",
-                fontWeight: 800,
-                fontSize: 'clamp(36px, 5vw, 56px)',
-                letterSpacing: '-0.04em',
-                color: '#111827',
-                margin: 0,
-              }}
-            >
-              Fast and simple
-            </h2>
+      {/* Background Soft Glow */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '15%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: 800,
+          height: 500,
+          background: 'radial-gradient(ellipse at center, rgba(186, 230, 253, 0.2) 0%, rgba(248, 250, 252, 0) 70%)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
 
-            <p
-              style={{
-                fontFamily: "'Outfit', sans-serif",
-                fontSize: 16,
-                fontWeight: 300,
-                color: '#6b7280',
-                maxWidth: 420,
-                margin: 0,
-                lineHeight: 1.6,
-              }}
-            >
-              —No matter your scale or complexity, it’s effortless to ship world-class digital experiences with Aether.
-            </p>
-          </div>
-        </Reveal>
-
-        {/* 3-Card Product Feature Row */}
+      {/* 1280px Centered Master Container */}
+      <div
+        style={{
+          maxWidth: 1280,
+          margin: '0 auto',
+          position: 'relative',
+          zIndex: 1,
+        }}
+      >
+        {/* =========================================================================
+            TOP ROW: 2-COLUMN BALANCED COMPOSITION (LEFT 52% vs RIGHT 48%)
+            ========================================================================= */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: 24,
-            marginBottom: 'clamp(80px, 10vw, 140px)',
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+            gap: 48,
+            position: 'relative',
           }}
         >
-          {FEATURE_CARDS.map((fc, i) => (
-            <Reveal key={fc.title} delay={0.08 * i}>
-              <motion.div
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.25 }}
+          {/* -----------------------------------------------------------------------
+              LEFT COLUMN (52% Width): EYEBROW, 2-LINE HEADLINE, DESCRIPTION & TASKBOARD
+              ----------------------------------------------------------------------- */}
+          <div
+            style={{
+              width: '52%',
+              maxWidth: 660,
+              minWidth: 500,
+              position: 'relative',
+              zIndex: 10,
+              flexShrink: 0,
+            }}
+          >
+            {/* Header Content Block */}
+            <div style={{ position: 'relative', marginBottom: 28 }}>
+              {/* Dark Sparkle Star on top-left */}
+              <img
+                src="/assets/features/6.png"
+                alt=""
+                aria-hidden="true"
                 style={{
-                  background: '#f9fafb',
-                  border: '1px solid #e5e7eb',
-                  borderRadius: 24,
-                  padding: 24,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 20,
-                  boxShadow: '0 2px 10px rgba(0,0,0,0.03)',
+                  position: 'absolute',
+                  top: -24,
+                  left: -32,
+                  width: 20,
+                  height: 'auto',
+                  pointerEvents: 'none',
+                  zIndex: 2,
+                }}
+              />
+
+              {/* Eyebrow Label: • FEATURES */}
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  marginBottom: 16,
                 }}
               >
-                {/* Visual Preview */}
-                {fc.preview}
+                <span
+                  style={{
+                    width: 7,
+                    height: 7,
+                    borderRadius: '50%',
+                    background: '#84cc16',
+                    display: 'inline-block',
+                    boxShadow: '0 0 8px rgba(132, 204, 22, 0.6)',
+                  }}
+                />
+                <span
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 11.5,
+                    fontWeight: 800,
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: '#84cc16',
+                  }}
+                >
+                  FEATURES
+                </span>
+              </div>
 
-                <div>
-                  <h3
-                    style={{
-                      fontFamily: "'Syne', sans-serif",
-                      fontWeight: 700,
-                      fontSize: 20,
-                      color: '#111827',
-                      margin: '0 0 8px',
-                      letterSpacing: '-0.02em',
-                    }}
-                  >
-                    {fc.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: "'Outfit', sans-serif",
-                      fontSize: 14,
-                      fontWeight: 300,
-                      lineHeight: 1.6,
-                      color: '#6b7280',
-                      margin: 0,
-                    }}
-                  >
-                    {fc.desc}
-                  </p>
-                </div>
-              </motion.div>
-            </Reveal>
-          ))}
-        </div>
-
-        {/* 3 Easy Steps Section (from TaskGo) */}
-        <div style={{ paddingTop: 'clamp(40px, 6vw, 60px)', borderTop: '1px solid #f3f4f6' }}>
-          <div style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto clamp(48px, 6vw, 64px)' }}>
-            <Reveal>
+              {/* Headline with underline strictly placed under "Steps" with comfortable breathing room */}
               <h2
                 style={{
                   fontFamily: "'Syne', sans-serif",
                   fontWeight: 800,
-                  fontSize: 'clamp(32px, 4.2vw, 48px)',
+                  fontSize: 52,
                   letterSpacing: '-0.035em',
-                  color: '#111827',
-                  margin: '0 0 12px',
+                  lineHeight: 1.1,
+                  color: '#0f172a',
+                  margin: '0 0 20px',
                 }}
               >
-                Get Started In Just 3 Easy Steps
+                <span style={{ whiteSpace: 'nowrap' }}>Get Started In Just 3</span>
+                <br />
+                Easy{' '}
+                <span style={{ position: 'relative', display: 'inline-block' }}>
+                  <span style={{ position: 'relative', zIndex: 2 }}>Steps</span>
+                  {/* Lime-green handwritten underline asset moved down below descenders */}
+                  <img
+                    src="/assets/features/4.png"
+                    alt=""
+                    aria-hidden="true"
+                    style={{
+                      position: 'absolute',
+                      left: -6,
+                      bottom: -23,
+                      width: '112%',
+                      height: 'auto',
+                      pointerEvents: 'none',
+                      zIndex: 1,
+                    }}
+                  />
+                </span>
               </h2>
-            </Reveal>
 
-            <Reveal delay={0.05}>
+              {/* Description Paragraph */}
               <p
                 style={{
                   fontFamily: "'Outfit', sans-serif",
-                  fontSize: 15,
-                  fontWeight: 300,
-                  color: '#6b7280',
-                  margin: 0,
+                  fontSize: 16,
+                  fontWeight: 400,
                   lineHeight: 1.6,
+                  color: '#64748b',
+                  maxWidth: 450,
+                  margin: '22px 0 0',
                 }}
               >
                 Launch your digital project with a guided studio onboarding experience designed for speed and simplicity.
               </p>
-            </Reveal>
-          </div>
-
-          {/* Split 2-Column: Left App UI Card, Right 3 Steps */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(12, 1fr)',
-              gap: 'clamp(24px, 4vw, 48px)',
-              alignItems: 'center',
-            }}
-          >
-            {/* Left: App UI Card */}
-            <div style={{ gridColumn: 'span 7' }}>
-              <Reveal delay={0.1}>
-                <div
-                  style={{
-                    background: '#111827',
-                    borderRadius: 24,
-                    padding: 24,
-                    boxShadow: '0 20px 50px rgba(0,0,0,0.15)',
-                    border: '1px solid #374151',
-                    color: '#ffffff',
-                  }}
-                >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
-                    <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 16 }}>Aether TaskBoard</span>
-                    <span style={{ fontSize: 11, color: '#9ca3af', fontFamily: "'JetBrains Mono'" }}>Sprint 42 // Live</span>
-                  </div>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
-                    {[
-                      { col: 'To Do', items: ['Design Token Architecture', 'GLSL Shader Review'] },
-                      { col: 'In Progress', items: ['Spatial Computing OS', 'WebGL Rendering'] },
-                      { col: 'Done', items: ['Vercel Edge Setup', 'Client Audit 100/100'] },
-                    ].map(col => (
-                      <div key={col.col} style={{ background: '#1f2937', borderRadius: 12, padding: 12 }}>
-                        <div style={{ fontSize: 11, fontWeight: 600, color: '#d1d5db', marginBottom: 8 }}>{col.col}</div>
-                        {col.items.map(item => (
-                          <div
-                            key={item}
-                            style={{
-                              background: '#374151',
-                              borderRadius: 8,
-                              padding: '8px 10px',
-                              fontSize: 11,
-                              marginBottom: 6,
-                              color: '#f3f4f6',
-                            }}
-                          >
-                            {item}
-                          </div>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
             </div>
 
-            {/* Right: 3 Numbered Steps */}
-            <div style={{ gridColumn: 'span 5', display: 'flex', flexDirection: 'column', gap: 16 }}>
-              {STEPS.map((s, idx) => {
-                const isCurrent = activeStep === idx
+            {/* Dark Aether TaskBoard Visual (~640px wide) */}
+            <div style={{ position: 'relative', marginTop: 36, width: '100%' }}>
+              {/* Dotted Grid (5.png) behind TaskBoard */}
+              <img
+                src="/assets/features/5.png"
+                alt=""
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  top: -24,
+                  left: -36,
+                  width: 140,
+                  height: 'auto',
+                  opacity: 0.8,
+                  pointerEvents: 'none',
+                  zIndex: 0,
+                }}
+              />
 
-                return (
-                  <Reveal key={s.step} delay={0.1 + idx * 0.05}>
-                    <motion.div
-                      onClick={() => setActiveStep(idx)}
-                      whileHover={{ x: 4 }}
+              {/* Large 3D Glass Torus (2.png) positioned outside bottom-left corner */}
+              <motion.img
+                src="/assets/features/2.png"
+                alt=""
+                aria-hidden="true"
+                animate={{ y: [0, -6, 0], rotate: [0, 2, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+                style={{
+                  position: 'absolute',
+                  bottom: -65,
+                  left: -75,
+                  width: 155,
+                  height: 'auto',
+                  pointerEvents: 'none',
+                  zIndex: 25,
+                  filter: 'drop-shadow(0 16px 28px rgba(0,0,0,0.12))',
+                }}
+              />
+
+              {/* Dark TaskBoard Container */}
+              <div
+                style={{
+                  position: 'relative',
+                  zIndex: 10,
+                  background: '#0d131f',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  borderRadius: 20,
+                  padding: '20px 22px 24px',
+                  boxShadow: '0 25px 60px -12px rgba(13, 19, 31, 0.42), 0 0 0 1px rgba(255, 255, 255, 0.04)',
+                }}
+              >
+                {/* Window Top Bar: 14.png Traffic Lights + Title + Live Status */}
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    marginBottom: 16,
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <img
+                      src="/assets/features/14.png"
+                      alt="Window buttons"
+                      style={{ height: 11, width: 'auto', display: 'block' }}
+                    />
+                  </div>
+
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 6,
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: 11,
+                      fontWeight: 500,
+                      color: '#94a3b8',
+                    }}
+                  >
+                    <span>Sprint 42 / Live</span>
+                    <span
                       style={{
-                        background: isCurrent ? '#f9fafb' : '#ffffff',
-                        border: `1px solid ${isCurrent ? '#2563eb' : '#e5e7eb'}`,
-                        borderRadius: 18,
-                        padding: 20,
-                        cursor: 'pointer',
+                        width: 6,
+                        height: 6,
+                        borderRadius: '50%',
+                        background: '#22c55e',
+                        boxShadow: '0 0 8px rgba(34, 197, 94, 0.9)',
+                      }}
+                    />
+                  </div>
+                </div>
+
+                {/* Window Title */}
+                <h3
+                  style={{
+                    fontFamily: "'Syne', sans-serif",
+                    fontWeight: 700,
+                    fontSize: 15,
+                    color: '#f8fafc',
+                    letterSpacing: '-0.02em',
+                    margin: '0 0 16px',
+                  }}
+                >
+                  Aether TaskBoard
+                </h3>
+
+                {/* 3 Kanban Columns with dynamic highlight based on active card */}
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gap: 10,
+                  }}
+                >
+                  {/* Column 1: To Do */}
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: 8,
+                      opacity: activeStep === 0 ? 1 : 0.75,
+                      transition: 'opacity 0.25s',
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, paddingLeft: 2 }}>
+                      <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#84cc16' }} />
+                      <span style={{ fontSize: 11.5, fontWeight: 600, color: '#e2e8f0' }}>To Do</span>
+                    </div>
+                    <div
+                      style={{
+                        background: activeStep === 0 ? '#1b273d' : '#161f30',
+                        border: activeStep === 0 ? '1px solid rgba(132, 204, 22, 0.3)' : '1px solid rgba(255, 255, 255, 0.05)',
+                        borderRadius: 8,
+                        padding: '10px 8px',
                         display: 'flex',
-                        gap: 16,
-                        boxShadow: isCurrent ? '0 4px 16px rgba(37,99,235,0.08)' : 'none',
-                        transition: 'all 0.25s',
+                        alignItems: 'center',
+                        gap: 7,
+                        transition: 'all 0.2s',
                       }}
                     >
+                      <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#84cc16', flexShrink: 0 }} />
+                      <span style={{ fontSize: 10.5, color: '#e2e8f0', fontWeight: 500, lineHeight: 1.25 }}>
+                        Design Token Architecture
+                      </span>
+                    </div>
+                    <div
+                      style={{
+                        background: activeStep === 0 ? '#1b273d' : '#161f30',
+                        border: activeStep === 0 ? '1px solid rgba(132, 204, 22, 0.3)' : '1px solid rgba(255, 255, 255, 0.05)',
+                        borderRadius: 8,
+                        padding: '10px 8px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 7,
+                        transition: 'all 0.2s',
+                      }}
+                    >
+                      <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#84cc16', flexShrink: 0 }} />
+                      <span style={{ fontSize: 10.5, color: '#e2e8f0', fontWeight: 500, lineHeight: 1.25 }}>
+                        GLSL Shader Review
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Column 2: In Progress */}
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: 8,
+                      opacity: activeStep === 1 ? 1 : 0.75,
+                      transition: 'opacity 0.25s',
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, paddingLeft: 2 }}>
+                      <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#3b82f6' }} />
+                      <span style={{ fontSize: 11.5, fontWeight: 600, color: '#e2e8f0' }}>In Progress</span>
+                    </div>
+                    <div
+                      style={{
+                        background: activeStep === 1 ? '#1b273d' : '#161f30',
+                        border: activeStep === 1 ? '1px solid rgba(59, 130, 246, 0.3)' : '1px solid rgba(255, 255, 255, 0.05)',
+                        borderRadius: 8,
+                        padding: '10px 8px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 7,
+                        transition: 'all 0.2s',
+                      }}
+                    >
+                      <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#3b82f6', flexShrink: 0 }} />
+                      <span style={{ fontSize: 10.5, color: '#e2e8f0', fontWeight: 500, lineHeight: 1.25 }}>
+                        Spatial Computing OS
+                      </span>
+                    </div>
+                    <div
+                      style={{
+                        background: activeStep === 1 ? '#1b273d' : '#161f30',
+                        border: activeStep === 1 ? '1px solid rgba(59, 130, 246, 0.3)' : '1px solid rgba(255, 255, 255, 0.05)',
+                        borderRadius: 8,
+                        padding: '10px 8px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 7,
+                        transition: 'all 0.2s',
+                      }}
+                    >
+                      <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#3b82f6', flexShrink: 0 }} />
+                      <span style={{ fontSize: 10.5, color: '#e2e8f0', fontWeight: 500, lineHeight: 1.25 }}>
+                        WebGL Rendering
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Column 3: Done */}
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: 8,
+                      opacity: activeStep === 2 ? 1 : 0.75,
+                      transition: 'opacity 0.25s',
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, paddingLeft: 2 }}>
+                      <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#a855f7' }} />
+                      <span style={{ fontSize: 11.5, fontWeight: 600, color: '#e2e8f0' }}>Done</span>
+                    </div>
+                    <div
+                      style={{
+                        background: activeStep === 2 ? '#1b273d' : '#161f30',
+                        border: activeStep === 2 ? '1px solid rgba(168, 85, 247, 0.3)' : '1px solid rgba(255, 255, 255, 0.05)',
+                        borderRadius: 8,
+                        padding: '10px 8px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 7,
+                        transition: 'all 0.2s',
+                      }}
+                    >
+                      <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#a855f7', flexShrink: 0 }} />
+                      <span style={{ fontSize: 10.5, color: '#e2e8f0', fontWeight: 500, lineHeight: 1.25 }}>
+                        Vercel Edge Setup
+                      </span>
+                    </div>
+                    <div
+                      style={{
+                        background: activeStep === 2 ? '#1b273d' : '#161f30',
+                        border: activeStep === 2 ? '1px solid rgba(168, 85, 247, 0.3)' : '1px solid rgba(255, 255, 255, 0.05)',
+                        borderRadius: 8,
+                        padding: '10px 8px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        gap: 4,
+                        transition: 'all 0.2s',
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 7, overflow: 'hidden' }}>
+                        <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#a855f7', flexShrink: 0 }} />
+                        <span
+                          style={{
+                            fontSize: 10.5,
+                            color: '#e2e8f0',
+                            fontWeight: 500,
+                            lineHeight: 1.25,
+                            whiteSpace: 'nowrap',
+                          }}
+                        >
+                          Client Audit 100/100
+                        </span>
+                      </div>
                       <div
                         style={{
-                          width: 36,
-                          height: 36,
-                          borderRadius: 10,
-                          background: isCurrent ? '#2563eb' : '#f3f4f6',
-                          color: isCurrent ? '#ffffff' : '#6b7280',
+                          width: 15,
+                          height: 15,
+                          borderRadius: '50%',
+                          background: '#22c55e',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          fontFamily: "'Syne', sans-serif",
-                          fontWeight: 700,
-                          fontSize: 14,
                           flexShrink: 0,
-                          transition: 'all 0.25s',
                         }}
                       >
-                        {s.step}
+                        <Check size={10} color="#0d131f" strokeWidth={3} />
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                      <div>
+          {/* -----------------------------------------------------------------------
+              CENTER ZONE: 3D GLASS CUBE (1.png) BALANCED IN THE OPEN GAP
+              ----------------------------------------------------------------------- */}
+          <motion.img
+            src="/assets/features/1.png"
+            alt=""
+            aria-hidden="true"
+            animate={{ y: [0, -8, 0], rotate: [0, 2.5, -2.5, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+            style={{
+              position: 'absolute',
+              top: 5,
+              left: '46.5%',
+              transform: 'translateX(-50%)',
+              width: 110,
+              height: 'auto',
+              pointerEvents: 'none',
+              zIndex: 15,
+              filter: 'drop-shadow(0 14px 25px rgba(0,0,0,0.06))',
+            }}
+          />
+
+          {/* Lime Sparkle Star in negative space near cube */}
+          <motion.img
+            src="/assets/features/7.png"
+            alt=""
+            aria-hidden="true"
+            animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+            style={{
+              position: 'absolute',
+              top: 140,
+              left: '44%',
+              width: 16,
+              height: 'auto',
+              pointerEvents: 'none',
+              zIndex: 16,
+            }}
+          />
+
+          {/* Pair of Sparkle Stars (8.png) in top-right negative space */}
+          <img
+            src="/assets/features/8.png"
+            alt=""
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              top: -15,
+              right: 15,
+              width: 24,
+              height: 'auto',
+              pointerEvents: 'none',
+              zIndex: 16,
+            }}
+          />
+
+          {/* -----------------------------------------------------------------------
+              RIGHT COLUMN (48% Width): 3 INTERACTIVE CLICKABLE WORKFLOW CARDS
+              ----------------------------------------------------------------------- */}
+          <div
+            style={{
+              width: '48%',
+              maxWidth: 580,
+              minWidth: 480,
+              position: 'relative',
+              zIndex: 10,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 24,
+              paddingTop: 6,
+              flexShrink: 0,
+            }}
+          >
+            {/* Dashed connector path with lime nodes (15.png) BEHIND cards */}
+            <img
+              src="/assets/features/15.png"
+              alt=""
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                top: -20,
+                left: -35,
+                width: 320,
+                height: 'auto',
+                opacity: 0.95,
+                pointerEvents: 'none',
+                zIndex: 0,
+              }}
+            />
+
+            {/* Render Clickable Cards */}
+            {stepsData.map((step) => {
+              const isSelected = activeStep === step.id
+
+              return (
+                <motion.div
+                  key={step.id}
+                  onClick={() => setActiveStep(step.id)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      setActiveStep(step.id)
+                    }
+                  }}
+                  whileHover={{ y: -3, scale: 1.01 }}
+                  whileTap={{ scale: 0.985 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                  style={{
+                    position: 'relative',
+                    zIndex: isSelected ? 5 : 2,
+                    background: '#ffffff',
+                    border: isSelected ? `2px solid ${step.borderActive}` : '1.5px solid #e2e8f0',
+                    borderRadius: 22,
+                    padding: '22px 24px',
+                    minHeight: 155,
+                    boxShadow: isSelected ? step.shadowActive : '0 4px 20px rgba(0,0,0,0.03)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: 16,
+                    cursor: 'pointer',
+                    userSelect: 'none',
+                    outline: 'none',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
+                    {/* Large 62px Colored Icon Tile */}
+                    <motion.img
+                      src={step.icon}
+                      alt={`Step ${step.num} Icon`}
+                      animate={{ scale: isSelected ? [1, 1.08, 1] : 1 }}
+                      transition={{ duration: 0.3 }}
+                      style={{
+                        width: 62,
+                        height: 62,
+                        borderRadius: 15,
+                        objectFit: 'contain',
+                        flexShrink: 0,
+                      }}
+                    />
+
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 5 }}>
+                        <span
+                          style={{
+                            fontFamily: "'Syne', sans-serif",
+                            fontWeight: 800,
+                            fontSize: 16.5,
+                            color: step.color,
+                          }}
+                        >
+                          {step.num}
+                        </span>
                         <h4
                           style={{
                             fontFamily: "'Syne', sans-serif",
-                            fontWeight: 700,
-                            fontSize: 16,
-                            color: '#111827',
-                            margin: '0 0 4px',
-                          }}
-                        >
-                          {s.title}
-                        </h4>
-                        <p
-                          style={{
-                            fontFamily: "'Outfit', sans-serif",
-                            fontSize: 13,
-                            fontWeight: 300,
-                            lineHeight: 1.55,
-                            color: '#6b7280',
+                            fontWeight: 800,
+                            fontSize: 18,
+                            color: '#0f172a',
+                            letterSpacing: '-0.025em',
                             margin: 0,
                           }}
                         >
-                          {s.desc}
-                        </p>
+                          {step.title}
+                        </h4>
                       </div>
-                    </motion.div>
-                  </Reveal>
-                )
-              })}
+                      <p
+                        style={{
+                          fontFamily: "'Outfit', sans-serif",
+                          fontSize: 13.5,
+                          fontWeight: 400,
+                          lineHeight: 1.5,
+                          color: '#64748b',
+                          margin: 0,
+                          maxWidth: 350,
+                        }}
+                      >
+                        {step.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Circular Arrow Button with Active State Feedback */}
+                  <motion.div
+                    animate={{
+                      rotate: isSelected ? 45 : 0,
+                      backgroundColor: isSelected ? step.borderActive : '#f8fafc',
+                      color: isSelected ? '#ffffff' : '#0f172a',
+                      borderColor: isSelected ? step.borderActive : '#e2e8f0',
+                    }}
+                    transition={{ duration: 0.25 }}
+                    style={{
+                      width: 38,
+                      height: 38,
+                      borderRadius: '50%',
+                      border: '1px solid #e2e8f0',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                      boxShadow: isSelected ? '0 4px 12px rgba(0,0,0,0.1)' : 'none',
+                    }}
+                  >
+                    <ArrowUpRight size={17} strokeWidth={2.4} />
+                  </motion.div>
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* =========================================================================
+            BOTTOM ROW: 3-COLUMN BENEFITS PANEL WITH 3D GLASS PRISM
+            ========================================================================= */}
+        <div style={{ position: 'relative', marginTop: 68, width: '100%' }}>
+          {/* 3D Glass Triangle (3.png) outside bottom-right corner */}
+          <motion.img
+            src="/assets/features/3.png"
+            alt=""
+            aria-hidden="true"
+            animate={{ y: [0, -6, 0], rotate: [0, -2, 0] }}
+            transition={{ duration: 7.5, repeat: Infinity, ease: 'easeInOut' }}
+            style={{
+              position: 'absolute',
+              bottom: -45,
+              right: -40,
+              width: 145,
+              height: 'auto',
+              pointerEvents: 'none',
+              zIndex: 25,
+              filter: 'drop-shadow(0 16px 30px rgba(0,0,0,0.12))',
+            }}
+          />
+
+          {/* Wide Rounded Container */}
+          <div
+            style={{
+              position: 'relative',
+              zIndex: 10,
+              background: '#ffffff',
+              border: '1px solid #e5e7eb',
+              borderRadius: 24,
+              padding: '28px 40px',
+              boxShadow: '0 8px 30px rgba(0,0,0,0.03)',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              alignItems: 'center',
+            }}
+          >
+            {/* Column 1: Fast and simple (17.png) */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 18,
+                paddingRight: 28,
+                borderRight: '1px solid #f1f5f9',
+              }}
+            >
+              <img
+                src="/assets/features/17.png"
+                alt="Fast and simple"
+                style={{
+                  width: 54,
+                  height: 54,
+                  borderRadius: 14,
+                  objectFit: 'contain',
+                  flexShrink: 0,
+                }}
+              />
+              <div>
+                <h4
+                  style={{
+                    fontFamily: "'Syne', sans-serif",
+                    fontWeight: 800,
+                    fontSize: 17,
+                    color: '#0f172a',
+                    letterSpacing: '-0.02em',
+                    margin: '0 0 5px',
+                  }}
+                >
+                  Fast and simple
+                </h4>
+                <p
+                  style={{
+                    fontFamily: "'Outfit', sans-serif",
+                    fontSize: 13.5,
+                    fontWeight: 400,
+                    lineHeight: 1.5,
+                    color: '#64748b',
+                    margin: 0,
+                  }}
+                >
+                  No matter your scale or complexity, it's effortless to ship world-class digital experiences with Aether.
+                </p>
+              </div>
+            </div>
+
+            {/* Column 2: Built for speed (18.png) */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 18,
+                paddingLeft: 28,
+                paddingRight: 28,
+                borderRight: '1px solid #f1f5f9',
+              }}
+            >
+              <img
+                src="/assets/features/18.png"
+                alt="Built for speed"
+                style={{
+                  width: 54,
+                  height: 54,
+                  borderRadius: 14,
+                  objectFit: 'contain',
+                  flexShrink: 0,
+                }}
+              />
+              <div>
+                <h4
+                  style={{
+                    fontFamily: "'Syne', sans-serif",
+                    fontWeight: 800,
+                    fontSize: 17,
+                    color: '#0f172a',
+                    letterSpacing: '-0.02em',
+                    margin: '0 0 5px',
+                  }}
+                >
+                  Built for speed
+                </h4>
+                <p
+                  style={{
+                    fontFamily: "'Outfit', sans-serif",
+                    fontSize: 13.5,
+                    fontWeight: 400,
+                    lineHeight: 1.5,
+                    color: '#64748b',
+                    margin: 0,
+                  }}
+                >
+                  Optimized workflows, powerful tools, and performance-first architecture that moves as fast as you do.
+                </p>
+              </div>
+            </div>
+
+            {/* Column 3: Designed to scale (19.png) */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 18,
+                paddingLeft: 28,
+              }}
+            >
+              <img
+                src="/assets/features/19.png"
+                alt="Designed to scale"
+                style={{
+                  width: 54,
+                  height: 54,
+                  borderRadius: 14,
+                  objectFit: 'contain',
+                  flexShrink: 0,
+                }}
+              />
+              <div>
+                <h4
+                  style={{
+                    fontFamily: "'Syne', sans-serif",
+                    fontWeight: 800,
+                    fontSize: 17,
+                    color: '#0f172a',
+                    letterSpacing: '-0.02em',
+                    margin: '0 0 5px',
+                  }}
+                >
+                  Designed to scale
+                </h4>
+                <p
+                  style={{
+                    fontFamily: "'Outfit', sans-serif",
+                    fontSize: 13.5,
+                    fontWeight: 400,
+                    lineHeight: 1.5,
+                    color: '#64748b',
+                    margin: 0,
+                  }}
+                >
+                  From solo projects to enterprise platforms—Aether grows with your vision.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -420,3 +898,5 @@ export default function FeaturesSection({ T, L }: Props) {
     </section>
   )
 }
+
+export default FeaturesSection

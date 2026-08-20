@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 
 export default function ServiceCard({
   iconSrc,
@@ -9,55 +9,133 @@ export default function ServiceCard({
   zIndex = 10,
   onLearnMore,
   className = '',
-  width = 'w-[340px]',
-  height = 'h-[390px]',
+  width = 275,
+  height = 365,
   style = {},
+}: {
+  iconSrc: string;
+  title: string;
+  description: string;
+  rotation?: number;
+  translateY?: number;
+  zIndex?: number;
+  onLearnMore?: () => void;
+  className?: string;
+  width?: number | string;
+  height?: number | string;
+  style?: React.CSSProperties;
 }) {
+  const [isHovered, setIsHovered] = React.useState(false);
+
   return (
     <div
       style={{
-        transform: `rotate(${rotation}deg) translateY(${translateY}px)`,
-        zIndex,
+        width: typeof width === 'number' ? `${width}px` : width,
+        height: typeof height === 'number' ? `${height}px` : height,
+        transform: `rotate(${rotation}deg) translateY(${translateY + (isHovered ? -8 : 0)}px) scale(${isHovered ? 1.02 : 1})`,
+        zIndex: isHovered ? 50 : zIndex,
+        background: '#ffffff',
+        borderRadius: '26px',
+        border: '1px solid rgba(0, 0, 0, 0.06)',
+        borderBottom: '3px solid #bbf812',
+        boxShadow: isHovered
+          ? '0 30px 65px -15px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04)'
+          : '0 20px 45px -15px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.02)',
+        padding: '26px 24px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        flexShrink: 0,
+        cursor: 'pointer',
+        transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+        boxSizing: 'border-box',
         ...style,
       }}
-      className={`aether-card relative flex flex-col justify-between ${width} ${height} p-6 sm:p-7 flex-shrink-0 cursor-pointer ${className}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       onClick={onLearnMore}
+      className={className}
     >
       {/* Top Icon Badge */}
-      <div className="relative">
-        <div className="w-[52px] h-[52px] rounded-[16px] overflow-hidden flex items-center justify-center transition-transform duration-300 hover:scale-105 hover:rotate-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.04)]">
+      <div style={{ position: 'relative' }}>
+        <div
+          style={{
+            width: 48,
+            height: 48,
+            borderRadius: 14,
+            overflow: 'hidden',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'transform 0.3s ease',
+            transform: isHovered ? 'scale(1.06) rotate(4deg)' : 'none',
+          }}
+        >
           <img
             src={iconSrc}
             alt={title}
-            className="w-full h-full object-contain pointer-events-none"
+            style={{ width: '100%', height: '100%', objectFit: 'contain', pointerEvents: 'none' }}
           />
         </div>
       </div>
 
       {/* Center Text Content */}
-      <div className="relative my-auto">
-        <h3 className="text-[21px] font-extrabold text-[#111827] tracking-tight leading-snug mb-2.5">
+      <div style={{ position: 'relative', margin: 'auto 0' }}>
+        <h3
+          style={{
+            fontFamily: "'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+            fontSize: '19px',
+            fontWeight: 800,
+            color: '#111827',
+            letterSpacing: '-0.025em',
+            lineHeight: 1.25,
+            marginBottom: '8px',
+          }}
+        >
           {title}
         </h3>
-        <p className="text-[13.5px] leading-relaxed text-slate-500 font-normal">
+        <p
+          style={{
+            fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+            fontSize: '12.5px',
+            lineHeight: 1.6,
+            color: '#64748b',
+            fontWeight: 400,
+            margin: 0,
+          }}
+        >
           {description}
         </p>
       </div>
 
       {/* Bottom Circle Action Button */}
-      <div className="relative pt-1">
+      <div style={{ position: 'relative', paddingTop: 4 }}>
         <button
           onClick={(e) => {
             e.stopPropagation();
             onLearnMore && onLearnMore();
           }}
           aria-label={`Learn more about ${title}`}
-          className="w-[38px] h-[38px] rounded-full overflow-hidden transition-all duration-300 hover:scale-110 hover:translate-x-0.5 active:scale-95 drop-shadow-[0_2px_4px_rgba(0,0,0,0.05)]"
+          style={{
+            width: 34,
+            height: 34,
+            borderRadius: '50%',
+            overflow: 'hidden',
+            border: 'none',
+            background: 'transparent',
+            padding: 0,
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'all 0.3s ease',
+            transform: isHovered ? 'scale(1.1) translateX(2px)' : 'none',
+          }}
         >
           <img
             src="/assets/cropped/17.png"
             alt="Arrow link"
-            className="w-full h-full object-contain pointer-events-none"
+            style={{ width: '100%', height: '100%', objectFit: 'contain', pointerEvents: 'none' }}
           />
         </button>
       </div>

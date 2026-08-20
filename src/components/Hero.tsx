@@ -32,7 +32,7 @@ export default function Hero() {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          padding: 'clamp(140px, 14vw, 180px) 20px clamp(70px, 8vw, 100px)',
+          padding: 'clamp(140px, 14vw, 180px) 20px clamp(40px, 4vw, 60px)',
           boxSizing: 'border-box',
         }}
       >

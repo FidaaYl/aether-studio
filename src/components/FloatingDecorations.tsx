@@ -1,136 +1,267 @@
-import React from 'react';
+﻿import React from 'react';
 
 export default function FloatingDecorations() {
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-10">
-      
-      {/* Dashed Orbit Curved Lines */}
-      <svg className="absolute top-[8%] left-[2%] w-[96%] h-[80%] opacity-35 pointer-events-none" viewBox="0 0 1400 800" fill="none">
+    <div
+      style={{
+        position: 'absolute',
+        inset: 0,
+        pointerEvents: 'none',
+        overflow: 'visible',
+        zIndex: 10,
+      }}
+    >
+      {/* ─── 1. SVG ORBITAL TRAJECTORIES & ENERGY NODES ─── */}
+      <svg
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          pointerEvents: 'none',
+          opacity: 0.65,
+        }}
+        viewBox="0 0 1440 900"
+        fill="none"
+        preserveAspectRatio="none"
+      >
+        {/* Main Sweeping Orbital Trajectory connecting across the canvas */}
         <path
-          d="M 30,360 C 180,220 620,80 1020,140 C 1240,170 1350,300 1390,450"
-          stroke="#94a3b8"
-          strokeWidth="1.5"
-          strokeDasharray="6 7"
-          className="animate-dash"
-        />
-        <path
-          d="M 100,560 C 320,580 620,700 880,740"
+          d="M 30 380 C 120 280, 240 210, 420 180 C 600 150, 780 130, 940 180 C 1080 220, 1180 140, 1310 150 C 1410 160, 1465 260, 1435 380 C 1400 500, 1335 620, 1260 720"
           stroke="#cbd5e1"
           strokeWidth="1.2"
           strokeDasharray="4 6"
+          strokeLinecap="round"
         />
+
+        {/* Lower Left Connecting Wave Arc behind Dot Matrix card */}
+        <path
+          d="M 60 550 C 200 580, 480 660, 760 720"
+          stroke="#cbd5e1"
+          strokeWidth="1.1"
+          strokeDasharray="4 6"
+          strokeLinecap="round"
+        />
+
+        {/* Energy Nodes (Lime & Slate dots along orbital trajectory) */}
+        <circle cx="180" cy="240" r="3.2" fill="#84cc16" opacity="0.9" />
+        <circle cx="540" cy="155" r="3.2" fill="#84cc16" opacity="0.85" />
+        <circle cx="910" cy="175" r="3" fill="#84cc16" opacity="0.85" />
+        <circle cx="1200" cy="150" r="3.2" fill="#84cc16" opacity="0.9" />
+        <circle cx="1435" cy="330" r="3.2" fill="#94a3b8" opacity="0.8" />
+        <circle cx="1310" cy="650" r="3" fill="#84cc16" opacity="0.85" />
+
+        {/* Star Sparkles along trajectory */}
+        <g transform="translate(110, 640)">
+          <path d="M0 -5.5 Q0 0 5.5 0 Q0 0 0 5.5 Q0 0 -5.5 0 Q0 0 0 -5.5" fill="#84cc16" opacity="0.85" />
+        </g>
+        <g transform="translate(640, 135)">
+          <path d="M0 -5.5 Q0 0 5.5 0 Q0 0 0 5.5 Q0 0 -5.5 0 Q0 0 0 -5.5" fill="#84cc16" opacity="0.85" />
+        </g>
+        <g transform="translate(720, 145)">
+          <path d="M0 -5 Q0 0 5 0 Q0 0 0 5 Q0 0 -5 0 Q0 0 0 -5" fill="#94a3b8" opacity="0.8" />
+        </g>
+        <g transform="translate(1040, 215)">
+          <path d="M0 -5.5 Q0 0 5.5 0 Q0 0 0 5.5 Q0 0 -5.5 0 Q0 0 0 -5.5" fill="#84cc16" opacity="0.85" />
+        </g>
+        <g transform="translate(1410, 270)">
+          <path d="M0 -5 Q0 0 5 0 Q0 0 0 5 Q0 0 -5 0 Q0 0 0 -5" fill="#94a3b8" opacity="0.8" />
+        </g>
+        <g transform="translate(1350, 510)">
+          <path d="M0 -5.5 Q0 0 5.5 0 Q0 0 0 5.5 Q0 0 -5.5 0 Q0 0 0 -5.5" fill="#84cc16" opacity="0.85" />
+        </g>
+        <g transform="translate(1100, 720)">
+          <path d="M0 -5 Q0 0 5 0 Q0 0 0 5 Q0 0 -5 0 Q0 0 0 -5" fill="#84cc16" opacity="0.85" />
+        </g>
       </svg>
 
-      {/* Background Dot Matrix Card behind Card 1 (Asset 3.png) */}
-      <div className="absolute top-[64%] left-[3%] w-[165px] sm:w-[190px] -translate-y-1/2 opacity-85 -z-10 -rotate-3 transition-transform duration-700 hover:rotate-0">
-        <img
-          src="/assets/cropped/3.png"
-          alt="Dot pattern card"
-          className="w-full object-contain drop-shadow-[0_8px_20px_rgba(0,0,0,0.03)]"
-        />
-      </div>
-
-      {/* Top Left: 3D Refractive Glass Plus (Asset 1.png) */}
-      <div className="absolute top-[12%] left-[4.5%] w-[85px] sm:w-[95px] animate-float-slow transition-transform duration-300 hover:scale-105 pointer-events-auto">
+      {/* ─── 2. UPPER-LEFT 3D REFRACTIVE GLASS ASSETS ─── */}
+      {/* 3D Glass Plus (Asset 1.png) */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '65px',
+          left: '70px',
+          width: '78px',
+          zIndex: 30,
+          pointerEvents: 'auto',
+          transition: 'transform 0.3s ease',
+        }}
+        className="hover:scale-105"
+      >
         <img
           src="/assets/cropped/1.png"
           alt="3D Glass Plus"
-          className="w-full object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.06)]"
+          style={{ width: '100%', objectFit: 'contain', filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.06))' }}
         />
       </div>
 
-      {/* Mid Left: 3D Optical Glass Prism (Asset 4.png) */}
-      <div className="absolute top-[30%] left-[6%] w-[50px] sm:w-[62px] animate-float-reverse transition-transform duration-300 hover:scale-105 pointer-events-auto">
+      {/* 3D Optical Glass Prism (Asset 4.png) */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '260px',
+          left: '95px',
+          width: '50px',
+          zIndex: 30,
+          pointerEvents: 'auto',
+          transition: 'transform 0.3s ease',
+        }}
+        className="hover:scale-105"
+      >
         <img
           src="/assets/cropped/4.png"
           alt="3D Optical Prism"
-          className="w-full object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.05)]"
+          style={{ width: '100%', objectFit: 'contain', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.05))' }}
         />
       </div>
 
-      {/* Bottom Center: 3D Refractive Glass Ring (Asset 9.png) */}
-      <div className="absolute bottom-[0%] left-[47%] -translate-x-1/2 w-[125px] sm:w-[145px] animate-float-slow transition-transform duration-300 hover:scale-105 pointer-events-auto">
+      {/* ─── 3. BACKGROUND DOT MATRIX PANELS & PARTICLES ─── */}
+      {/* Background Dot Matrix Card behind Card 1 (Asset 3.png) */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '540px',
+          left: '30px',
+          width: '165px',
+          transform: 'rotate(-6deg)',
+          opacity: 0.85,
+          zIndex: 10,
+          pointerEvents: 'none',
+        }}
+      >
         <img
-          src="/assets/cropped/9.png"
-          alt="3D Glass Torus"
-          className="w-full object-contain drop-shadow-[0_14px_28px_rgba(0,0,0,0.06)]"
+          src="/assets/cropped/3.png"
+          alt="Dot pattern card"
+          style={{ width: '100%', objectFit: 'contain', filter: 'drop-shadow(0 8px 20px rgba(0,0,0,0.03))' }}
         />
       </div>
 
-      {/* Sparkles & Star Accents (Assets 6, 11, 20) */}
-      <div className="absolute top-[42%] left-[5%] w-[18px] text-[#84cc16] animate-pulse-glow" style={{ animationDelay: '0.2s' }}>
-        <img src="/assets/cropped/6.png" alt="Sparkle" className="w-full object-contain" />
-      </div>
-      <div className="absolute top-[26%] left-[48%] w-[26px] animate-pulse-glow" style={{ animationDelay: '1.2s' }}>
-        <img src="/assets/cropped/11.png" alt="Sparkles set" className="w-full object-contain" />
-      </div>
-      <div className="absolute top-[18%] right-[8%] w-[16px] opacity-60 animate-pulse-glow" style={{ animationDelay: '2.1s' }}>
-        <img src="/assets/cropped/6.png" alt="Sparkle" className="w-full object-contain" />
-      </div>
-      <div className="absolute top-[32%] right-[11%] w-[16px] opacity-75 animate-pulse-glow" style={{ animationDelay: '0.6s' }}>
-        <img src="/assets/cropped/6.png" alt="Sparkle" className="w-full object-contain" />
-      </div>
-      <div className="absolute bottom-[5%] left-[20%] w-[18px] animate-pulse-glow" style={{ animationDelay: '1.5s' }}>
-        <img src="/assets/cropped/6.png" alt="Sparkle" className="w-full object-contain" />
-      </div>
+      {/* Bottom Right Subtle Dot Matrix Grid */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          right: 0,
+          width: '240px',
+          height: '170px',
+          backgroundImage: 'radial-gradient(rgba(148, 163, 184, 0.22) 1px, transparent 1px)',
+          backgroundSize: '16px 16px',
+          opacity: 0.4,
+          zIndex: 0,
+          pointerEvents: 'none',
+        }}
+      />
 
-      {/* Decorative dots scatter (Asset 20.png) */}
-      <div className="absolute top-[18%] left-[55%] w-[320px] opacity-35 -z-10 pointer-events-none">
-        <img src="/assets/cropped/20.png" alt="Dots scatter" className="w-full object-contain" />
-      </div>
-
-      {/* Bottom Right Subtle Dot Matrix */}
-      <div className="absolute bottom-0 right-0 w-[240px] h-[160px] bg-dot-pattern opacity-35 -z-10 pointer-events-none" />
-
-      {/* Handwritten Doodles (Delicately scaled to match exact reference) */}
-
+      {/* ─── 4. HANDWRITTEN ANNOTATIONS & DOODLES ─── */}
       {/* 1. Above Center Cards: "strategy -> design -> impact" (Asset 7.png) */}
-      <div className="absolute top-[15%] left-[54%] -translate-x-1/2 w-[115px] sm:w-[125px] pointer-events-auto transform -rotate-2 hover:scale-105 transition-transform duration-300">
+      <div
+        style={{
+          position: 'absolute',
+          top: '110px',
+          left: '710px',
+          width: '120px',
+          transform: 'rotate(-2deg)',
+          pointerEvents: 'auto',
+          zIndex: 30,
+          transition: 'transform 0.3s ease',
+        }}
+        className="hover:scale-105"
+      >
         <img
           src="/assets/cropped/7.png"
           alt="strategy design impact"
-          className="w-full object-contain drop-shadow-sm"
+          style={{ width: '100%', objectFit: 'contain', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.04))' }}
         />
       </div>
 
-      {/* 2. Bottom Left: "Insightful by design" + arrow (Asset 13.png - Compact & Delicate matching reference) */}
-      <div className="absolute bottom-[4%] left-[3%] sm:left-[3.5%] w-[105px] sm:w-[115px] pointer-events-auto transform -rotate-3 hover:scale-105 transition-transform duration-300">
+      {/* 2. Bottom Left: "Insightful by design" + arrow pointing directly to Card 1 (Asset 13.png) */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '760px',
+          left: '50px',
+          width: '125px',
+          transform: 'rotate(-1deg)',
+          pointerEvents: 'auto',
+          zIndex: 30,
+          transition: 'transform 0.3s ease',
+        }}
+        className="hover:scale-105"
+      >
         <img
           src="/assets/cropped/13.png"
           alt="Insightful by design"
-          className="w-full object-contain drop-shadow-sm"
+          style={{ width: '100%', objectFit: 'contain', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.04))' }}
         />
       </div>
 
-      {/* 3. Bottom Right: Hand-drawn arrow + "Real people. Real results." */}
-      <div className="absolute bottom-[2%] right-[5%] sm:right-[7%] flex flex-col items-start pointer-events-auto">
-        {/* Hand-drawn curved arrow curving UP towards the bottom edge of the photo card */}
-        <div className="w-[28px] sm:w-[32px] h-[36px] mb-0.5 ml-2 pointer-events-none transform -rotate-6">
-          <svg viewBox="0 0 40 48" fill="none" className="w-full h-full text-slate-700">
-            <path
-              d="M 28 46 C 14 34, 10 18, 14 4"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-            />
-            <path
-              d="M 6 14 L 14 4 L 20 14"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+      {/* 3. Bottom Right: Hand-drawn arrow (10.png) + "Real people. Real results." (14.png) pointing to Team Photo Card */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '665px',
+          left: '1285px',
+          zIndex: 35,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          pointerEvents: 'auto',
+        }}
+      >
+        {/* Authentic hand-drawn arrow (Asset 10.png) curling up-left directly towards Team card */}
+        <div
+          style={{
+            width: '34px',
+            marginBottom: '-2px',
+            marginLeft: '-8px',
+            pointerEvents: 'none',
+          }}
+        >
+          <img
+            src="/assets/cropped/10.png"
+            alt="Arrow pointing to team"
+            style={{ width: '100%', objectFit: 'contain' }}
+          />
         </div>
 
-        {/* Text: "Real people. Real results." (Asset 14.png - Delicate & proportional) */}
-        <div className="w-[115px] sm:w-[125px] transform rotate-1 hover:scale-105 transition-transform duration-300">
+        {/* Text: "Real people. Real results." (Asset 14.png) */}
+        <div
+          style={{
+            width: '118px',
+            transform: 'rotate(1deg)',
+            transition: 'transform 0.3s ease',
+          }}
+          className="hover:scale-105"
+        >
           <img
             src="/assets/cropped/14.png"
             alt="Real people. Real results."
-            className="w-full object-contain drop-shadow-sm"
+            style={{ width: '100%', objectFit: 'contain', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.04))' }}
           />
         </div>
+      </div>
+
+      {/* ─── 5. 3D GLASS TORUS (BOTTOM CENTER) ─── */}
+      {/* 3D Refractive Glass Ring (Asset 9.png) */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '755px',
+          left: '635px',
+          width: '138px',
+          transform: 'translateX(-50%)',
+          zIndex: 30,
+          pointerEvents: 'auto',
+          transition: 'transform 0.3s ease',
+        }}
+        className="hover:scale-105"
+      >
+        <img
+          src="/assets/cropped/9.png"
+          alt="3D Glass Torus"
+          style={{ width: '100%', objectFit: 'contain', filter: 'drop-shadow(0 14px 28px rgba(0,0,0,0.06))' }}
+        />
       </div>
 
     </div>
