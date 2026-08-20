@@ -126,15 +126,9 @@ export default function NarrativeSection({ T, L }: Props) {
         </div>
 
         {/* 4-Card Bento Grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(12, 1fr)',
-            gap: 20,
-          }}
-        >
+        <div className="about-bento-grid">
           {/* Card 1: Blue Card with Team Photo & 120+ Pill */}
-          <div style={{ gridColumn: 'span 4' }}>
+          <div className="about-card-col" style={{ gridColumn: 'span 4' }}>
             <Reveal delay={0.1}>
               <motion.div
                 whileHover={{ y: -4 }}
@@ -143,7 +137,7 @@ export default function NarrativeSection({ T, L }: Props) {
                   background: '#2563eb',
                   borderRadius: 24,
                   padding: 24,
-                  height: 340,
+                  minHeight: 340,
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
@@ -219,7 +213,7 @@ export default function NarrativeSection({ T, L }: Props) {
           </div>
 
           {/* Card 2: White 100% Social Proof Card */}
-          <div style={{ gridColumn: 'span 4' }}>
+          <div className="about-card-col" style={{ gridColumn: 'span 4' }}>
             <Reveal delay={0.15}>
               <motion.div
                 whileHover={{ y: -4 }}
@@ -229,7 +223,7 @@ export default function NarrativeSection({ T, L }: Props) {
                   border: '1px solid #e5e7eb',
                   borderRadius: 24,
                   padding: '28px 24px',
-                  height: 340,
+                  minHeight: 340,
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
@@ -303,7 +297,7 @@ export default function NarrativeSection({ T, L }: Props) {
           </div>
 
           {/* Column 3: Lime Green 520k+ Card & Dark Continents Pill */}
-          <div style={{ gridColumn: 'span 4', display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <div className="about-card-col" style={{ gridColumn: 'span 4', display: 'flex', flexDirection: 'column', gap: 16 }}>
             {/* Top Lime Green Card */}
             <Reveal delay={0.2}>
               <motion.div
@@ -313,7 +307,7 @@ export default function NarrativeSection({ T, L }: Props) {
                   background: '#bef264',
                   borderRadius: 22,
                   padding: '24px 22px',
-                  height: 220,
+                  minHeight: 210,
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',

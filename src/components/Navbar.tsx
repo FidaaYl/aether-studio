@@ -118,6 +118,7 @@ export default function Navbar() {
 
         {/* Navigation Links */}
         <ul
+          className="nav-desktop-links"
           style={{
             display: 'flex',
             alignItems: 'center',

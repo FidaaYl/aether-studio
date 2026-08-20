@@ -1,6 +1,150 @@
 @import './tailwind.css';
 
+/* ═════════════════════════════════════════════════════════════════════
+   GLOBAL RESPONSIVE RESETS & PREVENT HORIZONTAL OVERFLOW
+   ═════════════════════════════════════════════════════════════════════ */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Marquee Animation */
 @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 .marquee-track { display:flex; width:max-content; animation:marquee 35s linear infinite; }
 .marquee-track:hover { animation-play-state:paused; }
 ::selection { background:rgba(201,168,76,0.25); color:inherit; }
+
+/* ═════════════════════════════════════════════════════════════════════
+   RESPONSIVE BREATHING ROOM UTILITIES
+   ═════════════════════════════════════════════════════════════════════ */
+
+/* Hero Flank Elements: Show on desktop (>= 1100px), cleanly hidden on mobile/tablet to avoid clutter */
+@media (max-width: 1100px) {
+  .hero-flank-left,
+  .hero-flank-right {
+    display: none !important;
+  }
+}
+
+/* Navbar Links: Desktop only */
+@media (max-width: 768px) {
+  .nav-desktop-links {
+    display: none !important;
+  }
+}
+
+/* Testimonials Flank Doodles */
+@media (max-width: 1200px) {
+  .testimonials-doodle-left,
+  .testimonials-doodle-right {
+    display: none !important;
+  }
+}
+
+/* Services Section Mobile & Tablet Adaptive Layout */
+.services-desktop-stage {
+  display: block;
+}
+.services-mobile-stage {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .services-desktop-stage {
+    display: none !important;
+  }
+  .services-mobile-stage {
+    display: flex !important;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   ABOUT US, FEATURES & TESTIMONIALS MOBILE BREATHING SYSTEM
+   ═════════════════════════════════════════════════════════════════════ */
+
+/* About Us Bento Grid Adaptive Layout */
+.about-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .about-bento-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .about-card-col {
+    grid-column: span 1 !important;
+  }
+  .about-card-full {
+    grid-column: span 2 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-bento-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+  .about-card-col,
+  .about-card-full {
+    grid-column: span 1 !important;
+  }
+  .desktop-only-feature-decoration,
+  .desktop-only-testimonial-decoration {
+    display: none !important;
+  }
+}
+
+/* Features Bottom 3-Column Benefits Panel Adaptive Layout */
+.features-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 0;
+}
+.features-benefit-col {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 28px;
+  border-right: 1px solid #f1f5f9;
+}
+.features-benefit-col:first-child {
+  padding-left: 0;
+}
+.features-benefit-col:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+@media (max-width: 900px) {
+  .features-benefits-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .features-benefit-col {
+    padding: 0 0 24px 0 !important;
+    border-right: none !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+  }
+  .features-benefit-col:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+}

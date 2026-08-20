@@ -222,7 +222,7 @@ export default function Hero() {
         {/* ═════════════════════════════════════════════════════════════════════
             LEFT SIDE VISUAL ECOSYSTEM
             ═════════════════════════════════════════════════════════════════════ */}
-
+        <div className="hero-flank-left">
         {/* ─── 1. TOP-LEFT: AETHER CHARACTER + EXACT "idea → system → experience" ─── */}
         <motion.div
           animate={{ x: mousePos.x * -0.5, y: mousePos.y * -0.5 }}
@@ -393,11 +393,12 @@ export default function Hero() {
             </motion.div>
           </motion.div>
         </div>
+        </div>
 
         {/* ═════════════════════════════════════════════════════════════════════
             RIGHT SIDE VISUAL ECOSYSTEM
             ═════════════════════════════════════════════════════════════════════ */}
-
+        <div className="hero-flank-right">
         {/* ─── 5. UPPER-RIGHT: AETHER / SPATIAL 3D ORB ─── */}
         <motion.div
           animate={{ x: mousePos.x * 0.85, y: mousePos.y * 0.85 }}
@@ -503,6 +504,7 @@ export default function Hero() {
             />
           </motion.div>
         </motion.div>
+        </div>
 
         {/* ═════════════════════════════════════════════════════════════════════
             BASE HERO: FULLY VISIBLE CENTRAL HEADLINE, HIGHLIGHT, PARAGRAPH & CTAS

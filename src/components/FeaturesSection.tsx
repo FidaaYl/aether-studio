@@ -83,23 +83,23 @@ export const FeaturesSection: React.FC<{ T?: any; L?: boolean }> = () => {
           style={{
             display: 'flex',
             flexDirection: 'row',
+            flexWrap: 'wrap',
             justifyContent: 'space-between',
             alignItems: 'flex-start',
-            gap: 48,
+            gap: 'clamp(32px, 4vw, 48px)',
             position: 'relative',
           }}
         >
           {/* -----------------------------------------------------------------------
-              LEFT COLUMN (52% Width): EYEBROW, 2-LINE HEADLINE, DESCRIPTION & TASKBOARD
+              LEFT COLUMN: EYEBROW, 2-LINE HEADLINE, DESCRIPTION & TASKBOARD
               ----------------------------------------------------------------------- */}
           <div
             style={{
-              width: '52%',
+              flex: '1 1 500px',
               maxWidth: 660,
-              minWidth: 500,
+              width: '100%',
               position: 'relative',
               zIndex: 10,
-              flexShrink: 0,
             }}
           >
             {/* Header Content Block */}
@@ -208,6 +208,7 @@ export const FeaturesSection: React.FC<{ T?: any; L?: boolean }> = () => {
             <div style={{ position: 'relative', marginTop: 36, width: '100%' }}>
               {/* Dotted Grid (5.png) behind TaskBoard */}
               <img
+                className="desktop-only-feature-decoration"
                 src="/assets/features/5.png"
                 alt=""
                 aria-hidden="true"
@@ -225,6 +226,7 @@ export const FeaturesSection: React.FC<{ T?: any; L?: boolean }> = () => {
 
               {/* Large 3D Glass Torus (2.png) positioned outside bottom-left corner */}
               <motion.img
+                className="desktop-only-feature-decoration"
                 src="/assets/features/2.png"
                 alt=""
                 aria-hidden="true"
@@ -500,6 +502,7 @@ export const FeaturesSection: React.FC<{ T?: any; L?: boolean }> = () => {
               CENTER ZONE: 3D GLASS CUBE (1.png) BALANCED IN THE OPEN GAP
               ----------------------------------------------------------------------- */}
           <motion.img
+            className="desktop-only-feature-decoration"
             src="/assets/features/1.png"
             alt=""
             aria-hidden="true"
@@ -520,6 +523,7 @@ export const FeaturesSection: React.FC<{ T?: any; L?: boolean }> = () => {
 
           {/* Lime Sparkle Star in negative space near cube */}
           <motion.img
+            className="desktop-only-feature-decoration"
             src="/assets/features/7.png"
             alt=""
             aria-hidden="true"
@@ -538,6 +542,7 @@ export const FeaturesSection: React.FC<{ T?: any; L?: boolean }> = () => {
 
           {/* Pair of Sparkle Stars (8.png) in top-right negative space */}
           <img
+            className="desktop-only-feature-decoration"
             src="/assets/features/8.png"
             alt=""
             aria-hidden="true"
@@ -553,24 +558,24 @@ export const FeaturesSection: React.FC<{ T?: any; L?: boolean }> = () => {
           />
 
           {/* -----------------------------------------------------------------------
-              RIGHT COLUMN (48% Width): 3 INTERACTIVE CLICKABLE WORKFLOW CARDS
+              RIGHT COLUMN: 3 INTERACTIVE CLICKABLE WORKFLOW CARDS
               ----------------------------------------------------------------------- */}
           <div
             style={{
-              width: '48%',
+              flex: '1 1 440px',
               maxWidth: 580,
-              minWidth: 480,
+              width: '100%',
               position: 'relative',
               zIndex: 10,
               display: 'flex',
               flexDirection: 'column',
               gap: 24,
               paddingTop: 6,
-              flexShrink: 0,
             }}
           >
             {/* Dashed connector path with lime nodes (15.png) BEHIND cards */}
             <img
+              className="desktop-only-feature-decoration"
               src="/assets/features/15.png"
               alt=""
               aria-hidden="true"
@@ -714,6 +719,7 @@ export const FeaturesSection: React.FC<{ T?: any; L?: boolean }> = () => {
         <div style={{ position: 'relative', marginTop: 68, width: '100%' }}>
           {/* 3D Glass Triangle (3.png) outside bottom-right corner */}
           <motion.img
+            className="desktop-only-feature-decoration"
             src="/assets/features/3.png"
             alt=""
             aria-hidden="true"
@@ -733,29 +739,19 @@ export const FeaturesSection: React.FC<{ T?: any; L?: boolean }> = () => {
 
           {/* Wide Rounded Container */}
           <div
+            className="features-benefits-grid"
             style={{
               position: 'relative',
               zIndex: 10,
               background: '#ffffff',
               border: '1px solid #e5e7eb',
               borderRadius: 24,
-              padding: '28px 40px',
+              padding: 'clamp(20px, 3vw, 28px) clamp(20px, 3vw, 40px)',
               boxShadow: '0 8px 30px rgba(0,0,0,0.03)',
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              alignItems: 'center',
             }}
           >
             {/* Column 1: Fast and simple (17.png) */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 18,
-                paddingRight: 28,
-                borderRight: '1px solid #f1f5f9',
-              }}
-            >
+            <div className="features-benefit-col">
               <img
                 src="/assets/features/17.png"
                 alt="Fast and simple"
@@ -796,16 +792,7 @@ export const FeaturesSection: React.FC<{ T?: any; L?: boolean }> = () => {
             </div>
 
             {/* Column 2: Built for speed (18.png) */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 18,
-                paddingLeft: 28,
-                paddingRight: 28,
-                borderRight: '1px solid #f1f5f9',
-              }}
-            >
+            <div className="features-benefit-col">
               <img
                 src="/assets/features/18.png"
                 alt="Built for speed"
@@ -846,14 +833,7 @@ export const FeaturesSection: React.FC<{ T?: any; L?: boolean }> = () => {
             </div>
 
             {/* Column 3: Designed to scale (19.png) */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 18,
-                paddingLeft: 28,
-              }}
-            >
+            <div className="features-benefit-col">
               <img
                 src="/assets/features/19.png"
                 alt="Designed to scale"

@@ -382,6 +382,7 @@ export default function Testimonials({ T, L }: Props) {
         <div style={{ position: 'relative', marginBottom: 46 }}>
           {/* Top-Left Floating 3D Asset (19.png / Glass Ring) */}
           <motion.img
+            className="desktop-only-testimonial-decoration"
             src="/assets/testimonials/19.png"
             alt=""
             aria-hidden="true"
@@ -401,6 +402,7 @@ export default function Testimonials({ T, L }: Props) {
 
           {/* Top-Right Floating Widget: "Loved by teams worldwide" (23.png) */}
           <motion.div
+            className="desktop-only-testimonial-decoration"
             animate={{ y: [0, -6, 0] }}
             transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
             style={{
@@ -523,6 +525,7 @@ export default function Testimonials({ T, L }: Props) {
         <div style={{ position: 'relative', marginBottom: 58 }}>
           {/* Left Doodle Sticker: "Built for focus, speed & impact" (15.png) + Arrow pointing at Card 1 */}
           <div
+            className="testimonials-doodle-left"
             style={{
               position: 'absolute',
               top: 15,
@@ -553,6 +556,7 @@ export default function Testimonials({ T, L }: Props) {
 
           {/* 3D Glass Triangle / Prism (18.png) floating in the gap between Card 3 and 4 */}
           <motion.img
+            className="desktop-only-testimonial-decoration"
             src="/assets/testimonials/18.png"
             alt=""
             aria-hidden="true"
@@ -572,6 +576,7 @@ export default function Testimonials({ T, L }: Props) {
 
           {/* Right Doodle Sticker: "Real results from real teams" (14.png) + Arrow pointing directly at Card 4 */}
           <div
+            className="testimonials-doodle-right"
             style={{
               position: 'absolute',
               top: 25,
@@ -604,7 +609,7 @@ export default function Testimonials({ T, L }: Props) {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
               gap: 20,
               position: 'relative',
               zIndex: 2,
@@ -709,9 +714,10 @@ export default function Testimonials({ T, L }: Props) {
         {/* =========================================================================
             CENTER ROW: TESTIMONIAL QUOTE CARD WITH 3D ASSETS & VELOCITY WIDGET
             ========================================================================= */}
-        <div style={{ position: 'relative', maxWidth: 960, margin: '0 auto 70px' }}>
+        <div style={{ position: 'relative', maxWidth: 960, margin: '0 auto 70px', width: '100%' }}>
           {/* Floating 3D Glass Torus with Neon Green Core (19.png) on Left */}
           <motion.img
+            className="desktop-only-testimonial-decoration"
             src="/assets/testimonials/19.png"
             alt=""
             aria-hidden="true"
@@ -731,6 +737,7 @@ export default function Testimonials({ T, L }: Props) {
 
           {/* Floating Widget on Right: "Project velocity +72% ↗" (1.png) */}
           <motion.div
+            className="desktop-only-testimonial-decoration"
             animate={{ y: [0, -6, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
             style={{
@@ -754,20 +761,21 @@ export default function Testimonials({ T, L }: Props) {
 
           {/* Floating 3D Glass Cube (17.png) on Bottom Right */}
           <motion.img
+            className="desktop-only-testimonial-decoration"
             src="/assets/testimonials/17.png"
             alt=""
             aria-hidden="true"
-            animate={{ y: [0, -7, 0], rotate: [0, -3, 3, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+            animate={{ y: [0, -6, 0], rotate: [0, -3, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
             style={{
               position: 'absolute',
-              bottom: -35,
-              right: -45,
-              width: 105,
+              bottom: -45,
+              right: -75,
+              width: 110,
               height: 'auto',
               pointerEvents: 'none',
               zIndex: 20,
-              filter: 'drop-shadow(0 14px 26px rgba(0,0,0,0.1))',
+              filter: 'drop-shadow(0 16px 28px rgba(0,0,0,0.1))',
             }}
           />
 
@@ -797,7 +805,7 @@ export default function Testimonials({ T, L }: Props) {
                 background: '#ffffff',
                 border: '1.5px solid #e2e8f0',
                 borderRadius: 26,
-                padding: '42px 48px 36px 56px',
+                padding: 'clamp(28px, 4vw, 42px) clamp(20px, 4vw, 48px)',
                 boxShadow: '0 20px 50px rgba(0,0,0,0.05)',
               }}
             >
@@ -940,6 +948,7 @@ export default function Testimonials({ T, L }: Props) {
         >
           {/* Top-Left Doodle: "Trusted by innovators" */}
           <div
+            className="desktop-only-testimonial-decoration"
             style={{
               position: 'absolute',
               top: 24,
@@ -988,6 +997,7 @@ export default function Testimonials({ T, L }: Props) {
 
           {/* Top-Right Doodle: "Powering teams building the future" (12.png) */}
           <div
+            className="desktop-only-testimonial-decoration"
             style={{
               position: 'absolute',
               top: 20,
@@ -1093,6 +1103,7 @@ export default function Testimonials({ T, L }: Props) {
           <div style={{ position: 'relative', display: 'inline-block' }}>
             {/* Hand-drawn 3D block arrow (4.png) on bottom-left */}
             <img
+              className="desktop-only-testimonial-decoration"
               src="/assets/testimonials/4.png"
               alt=""
               aria-hidden="true"

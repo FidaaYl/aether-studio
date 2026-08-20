@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 import ServiceCard from './ServiceCard';
 import FloatingDecorations from './FloatingDecorations';
 
@@ -50,8 +52,11 @@ export default function WorkShowcase({
         userSelect: 'none',
       }}
     >
-      {/* Centered Desktop Stage (1440 × 900) */}
+      {/* ═════════════════════════════════════════════════════════════════════
+          1. DESKTOP STAGE (>= 1100px): 100% EXACT PIXEL-PERFECT ART-DIRECTED STAGE
+          ═════════════════════════════════════════════════════════════════════ */}
       <div
+        className="services-desktop-stage"
         style={{
           position: 'relative',
           width: '100%',
@@ -118,32 +123,36 @@ export default function WorkShowcase({
             to move your ideas<br />
             <span
               style={{
-                fontFamily: "'Instrument Serif', 'Playfair Display', Georgia, serif",
-                fontStyle: 'italic',
-                fontWeight: 400,
-                color: '#7cb305',
-                fontSize: '52px',
-                lineHeight: 1.05,
+                position: 'relative',
                 display: 'inline-block',
-                cursor: 'default',
-                transition: 'transform 0.3s ease',
+                color: '#0f172a',
               }}
-              className="hover:scale-105"
             >
               forward
+              <span
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  bottom: '2px',
+                  width: '100%',
+                  height: '4px',
+                  backgroundColor: '#84cc16',
+                  borderRadius: '2px',
+                  opacity: 0.9,
+                }}
+              />
             </span>
           </h2>
 
-          {/* Subtitle Description */}
+          {/* Subtitle Paragraph */}
           <p
             style={{
               fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-              fontSize: '13.5px',
-              lineHeight: 1.6,
-              color: '#64748b',
+              fontSize: '15px',
               fontWeight: 400,
-              maxWidth: '335px',
-              margin: '0 0 18px 0',
+              lineHeight: 1.55,
+              color: '#64748b',
+              margin: '0 0 20px 0',
             }}
           >
             We combine strategy, creativity, and technology to build digital experiences that are intelligent, meaningful, and built to scale.
@@ -255,7 +264,7 @@ export default function WorkShowcase({
             zIndex: 20,
           }}
         >
-          {/* Card 1: AI & Spatial Strategy (x=0, y=30, -3.5° rotation, 275×365px, z-10) */}
+          {/* Card 1: AI & Spatial Strategy */}
           <div style={{ position: 'absolute', left: '0px', top: '30px', zIndex: 10 }}>
             <ServiceCard
               iconSrc="/assets/cropped/16.png"
@@ -277,7 +286,7 @@ export default function WorkShowcase({
             />
           </div>
 
-          {/* Card 2: Creative Direction (x=285, y=0, 0° rotation, 285×380px, Dominant Front Card, z-30) */}
+          {/* Card 2: Creative Direction */}
           <div style={{ position: 'absolute', left: '285px', top: '0px', zIndex: 30 }}>
             <ServiceCard
               iconSrc="/assets/cropped/18.png"
@@ -299,7 +308,7 @@ export default function WorkShowcase({
             />
           </div>
 
-          {/* Card 3: Data & Architecture (x=575, y=25, +3° rotation, 275×365px, z-15) */}
+          {/* Card 3: Data & Architecture */}
           <div style={{ position: 'absolute', left: '575px', top: '25px', zIndex: 15 }}>
             <ServiceCard
               iconSrc="/assets/cropped/19.png"
@@ -321,7 +330,7 @@ export default function WorkShowcase({
             />
           </div>
 
-          {/* Card 4: Team Collaboration Photo Card (x=860, y=10, -1° rotation, 275×365px) */}
+          {/* Card 4: Team Collaboration Photo Card */}
           <div
             style={{
               position: 'absolute',
@@ -392,10 +401,9 @@ export default function WorkShowcase({
               />
             </div>
           </div>
-
         </div>
 
-        {/* 4. Bottom Floating Pulse Waveform Widget (Sitting under Card 3 / Card 4 gap) */}
+        {/* 4. Bottom Floating Pulse Waveform Widget */}
         <div
           style={{
             position: 'absolute',
@@ -441,7 +449,175 @@ export default function WorkShowcase({
             </div>
           </div>
         </div>
+      </div>
 
+      {/* ═════════════════════════════════════════════════════════════════════
+          2. MOBILE & TABLET STAGE (< 1100px): CLEAN, AIRY, UN-SUFFOCATED FLOW
+          ═════════════════════════════════════════════════════════════════════ */}
+      <div
+        className="services-mobile-stage"
+        style={{
+          padding: '60px 24px 70px',
+          maxWidth: '640px',
+          margin: '0 auto',
+        }}
+      >
+        {/* Header Block */}
+        <div style={{ marginBottom: 36, textAlign: 'left' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#84cc16' }} />
+            <span
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 11,
+                fontWeight: 800,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: '#64748b',
+              }}
+            >
+              SERVICES & LAB
+            </span>
+          </div>
+
+          <h2
+            style={{
+              fontFamily: "'Syne', sans-serif",
+              fontSize: 'clamp(32px, 7vw, 44px)',
+              fontWeight: 900,
+              color: '#111827',
+              letterSpacing: '-0.03em',
+              lineHeight: 1.12,
+              margin: '0 0 16px',
+            }}
+          >
+            Solutions designed to move your ideas forward.
+          </h2>
+
+          <p
+            style={{
+              fontFamily: "'Outfit', sans-serif",
+              fontSize: 15.5,
+              color: '#64748b',
+              lineHeight: 1.6,
+              margin: '0 0 24px',
+            }}
+          >
+            We combine strategy, creativity, and technology to build digital experiences that are intelligent, meaningful,
+            and built to scale.
+          </p>
+
+          <button
+            onClick={handleScrollToContact}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 10,
+              padding: '12px 24px',
+              background: '#bef264',
+              color: '#14532d',
+              border: 'none',
+              borderRadius: 100,
+              fontFamily: "'Syne', sans-serif",
+              fontSize: 14,
+              fontWeight: 700,
+              cursor: 'pointer',
+              boxShadow: '0 4px 16px rgba(190,242,100,0.35)',
+            }}
+          >
+            Start a Project <ArrowUpRight size={16} strokeWidth={2.5} />
+          </button>
+        </div>
+
+        {/* 4 Clean Mobile Service Cards Stack with Comfortable Dimensions */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+          {/* Mobile Card 1 */}
+          <div
+            style={{
+              background: '#ffffff',
+              border: '1.5px solid #e2e8f0',
+              borderRadius: 22,
+              padding: '28px 24px',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
+            }}
+          >
+            <img src="/assets/cropped/16.png" alt="" style={{ width: 44, height: 44, marginBottom: 16 }} />
+            <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 20, margin: '0 0 10px', color: '#0f172a' }}>
+              AI & Spatial Strategy
+            </h3>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14.5, color: '#64748b', lineHeight: 1.55, margin: '0 0 20px' }}>
+              We identify high-impact opportunities for spatial and generative AI integration directly into your product workflows.
+            </p>
+            <span style={{ fontFamily: "'Syne', sans-serif", fontSize: 13, fontWeight: 700, color: '#0284c7', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+              Explore Capability <ArrowUpRight size={14} />
+            </span>
+          </div>
+
+          {/* Mobile Card 2 */}
+          <div
+            style={{
+              background: '#ffffff',
+              border: '1.5px solid #bef264',
+              borderRadius: 22,
+              padding: '28px 24px',
+              boxShadow: '0 8px 28px rgba(190,242,100,0.2)',
+            }}
+          >
+            <img src="/assets/cropped/18.png" alt="" style={{ width: 44, height: 44, marginBottom: 16 }} />
+            <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 20, margin: '0 0 10px', color: '#0f172a' }}>
+              Creative Direction
+            </h3>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14.5, color: '#64748b', lineHeight: 1.55, margin: '0 0 20px' }}>
+              We architect distinct visual systems and brand guidelines that drive customer loyalty and set category standards.
+            </p>
+            <span style={{ fontFamily: "'Syne', sans-serif", fontSize: 13, fontWeight: 700, color: '#16a34a', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+              Explore Capability <ArrowUpRight size={14} />
+            </span>
+          </div>
+
+          {/* Mobile Card 3 */}
+          <div
+            style={{
+              background: '#ffffff',
+              border: '1.5px solid #e2e8f0',
+              borderRadius: 22,
+              padding: '28px 24px',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
+            }}
+          >
+            <img src="/assets/cropped/19.png" alt="" style={{ width: 44, height: 44, marginBottom: 16 }} />
+            <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 20, margin: '0 0 10px', color: '#0f172a' }}>
+              Data & Architecture
+            </h3>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14.5, color: '#64748b', lineHeight: 1.55, margin: '0 0 20px' }}>
+              We turn complex technical systems into sub-second interfaces using modern full-stack frameworks and edge compute.
+            </p>
+            <span style={{ fontFamily: "'Syne', sans-serif", fontSize: 13, fontWeight: 700, color: '#0284c7', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+              Explore Capability <ArrowUpRight size={14} />
+            </span>
+          </div>
+
+          {/* Mobile Card 4: Team Collaboration */}
+          <div
+            style={{
+              borderRadius: 22,
+              overflow: 'hidden',
+              border: '1.5px solid #e2e8f0',
+              position: 'relative',
+              height: 260,
+            }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&auto=format&fit=crop&q=80"
+              alt="Creative team"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.65), transparent)' }} />
+            <div style={{ position: 'absolute', bottom: 18, left: 18 }}>
+              <img src="/assets/cropped/15.png" alt="Collaborative by nature" style={{ width: 160, objectFit: 'contain' }} />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
