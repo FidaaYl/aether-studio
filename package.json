@@ -3,9 +3,10 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "homepage": "https://aether-studio-qm6w.vercel.app/",
   "scripts": {
     "dev": "vite",
-"build": "vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {

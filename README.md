@@ -2,27 +2,21 @@
 
 <br />
 
-```
- ▄▄▄·  ▄▄▄ .▄▄▄▄▄ ▄ .▄▄▄▄ .�▄▄▄
-▐█ ▀█ ▀▄.▀·•██  ██▪▐█▀▄.▀·▀▄ █·
-▄█▀▀█ ▐▀▀▪▄ ▐█.▪██▀▐█▐▀▀▪▄▐▀▀▄
-▐█ ▪▐▌▐█▄▄▌ ▐█▌·██▌▐▀▐█▄▄▌▐█•█▌
- ▀  ▀  ▀▀▀  ▀▀▀ ▀▀▀ · ▀▀▀ .▀  ▀
-      S T U D I O
-```
+# ✦ AETHER STUDIO ✦
 
-**A cinematic creative studio portfolio. Built for those who refuse to blend in.**
+**A visionary creative studio & digital product portfolio. Designed with precision, 3D spatial aesthetics, and seamless motion.**
 
 <br />
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-aether--studio--qm6w.vercel.app-84cc16?style=for-the-badge&logo=vercel&logoColor=white)](https://aether-studio-qm6w.vercel.app/)
+[![React](https://img.shields.io/badge/React-18.3-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.4-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-11.2-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 
 <br />
 
-[Live Demo](#) · [Report Bug](#) · [Request Feature](#)
+### 🚀 **[Visit Live Website → https://aether-studio-qm6w.vercel.app/](https://aether-studio-qm6w.vercel.app/)**
 
 <br />
 
@@ -32,20 +26,24 @@
 
 ## ✦ Overview
 
-Aether Studio is a high-end creative portfolio website designed for studios and agencies that demand a cinematic, emotion-first web presence. Every section is crafted with intention — from the parallax narrative block to the bento work grid — combining bold typography, smooth motion, and a refined dark aesthetic.
+**Aether Studio** is a premier digital design studio web experience combining bespoke UI engineering, 3D spatial visual assets, and high-performance interactive workflows. Every component is crafted to deliver world-class aesthetic fidelity and smooth, continuous page-wide motion.
 
 ---
 
-## ✦ Features
+## ✦ Architecture & Sections
 
-- **Cinematic Narrative Section** — parallax photo, cursor-reactive decorative number, stats row
-- **Bento Work Grid** — 4-project showcase with hover-reveal tags, accent lines, and animated arrow buttons
-- **Smooth Reveal Animations** — scroll-triggered entrance animations via Framer Motion
-- **Cursor Parallax** — elements respond to mouse position for a living, breathing feel
-- **Light / Dark Theme** — full theme switching with smooth 0.5s transitions across all colors
-- **Corner Accents** — subtle bracket marks on image cards for a refined editorial touch
-- **Responsive Typography** — fluid `clamp()` sizing from mobile to ultrawide
-- **Custom Font Stack** — Syne, Outfit, JetBrains Mono, Instrument Serif
+1. **Aether Universe Hero**
+   - Interactive cursor parallax tracking, live sprint badges, floating 3D character illustrations, and connecting SVG orbital trajectories.
+2. **About Us (Global Design Partner)**
+   - Seamless gradient blend transition, multi-brand proof bar, and modular Bento grid with live interaction metrics.
+3. **Comprehensive Services Suite**
+   - 4 modular service columns with staggered visual elevations, spatial glass models, real-time collaboration preview cards, and custom hover states.
+4. **Product Features (3 Easy Steps)**
+   - Spacious 2-column layout, synchronized dark Aether TaskBoard with live Kanban sprint tracking, interactive clickable step cards, and 3D glass geometry.
+5. **Why Teams Choose Aether & Testimonials**
+   - 4 high-impact metric stat cards, floating *"Loved by teams worldwide"* widget, multi-quote client carousel, and verified brand proof partner banner (**Microsoft, Dropbox, Klarna, Squarespace, Shopify, Zapier**).
+6. **Get In Touch Contact Suite & Footer**
+   - High-contrast sky blue aesthetic with multi-column agency navigation and social links.
 
 ---
 
@@ -53,57 +51,40 @@ Aether Studio is a high-end creative portfolio website designed for studios and 
 
 | Layer | Technology |
 |---|---|
-| Framework | React 18 |
-| Language | TypeScript |
-| Build Tool | Vite 5 |
-| Animation | Framer Motion |
-| Icons | Lucide React |
-| Fonts | Google Fonts |
-| Images | Pexels |
+| **Framework** | [React 18](https://react.dev/) |
+| **Language** | [TypeScript 5](https://www.typescriptlang.org/) |
+| **Bundler & Dev Server** | [Vite 5](https://vitejs.dev/) |
+| **Animation Engine** | [Framer Motion](https://www.framer.com/motion/) |
+| **Iconography** | [Lucide React](https://lucide.dev/) |
+| **Typography** | Syne, Outfit, JetBrains Mono, Playfair Display |
+| **Deployment** | [Vercel](https://vercel.com/) |
 
 ---
 
-## ✦ Project Structure
-
-```
-aether-studio/
-├── src/
-│   ├── components/
-│   │   ├── NarrativeSection.tsx   # About section with parallax photo
-│   │   ├── WorkShowcase.tsx       # Bento grid of selected projects
-│   │   └── cinematic-hooks.ts    # Reveal + useMouse custom hooks
-│   └── main.tsx
-├── public/
-├── index.html
-└── vite.config.ts
-```
-
----
-
-## ✦ Getting Started
+## ✦ Getting Started Locally
 
 ### Prerequisites
 
-- Node.js 18+
-- npm or yarn
+- **Node.js** (v18.0 or higher)
+- **npm** or **yarn**
 
 ### Installation
 
 ```bash
-# Clone the repo
+# Clone the repository
 git clone https://github.com/FidaaYl/aether-studio.git
 
-# Navigate into the project
+# Navigate into the project folder
 cd aether-studio
 
 # Install dependencies
 npm install
 
-# Start the dev server
+# Start the local development server
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Open [http://localhost:5173](http://localhost:5173) in your browser to view the application.
 
 ### Build for Production
 
@@ -111,30 +92,14 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 npm run build
 ```
 
----
-
-## ✦ Selected Works
-
-| Project | Category | Year | Tech |
-|---|---|---|---|
-| **Luminary** | Brand Identity | 2024 | Branding, Strategy |
-| **Orbit** | Web Experience | 2024 | WebGL, Motion |
-| **Solstice** | Digital Product | 2023 | UX, iOS |
-| **Aura** | Motion & 3D | 2023 | Three.js, Cinema4D |
+The optimized static build will be generated in the `dist/` directory.
 
 ---
 
-## ✦ Design Philosophy
+## ✦ Live Deployment
 
-> *"Every project begins with one question — what should this **feel** like?"*
-
-We design from emotion outward. Strategy, visuals, code — in that order. The studio's aesthetic is rooted in restraint: a dark canvas, gold accents, and motion that serves meaning rather than spectacle.
-
----
-
-## ✦ License
-
-This project is for portfolio and demonstration purposes.
+The latest version is deployed and hosted on Vercel:
+- **Production URL**: **[https://aether-studio-qm6w.vercel.app/](https://aether-studio-qm6w.vercel.app/)**
 
 ---
 
